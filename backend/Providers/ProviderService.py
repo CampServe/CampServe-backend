@@ -1,7 +1,4 @@
 from crypt import methods
-import imp
-import json
-import profile
 from flask_cors import CORS
 from flask import jsonify, Blueprint, request
 from Students.StudentModel import Students
