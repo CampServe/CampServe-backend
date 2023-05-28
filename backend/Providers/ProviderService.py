@@ -63,7 +63,7 @@ def provider_login():
         return jsonify(result)
 
 
-@providers_route.route("/check_if_provider/<student_id>", methods=['GET'])
+@providers_route.route("/check_if_provider/<student_id>", methods=['POST'])
 def check_if_provider(student_id):
     from app import session
     provider = session.query(Providers).filter_by(student_id=student_id).first()
@@ -92,6 +92,12 @@ def update_provider_data(student_id):
     provider.bio = bio
     provider.banner_image = banner_image
     provider.business_name = business_name
+
+
+    #create the provider categories object here and merge them. so it identifies which provider and commits it to the 
+    #provider categories table.so with every selection it identifies which student selected and it is put into the database on different
+    #rows because of database normalisation. I want to use the student_id to populate the databse since its a foreign key
+
 
     session.commit()
     return jsonify({'message': 'Provider data updated successfully.'})
