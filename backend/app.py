@@ -1,9 +1,11 @@
+import imp
 from flask import Flask
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from base import Base
 from Students.StudentService import students_route
 from Providers.ProviderService import providers_route
+from ProviderCategory.ProviderCategoriesService import provider_categories_route
 from flask_cors import CORS
 
 
@@ -18,6 +20,7 @@ Base = declarative_base()
 #App blueprints
 app.register_blueprint(students_route)
 app.register_blueprint(providers_route)
+app.register_blueprint(provider_categories_route)
 
 #Database connection
 try:
