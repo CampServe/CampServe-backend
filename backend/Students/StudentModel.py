@@ -18,3 +18,4 @@ class Students(Base):
 transactions = relationship("transactions",uselist = False,back_populates="transactions")
 ratings = relationship("ratings", uselist=False,back_populates = "ratings")
 provider = relationship("providers",uselist=False,back_populates="providers")
+provider_categories = relationship("provider_categories", back_populates = "provider_categories")
