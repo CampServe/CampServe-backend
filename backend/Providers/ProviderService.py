@@ -44,12 +44,11 @@ def provider_login():
 
     student = session.query(Students).filter_by(username=username).first()
     if student:
-        verify = check_password_hash(
-            pwhash=student.password, password=password)
+        verify = check_password_hash(pwhash=student.password, password=password)
         if verify:
             result = {
                 'student_id': student.student_id,
-                'status': 'Login successful'
+                # 'status': 'Login successful'
             }
             return jsonify(result)
         else:
@@ -64,30 +63,38 @@ def provider_login():
         return jsonify(result)
 
 
+@providers_route.route("/check_if_provider/<student_id>", methods=['GET'])
+def check_if_provider(student_id):
+    from app import session
+    provider = session.query(Providers).filter_by(student_id=student_id).first()
+
+    if provider:
+        return jsonify({'message': 'provider found'})
+    else:
+        return jsonify({'message': 'provider not found'})
+
+
 @providers_route.route("/update_provider_data/<student_id>", methods=['POST'])
 def update_provider_data(student_id):
     from app import session
 
-    provider = session.query(Providers).filter_by(
-        student_id=student_id).first()
-    if provider:
+    provider = session.query(Providers).filter_by(student_id=student_id).first()
+    # if provider:
 
-        provider_contact = request.json['contact']
-        profile_pic = request.json['picture']
-        bio = request.json['bio']
-        banner_image = request.json['banner_image']
-        business_name = request.json['business_name']
+    provider_contact = request.json['contact']
+    profile_pic = request.json['picture']
+    bio = request.json['bio']
+    banner_image = request.json['banner_image']
+    business_name = request.json['business_name']
 
-        provider.provider_contact = provider_contact
-        provider.profile_pic = profile_pic
-        provider.bio = bio
-        provider.banner_image = banner_image
-        provider.business_name = business_name
+    provider.provider_contact = provider_contact
+    provider.profile_pic = profile_pic
+    provider.bio = bio
+    provider.banner_image = banner_image
+    provider.business_name = business_name
 
-        session.commit()
-        return jsonify({'message': 'Provider data updated successfully.'})
-    else:
-        return jsonify({'message': 'Provider not found for the given student ID.'})
+    session.commit()
+    return jsonify({'message': 'Provider data updated successfully.'})
 
 
 # @providers_route.route("/login_as_provider", methods=['POST'])
