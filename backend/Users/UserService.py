@@ -23,6 +23,7 @@ def add_user():
 
     user = session.query(User).filter_by(username=username).first()
     check_email = session.query(User).filter_by(email=email)
+    check_ref_number = session.query(User).filter_by(email=ref_number)
     if user:
         result = {
             'status': 'user already exists'
@@ -30,6 +31,10 @@ def add_user():
     elif check_email:
         result = {
             'status': 'email is already registered to a user'
+        }
+    elif check_ref_number:
+        result = {
+            'status': 'reference number is already registered to a user'
         }
     else: 
         user = User(first_name=first_name, last_name=last_name, username=username, password=hashed_password,email=email,ref_number=ref_number)
