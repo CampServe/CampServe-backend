@@ -16,11 +16,13 @@ def add_user():
     last_name = request.json['last_name']
     username = request.json['username']
     password = request.json['password']
+    email = request.json['email']
+    ref_number = request.json['ref_number']
     
     hashed_password = generate_password_hash(password)
 
 
-    user = User(first_name=first_name, last_name=last_name, username=username, password=hashed_password)
+    user = User(first_name=first_name, last_name=last_name, username=username, password=hashed_password,email=email,ref_number=ref_number)
     session.add(user)
     session.commit()
 
