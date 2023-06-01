@@ -47,7 +47,8 @@ def login():
                 'first_name': user.first_name,
                 'last_name': user.last_name,
                 'ref_number': user.ref_number,
-                'email': user.email
+                'email': user.email,
+                'username': user.username
             }
             return jsonify(result)
         else:
