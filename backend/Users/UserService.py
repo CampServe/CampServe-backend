@@ -22,9 +22,14 @@ def add_user():
     hashed_password = generate_password_hash(password)
 
     user = session.query(User).filter_by(username=username).first()
+    check_email = session.query(User).filter_by(email=email)
     if user:
         result = {
             'status': 'user already exists'
+        }
+    elif check_email:
+        result = {
+            'status': 'email is already registered to a user'
         }
     else: 
         user = User(first_name=first_name, last_name=last_name, username=username, password=hashed_password,email=email,ref_number=ref_number)
