@@ -1,4 +1,3 @@
-from crypt import methods
 from flask_cors import CORS
 from flask import jsonify, Blueprint, request
 from Students.StudentModel import Students

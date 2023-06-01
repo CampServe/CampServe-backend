@@ -16,11 +16,13 @@ def add_user():
     last_name = request.json['last_name']
     username = request.json['username']
     password = request.json['password']
+    email = request.json['email']
+    ref_number = request.json['ref_number']
     
     hashed_password = generate_password_hash(password)
 
 
-    user = User(first_name=first_name, last_name=last_name, username=username, password=hashed_password)
+    user = User(first_name=first_name, last_name=last_name, username=username, password=hashed_password,email=email,ref_number=ref_number)
     session.add(user)
     session.commit()
 
@@ -28,4 +30,27 @@ def add_user():
         'status': 'User created'
     }
     return jsonify(result)
+
+
+@users_route.route("/user_login",methods=['POST'])
+def login():
+    from app import session
+    username = request.json['username']
+    password = request.json['password']
+    
+    user = session.query(User).filter_by(username=username).first()
+    if user:
+        verify = check_password_hash(pwhash=user.password, password=password)
+        if verify:
+            result = {
+                'status': 'Login successful'
+            }
+            return jsonify(result)
+        else:
+            result = 'Incorrect username or password'
+            return jsonify(result)
+    else:
+        result = 'Username does not exist'
+        return jsonify(result)
+
 
