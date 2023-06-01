@@ -12,7 +12,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 
 #instantiating the database and sqlalchemy
-engine = create_engine('postgresql://postgres:extreme1001@localhost:5432/campserve')
+engine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')
 Session = sessionmaker(bind=engine)
 session = Session()
 Base = declarative_base()
