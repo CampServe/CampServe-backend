@@ -30,30 +30,32 @@ def hash_password():
     return jsonify(result)
 
 
-@students_route.route("/login", methods=['POST'])
+@students_route.route("/student_verification", methods=['POST'])
 def student_login():
     from app import session
     username = request.json['username']
+    ref_number = request.json['ref_number']
     password = request.json['password']
 
     student = session.query(Students).filter_by(username=username).first()
+    # number = session.query(Students).filter_by(ref_number=ref_number)
 
     if student:
         verify = check_password_hash(pwhash=student.password, password=password)
-        if verify:
+        if verify and student.ref_number == ref_number:
             result = {
-                'student_id': student.student_id,
-                'status': 'Login successful'
+                # 'student_id': student.student_id,
+                'status': 'Student'
             }
             return jsonify(result)
         else:
             result = {
-                'status': 'Incorrect username or password'
+                'status': 'Incorrect username or password or ref_number'
             }
             return jsonify(result)
     else:
         result = {
-            'status': 'Username does not exist'
+            'status': 'Not a student'
         }
         return jsonify(result)
 
