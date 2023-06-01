@@ -21,18 +21,18 @@ def add_user():
     
     hashed_password = generate_password_hash(password)
 
-    user = session.query(User).filter_by(username=username).first()
-    check_email = session.query(User).filter_by(email=email)
-    check_ref_number = session.query(User).filter_by(email=ref_number)
-    if user:
+    existinguser = session.query(User).filter_by(username=username).first()
+    existing_email = session.query(User).filter_by(email=email).first()
+    existing_ref_number = session.query(User).filter_by(ref_number=ref_number).first()
+    if existinguser:
         result = {
             'status': 'user already exists'
         }
-    elif check_email:
+    elif existing_email:
         result = {
             'status': 'email is already registered to a user'
         }
-    elif check_ref_number:
+    elif existing_ref_number:
         result = {
             'status': 'reference number is already registered to a user'
         }
