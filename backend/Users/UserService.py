@@ -43,7 +43,11 @@ def login():
         verify = check_password_hash(pwhash=user.password, password=password)
         if verify:
             result = {
-                'status': 'Login successful'
+                'status': 'Login successful',
+                'first_name': user.first_name,
+                'last_name':user.last_name,
+                'ref_number': user.ref_number,
+                'email': user.email
             }
             return jsonify(result)
         else:
