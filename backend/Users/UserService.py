@@ -21,14 +21,19 @@ def add_user():
     
     hashed_password = generate_password_hash(password)
 
+    user = session.query(User).filter_by(username=username).first()
+    if user:
+        result = {
+            'status': 'user already exists'
+        }
+    else: 
+        user = User(first_name=first_name, last_name=last_name, username=username, password=hashed_password,email=email,ref_number=ref_number)
+        session.add(user)
+        session.commit()
 
-    user = User(first_name=first_name, last_name=last_name, username=username, password=hashed_password,email=email,ref_number=ref_number)
-    session.add(user)
-    session.commit()
-
-    result = {
-        'status': 'User created'
-    }
+        result = {
+            'status': 'User created'
+        }
     return jsonify(result)
 
 
