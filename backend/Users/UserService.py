@@ -37,7 +37,7 @@ def login():
     from app import session
     username = request.json['username']
     password = request.json['password']
-    
+
     user = session.query(User).filter_by(username=username).first()
     if user:
         verify = check_password_hash(pwhash=user.password, password=password)
@@ -45,7 +45,7 @@ def login():
             result = {
                 'status': 'Login successful',
                 'first_name': user.first_name,
-                'last_name':user.last_name,
+                'last_name': user.last_name,
                 'ref_number': user.ref_number,
                 'email': user.email
             }
@@ -54,7 +54,37 @@ def login():
             result = 'Incorrect username or password'
             return jsonify(result)
     else:
-        result = 'Username does not exist'
+        # Check if the username exists in the database
+        existing_user = session.query(User).filter_by(username=username).first()
+        if existing_user:
+            result = 'Incorrect password'
+        else:
+            result = 'Incorrect credentials'
         return jsonify(result)
 
 
+
+
+
+
+# username = request.json['username']
+    # password = request.json['password']
+    
+    # user = session.query(User).filter_by(username=username).first()
+    # if user:
+    #     verify = check_password_hash(pwhash=user.password, password=password)
+    #     if verify:
+    #         result = {
+    #             'status': 'Login successful',
+    #             'first_name': user.first_name,
+    #             'last_name':user.last_name,
+    #             'ref_number': user.ref_number,
+    #             'email': user.email
+    #         }
+    #         return jsonify(result)
+    #     else:
+    #         result = 'Incorrect username or password'
+    #         return jsonify(result)
+    # else:
+    #     result = 'Username does not exist'
+    #     return jsonify(result)
