@@ -1,0 +1,946 @@
+[
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Date",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base",
+        "description": "base",
+        "isExtraImport": true,
+        "detail": "base",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base",
+        "description": "base",
+        "isExtraImport": true,
+        "detail": "base",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base",
+        "description": "base",
+        "isExtraImport": true,
+        "detail": "base",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base",
+        "description": "base",
+        "isExtraImport": true,
+        "detail": "base",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base",
+        "description": "base",
+        "isExtraImport": true,
+        "detail": "base",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base",
+        "description": "base",
+        "isExtraImport": true,
+        "detail": "base",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base",
+        "description": "base",
+        "isExtraImport": true,
+        "detail": "base",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base",
+        "description": "base",
+        "isExtraImport": true,
+        "detail": "base",
+        "documentation": {}
+    },
+    {
+        "label": "Students",
+        "importPath": "Students.StudentModel",
+        "description": "Students.StudentModel",
+        "isExtraImport": true,
+        "detail": "Students.StudentModel",
+        "documentation": {}
+    },
+    {
+        "label": "Students",
+        "importPath": "Students.StudentModel",
+        "description": "Students.StudentModel",
+        "isExtraImport": true,
+        "detail": "Students.StudentModel",
+        "documentation": {}
+    },
+    {
+        "label": "Students",
+        "importPath": "Students.StudentModel",
+        "description": "Students.StudentModel",
+        "isExtraImport": true,
+        "detail": "Students.StudentModel",
+        "documentation": {}
+    },
+    {
+        "label": "Students",
+        "importPath": "Students.StudentModel",
+        "description": "Students.StudentModel",
+        "isExtraImport": true,
+        "detail": "Students.StudentModel",
+        "documentation": {}
+    },
+    {
+        "label": "Students",
+        "importPath": "Students.StudentModel",
+        "description": "Students.StudentModel",
+        "isExtraImport": true,
+        "detail": "Students.StudentModel",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "check_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "generate_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "check_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "generate_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "check_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "students_route",
+        "importPath": "Students.StudentService",
+        "description": "Students.StudentService",
+        "isExtraImport": true,
+        "detail": "Students.StudentService",
+        "documentation": {}
+    },
+    {
+        "label": "providers_route",
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "provider_categories_route",
+        "importPath": "ProviderCategory.ProviderCategoriesService",
+        "description": "ProviderCategory.ProviderCategoriesService",
+        "isExtraImport": true,
+        "detail": "ProviderCategory.ProviderCategoriesService",
+        "documentation": {}
+    },
+    {
+        "label": "users_route",
+        "importPath": "Users.UserService",
+        "description": "Users.UserService",
+        "isExtraImport": true,
+        "detail": "Users.UserService",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "kind": 6,
+        "importPath": "Product.ProductModel",
+        "description": "Product.ProductModel",
+        "peekOfCode": "class Product(Base):\n    __tablename__ = \"product\"\n    product_id = Column(Integer, primary_key=True, nullable=False)\n    provider_id = Column(Integer, ForeignKey(Providers.provider_id), nullable=False)\n    product_name = Column(String(255), nullable=False)\n    # Relationships\n    provider = relationship(\"Providers\", back_populates=\"product\")",
+        "detail": "Product.ProductModel",
+        "documentation": {}
+    },
+    {
+        "label": "ProviderCategories",
+        "kind": 6,
+        "importPath": "ProviderCategory.ProviderCategoriesModel",
+        "description": "ProviderCategory.ProviderCategoriesModel",
+        "peekOfCode": "class ProviderCategories(Base):\n    __tablename__ = \"provider_categories\"\n    category_id = Column(\"category_id\",Integer,primary_key =True,autoincrement=True)\n    student_id = Column(\"student_id\",Integer,ForeignKey(Students.student_id),nullable=False)\n    main_categories = Column(\"main_categories\",String(255),nullable=False)\n    sub_categories = Column(\"sub_categories\",String(255),nullable=False)",
+        "detail": "ProviderCategory.ProviderCategoriesModel",
+        "documentation": {}
+    },
+    {
+        "label": "provider_categories_route",
+        "kind": 5,
+        "importPath": "ProviderCategory.ProviderCategoriesService",
+        "description": "ProviderCategory.ProviderCategoriesService",
+        "peekOfCode": "provider_categories_route = Blueprint(\"provider_categories_route\", __name__)\nCORS(provider_categories_route)\n#2 routs\n#1. to return all the main categories associated with a particular student id\n#2. to return all the sub categories associated with a particular student id",
+        "detail": "ProviderCategory.ProviderCategoriesService",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "kind": 6,
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "peekOfCode": "class Providers(Base):\n    __tablename__ = \"providers\"\n    provider_id = Column(\"provider_id\",Integer, primary_key=True, autoincrement=True)\n    student_id = Column(\"student_id\",Integer, ForeignKey(Students.student_id), nullable=False)\n    profile_pic = Column(\"profile_pic\",String(255), nullable=True, default=None)\n    banner_image = Column(\"banner_image\",String(255), nullable=True, default=None)\n    provider_contact = Column(\"provider_contact\",String(255), nullable=True, default=None)\n    business_name = Column(\"business_name\",String(255), nullable=True, default=None)\n    bio = Column(\"bio\",String(255), nullable=True, default=None)\n# Relationships",
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "ratings",
+        "kind": 5,
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "peekOfCode": "ratings = relationship(\"Ratings\", uselist=False, back_populates=\"provider\")\nproduct = relationship(\"Product\", uselist=False, back_populates=\"provider\")",
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "product",
+        "kind": 5,
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "peekOfCode": "product = relationship(\"Product\", uselist=False, back_populates=\"provider\")",
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "sign_up",
+        "kind": 2,
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "peekOfCode": "def sign_up():\n    from app import session\n    username = request.json['username']\n    ref_number = request.json['ref_number']\n    password = request.json['password']\n    student = session.query(Students).filter_by(username=username).first()\n    if student and ref_number and check_password_hash(pwhash=student.password, password=password):\n        provider = Providers(student_id=student.student_id)\n        session.add(provider)\n        session.commit()",
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "provider_login",
+        "kind": 2,
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "peekOfCode": "def provider_login():\n    from app import session\n    username = request.json['username']\n    password = request.json['password']\n    student = session.query(Students).filter_by(username=username).first()\n    if student:\n        verify = check_password_hash(pwhash=student.password, password=password)\n        if verify:\n            result = {\n                'student_id': student.student_id,",
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "check_if_provider",
+        "kind": 2,
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "peekOfCode": "def check_if_provider(student_id):\n    from app import session\n    provider = session.query(Providers).filter_by(student_id=student_id).first()\n    if provider:\n        return jsonify({'message': 'provider found'})\n    else:\n        return jsonify({'message': 'provider not found'})\n@providers_route.route(\"/update_provider_data/<student_id>\", methods=['POST'])\ndef update_provider_data(student_id):\n    from app import session",
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "update_provider_data",
+        "kind": 2,
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "peekOfCode": "def update_provider_data(student_id):\n    from app import session\n    provider = session.query(Providers).filter_by(student_id=student_id).first()\n    # if provider:\n    provider_contact = request.json['contact']\n    profile_pic = request.json['picture']\n    bio = request.json['bio']\n    banner_image = request.json['banner_image']\n    business_name = request.json['business_name']\n    provider.provider_contact = provider_contact",
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "providers_route",
+        "kind": 5,
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "peekOfCode": "providers_route = Blueprint(\"providers_route\", __name__)\nCORS(providers_route)\n@providers_route.route(\"/signup_as_provider\", methods=['POST'])\ndef sign_up():\n    from app import session\n    username = request.json['username']\n    ref_number = request.json['ref_number']\n    password = request.json['password']\n    student = session.query(Students).filter_by(username=username).first()\n    if student and ref_number and check_password_hash(pwhash=student.password, password=password):",
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "Ratings",
+        "kind": 6,
+        "importPath": "Ratings.RatingsModel",
+        "description": "Ratings.RatingsModel",
+        "peekOfCode": "class Ratings(Base):\n    __tablename__ = \"ratings\"\n    rating_id = Column(Integer, primary_key=True, nullable=False)\n    provider_id = Column(Integer, ForeignKey(Providers.provider_id), nullable=False)\n    no_of_stars = Column(Integer, nullable=False)\n    comments = Column(String(255), nullable=False)\n# Relationships\nprovider = relationship(\"Providers\", back_populates=\"ratings\")",
+        "detail": "Ratings.RatingsModel",
+        "documentation": {}
+    },
+    {
+        "label": "provider",
+        "kind": 5,
+        "importPath": "Ratings.RatingsModel",
+        "description": "Ratings.RatingsModel",
+        "peekOfCode": "provider = relationship(\"Providers\", back_populates=\"ratings\")",
+        "detail": "Ratings.RatingsModel",
+        "documentation": {}
+    },
+    {
+        "label": "Students",
+        "kind": 6,
+        "importPath": "Students.StudentModel",
+        "description": "Students.StudentModel",
+        "peekOfCode": "class Students(Base):\n    __tablename__ = \"students\"\n    student_id = Column(\"student_id\",Integer,primary_key = True,nullable= False)\n    first_name = Column(\"first_name\",String(255),nullable=False)\n    last_name = Column(\"last_name\",String(255),nullable=False)\n    username = Column(\"username\",String(255),nullable=False)\n    ref_number = Column(\"ref_number\",String(255),nullable=False)\n    password = Column(\"password\",String(255), nullable = False)\n#relationships\ntransactions = relationship(\"transactions\",uselist = False,back_populates=\"transactions\")",
+        "detail": "Students.StudentModel",
+        "documentation": {}
+    },
+    {
+        "label": "transactions",
+        "kind": 5,
+        "importPath": "Students.StudentModel",
+        "description": "Students.StudentModel",
+        "peekOfCode": "transactions = relationship(\"transactions\",uselist = False,back_populates=\"transactions\")\nratings = relationship(\"ratings\", uselist=False,back_populates = \"ratings\")\nprovider = relationship(\"providers\",uselist=False,back_populates=\"providers\")\nprovider_categories = relationship(\"provider_categories\", back_populates = \"provider_categories\")",
+        "detail": "Students.StudentModel",
+        "documentation": {}
+    },
+    {
+        "label": "ratings",
+        "kind": 5,
+        "importPath": "Students.StudentModel",
+        "description": "Students.StudentModel",
+        "peekOfCode": "ratings = relationship(\"ratings\", uselist=False,back_populates = \"ratings\")\nprovider = relationship(\"providers\",uselist=False,back_populates=\"providers\")\nprovider_categories = relationship(\"provider_categories\", back_populates = \"provider_categories\")",
+        "detail": "Students.StudentModel",
+        "documentation": {}
+    },
+    {
+        "label": "provider",
+        "kind": 5,
+        "importPath": "Students.StudentModel",
+        "description": "Students.StudentModel",
+        "peekOfCode": "provider = relationship(\"providers\",uselist=False,back_populates=\"providers\")\nprovider_categories = relationship(\"provider_categories\", back_populates = \"provider_categories\")",
+        "detail": "Students.StudentModel",
+        "documentation": {}
+    },
+    {
+        "label": "provider_categories",
+        "kind": 5,
+        "importPath": "Students.StudentModel",
+        "description": "Students.StudentModel",
+        "peekOfCode": "provider_categories = relationship(\"provider_categories\", back_populates = \"provider_categories\")",
+        "detail": "Students.StudentModel",
+        "documentation": {}
+    },
+    {
+        "label": "hash_password",
+        "kind": 2,
+        "importPath": "Students.StudentService",
+        "description": "Students.StudentService",
+        "peekOfCode": "def hash_password():\n    from app import session\n    username = request.json['username']\n    password = request.json['password']\n    student = session.query(Students).filter_by(username=username).first()\n    if student:\n        hashed_password = generate_password_hash(password)\n        student.password = hashed_password\n    try:\n        session.commit()",
+        "detail": "Students.StudentService",
+        "documentation": {}
+    },
+    {
+        "label": "student_login",
+        "kind": 2,
+        "importPath": "Students.StudentService",
+        "description": "Students.StudentService",
+        "peekOfCode": "def student_login():\n    from app import session\n    username = request.json['username']\n    ref_number = request.json['ref_number']\n    password = request.json['password']\n    student = session.query(Students).filter_by(username=username).first()\n    # number = session.query(Students).filter_by(ref_number=ref_number)\n    if student:\n        verify = check_password_hash(pwhash=student.password, password=password)\n        if verify and student.ref_number == ref_number:",
+        "detail": "Students.StudentService",
+        "documentation": {}
+    },
+    {
+        "label": "students_route",
+        "kind": 5,
+        "importPath": "Students.StudentService",
+        "description": "Students.StudentService",
+        "peekOfCode": "students_route = Blueprint(\"students_route\", __name__)\nCORS(students_route)\n@students_route.route(\"/hash\", methods=['POST'])\ndef hash_password():\n    from app import session\n    username = request.json['username']\n    password = request.json['password']\n    student = session.query(Students).filter_by(username=username).first()\n    if student:\n        hashed_password = generate_password_hash(password)",
+        "detail": "Students.StudentService",
+        "documentation": {}
+    },
+    {
+        "label": "Transactions",
+        "kind": 6,
+        "importPath": "Transactions.TransactionModel",
+        "description": "Transactions.TransactionModel",
+        "peekOfCode": "class Transactions(Base):\n    __tablename__ =\"transactions\"\n    transaction_id = Column(\"transaction_id\",Integer, primarykey=True,nullable=False)\n    student_id = Column(\"student_id\",Integer,ForeignKey=True,nullable=False)\n    description = Column(\"description\",String(255),nullable=False)\n    amount = Column(\"amount\",Integer,nullable = False)\n    date_completed = Column(\"date_completed\",Date)",
+        "detail": "Transactions.TransactionModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "peekOfCode": "class User(Base):\n    __tablename__ = \"users\"\n    user_id = Column(\"user_id\",Integer, primary_key =True, nullable = False)\n    first_name = Column(\"first_name\",String(255),nullable=False)\n    last_name = Column(\"last_name\",String(255),nullable=False)\n    username = Column(\"username\",String(255),nullable=False)\n    password = Column(\"password\",String(255),nullable=False)\n    email = Column(\"email\",String(255),nullable=False)\n    ref_number = Column(\"ref_number\",String(255),nullable=False)",
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "add_user",
+        "kind": 2,
+        "importPath": "Users.UserService",
+        "description": "Users.UserService",
+        "peekOfCode": "def add_user():\n    from app import session\n    first_name = request.json['first_name']\n    last_name = request.json['last_name']\n    username = request.json['username']\n    password = request.json['password']\n    email = request.json['email']\n    ref_number = request.json['ref_number']\n    hashed_password = generate_password_hash(password)\n    existinguser = session.query(User).filter_by(username=username).first()",
+        "detail": "Users.UserService",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "Users.UserService",
+        "description": "Users.UserService",
+        "peekOfCode": "def login():\n    from app import session\n    username = request.json['username']\n    password = request.json['password']\n    user = session.query(User).filter_by(username=username).first()\n    if user:\n        verify = check_password_hash(pwhash=user.password, password=password)\n        if verify:\n            result = {\n                'status': 'Login successful',",
+        "detail": "Users.UserService",
+        "documentation": {}
+    },
+    {
+        "label": "users_route",
+        "kind": 5,
+        "importPath": "Users.UserService",
+        "description": "Users.UserService",
+        "peekOfCode": "users_route = Blueprint(\"users_route\", __name__)\nCORS(users_route)\n@users_route.route(\"/add_user\",methods=['POST'])\ndef add_user():\n    from app import session\n    first_name = request.json['first_name']\n    last_name = request.json['last_name']\n    username = request.json['username']\n    password = request.json['password']\n    email = request.json['email']",
+        "detail": "Users.UserService",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\n#instantiating the database and sqlalchemy\nengine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "engine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\n#Database connection",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "Session = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\n#Database connection\ntry:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "session = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\n#Database connection\ntry:\n    engine.connect()",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "Base = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "base",
+        "description": "base",
+        "peekOfCode": "Base = declarative_base()",
+        "detail": "base",
+        "documentation": {}
+    }
+]

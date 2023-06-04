@@ -2,7 +2,8 @@ from flask_cors import CORS
 from flask import jsonify, Blueprint, request
 from Students.StudentModel import Students
 from werkzeug.security import generate_password_hash, check_password_hash
-
+import datetime
+from Students.otp_service import generate_otp, save_otp, retrieve_otp, clear_otp, send_otp_email
 
 students_route = Blueprint("students_route", __name__)
 CORS(students_route)
@@ -31,32 +32,47 @@ def hash_password():
 
 
 @students_route.route("/student_verification", methods=['POST'])
-def student_login():
-    from app import session
-    username = request.json['username']
-    ref_number = request.json['ref_number']
-    password = request.json['password']
+def student_verification():
+    email = request.json['email']
+    
+    otp = generate_otp()
 
-    student = session.query(Students).filter_by(username=username).first()
-    # number = session.query(Students).filter_by(ref_number=ref_number)
+    otp_expiration = datetime.datetime.now() + datetime.timedelta(hours=1)
 
-    if student:
-        verify = check_password_hash(pwhash=student.password, password=password)
-        if verify and student.ref_number == ref_number:
+    save_otp(email, otp, otp_expiration)
+
+    send_otp_email(email, otp)
+
+    result = {
+        'status': 'OTP sent to email',
+        'email': email
+    }
+
+    return jsonify(result)
+
+
+@students_route.route("/otp_verification", methods=['POST'])
+def student_email_verification():
+    email = request.json['email']
+    otp = request.json['otp']
+
+    stored_otp, otp_expiration = retrieve_otp(email)
+
+    if stored_otp:
+        if otp == stored_otp and datetime.datetime.now() <= otp_expiration:
+            clear_otp(email)
+
             result = {
-                # 'student_id': student.student_id,
-                'status': 'Student'
+                'status': 'Email verification successful',
+                'email': email
             }
-            return jsonify(result)
         else:
             result = {
-                'status': 'Incorrect username or password or ref_number'
+                'status': 'Invalid OTP or OTP expired'
             }
-            return jsonify(result)
     else:
         result = {
-            'status': 'Not a student'
+            'status': 'Email not found'
         }
-        return jsonify(result)
 
-
+    return jsonify(result)
