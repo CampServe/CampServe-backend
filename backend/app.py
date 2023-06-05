@@ -11,6 +11,8 @@ from flask_mail import Mail
 
 
 app = Flask(__name__)
+app.secret_key = '0hyvgta56h'
+
 
 #instantiating the database and sqlalchemy
 engine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')
