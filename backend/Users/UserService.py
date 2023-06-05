@@ -1,8 +1,8 @@
+from lib2to3.pgen2 import token
 from flask_cors import CORS
-from flask import jsonify, Blueprint, request
+from flask import jsonify, Blueprint, request,session,current_app
 from Students.StudentModel import Students
 from werkzeug.security import generate_password_hash, check_password_hash
-
 from Users.UserModel import User
 
 
@@ -11,35 +11,29 @@ CORS(users_route)
 
 @users_route.route("/add_user",methods=['POST'])
 def add_user():
-    from app import session
+    from app import session as s
     first_name = request.json['first_name']
     last_name = request.json['last_name']
     username = request.json['username']
     password = request.json['password']
-    email = request.json['email']
-    ref_number = request.json['ref_number']
     
+    
+    if 'email' in session:
+        user_email = session['email']
+       
+
     hashed_password = generate_password_hash(password)
 
-    existinguser = session.query(User).filter_by(username=username).first()
-    existing_email = session.query(User).filter_by(email=email).first()
-    existing_ref_number = session.query(User).filter_by(ref_number=ref_number).first()
-    if existinguser:
+    check_username = s.query(User).filter_by(username=username).first()
+    if check_username:
         result = {
             'status': 'user already exists'
         }
-    elif existing_email:
-        result = {
-            'status': 'email is already registered to a user'
-        }
-    elif existing_ref_number:
-        result = {
-            'status': 'reference number is already registered to a user'
-        }
+ 
     else: 
-        user = User(first_name=first_name, last_name=last_name, username=username, password=hashed_password,email=email,ref_number=ref_number)
-        session.add(user)
-        session.commit()
+        user = User(first_name=first_name, last_name=last_name, username=username, password=hashed_password,email=user_email)
+        s.add(user)
+        s.commit()
 
         result = {
             'status': 'User created'
@@ -61,10 +55,12 @@ def login():
                 'status': 'Login successful',
                 'first_name': user.first_name,
                 'last_name': user.last_name,
-                'ref_number': user.ref_number,
+                'username': user.username,
                 'email': user.email,
-                'username': user.username
+                'user_id':user.user_id
             }
+
+            #this is where you generate the token. the token will have information on who the user is and what to send back
             return jsonify(result)
         else:
             result = 'Incorrect username or password'
@@ -82,25 +78,3 @@ def login():
 
 
 
-
-# username = request.json['username']
-    # password = request.json['password']
-    
-    # user = session.query(User).filter_by(username=username).first()
-    # if user:
-    #     verify = check_password_hash(pwhash=user.password, password=password)
-    #     if verify:
-    #         result = {
-    #             'status': 'Login successful',
-    #             'first_name': user.first_name,
-    #             'last_name':user.last_name,
-    #             'ref_number': user.ref_number,
-    #             'email': user.email
-    #         }
-    #         return jsonify(result)
-    #     else:
-    #         result = 'Incorrect username or password'
-    #         return jsonify(result)
-    # else:
-    #     result = 'Username does not exist'
-    #     return jsonify(result)
