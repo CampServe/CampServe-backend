@@ -4,6 +4,8 @@ from Students.StudentModel import Students
 from werkzeug.security import generate_password_hash, check_password_hash
 import datetime
 from Students.otp_service import generate_otp, save_otp, retrieve_otp, clear_otp, send_otp_email
+from flask import session
+
 
 students_route = Blueprint("students_route", __name__)
 CORS(students_route)
@@ -62,10 +64,14 @@ def student_email_verification():
         if otp == stored_otp and datetime.datetime.now() <= otp_expiration:
             clear_otp(email)
 
+            session['email'] = email
+
+
             result = {
                 'status': 'Email verification successful',
                 'email': email
             }
+
         else:
             result = {
                 'status': 'Invalid OTP or OTP expired'
