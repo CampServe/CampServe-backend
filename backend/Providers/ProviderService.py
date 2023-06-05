@@ -3,36 +3,53 @@ from flask import jsonify, Blueprint, request
 from Students.StudentModel import Students
 from werkzeug.security import check_password_hash
 from Providers.ProviderModel import Providers
+from Users.UserModel import User
+
+
 
 
 providers_route = Blueprint("providers_route", __name__)
 CORS(providers_route)
 
 
-@providers_route.route("/signup_as_provider", methods=['POST'])
-def sign_up():
+@providers_route.route("/signup_as_provider/<user_id>", methods=['POST'])
+def sign_up(user_id):
     from app import session
-    username = request.json['username']
-    ref_number = request.json['ref_number']
-    password = request.json['password']
+    provider_contact = request.json['provider_contact']
+    profile_pic = request.json['profile_pic']
+    bio = request.json['bio']
+    banner_image = request.json['banner_image']
+    business_name = request.json['business_name']
 
-    student = session.query(Students).filter_by(username=username).first()
-    if student and ref_number and check_password_hash(pwhash=student.password, password=password):
+    provider = Providers(
+        user_id=user_id,
+        provider_contact=provider_contact,
+        profile_pic=profile_pic,
+        bio=bio,
+        banner_image=banner_image,
+        business_name=business_name
+    )
 
-        provider = Providers(student_id=student.student_id)
-        session.add(provider)
-        session.commit()
+    session.add(provider)
+    session.commit()
 
-        result = {
-            'student_id': student.student_id,
-            'status': 'sign up successful'
-        }
-
-    else:
-        result = {
-            'status': 'The user name, password or studentid provided is incorrect.'}
+    result = {
+        'status': 'Provider created'
+    }
 
     return jsonify(result)
+
+@providers_route.route("/check_if_provider/<user_id>", methods=['POST'])
+def check_if_provider(user_id):
+    from app import session
+    provider = session.query(Providers).filter_by(student_id=user_id).first()
+
+    if provider:
+        return jsonify({'message': 'True'})
+    else:
+        return jsonify({'message': 'False'})
+
+
 
 
 @providers_route.route("/login_as_provider", methods=['POST'])
@@ -41,56 +58,61 @@ def provider_login():
     username = request.json['username']
     password = request.json['password']
 
-    student = session.query(Students).filter_by(username=username).first()
-    if student:
-        verify = check_password_hash(pwhash=student.password, password=password)
-        if verify:
-            result = {
-                'student_id': student.student_id,
-                # 'status': 'Login successful'
-            }
-            return jsonify(result)
+# Find the user in the users table
+    user = session.query(User).filter_by(username=username).first()
+
+    if user:
+        # Check if the user is also a provider
+        provider = session.query(Providers).filter_by(user_id=user.user_id).first()
+
+        if provider:
+            # Verify the password
+            if check_password_hash(user.password, password):
+                # User is authenticated as a provider
+
+                result = {
+                    'status': 'Provider login successful',
+                    'user_id': user.user_id,
+                    'username': username
+                }
+                return jsonify(result)
+            else:
+                result = {
+                    'status': 'Invalid username or password'
+                }
         else:
             result = {
-                'status': 'Incorrect username or password'
+                'status': 'User is not a provider'
             }
-            return jsonify(result)
     else:
         result = {
-            'status': 'Username does not exist'
+            'status': 'User not found'
         }
-        return jsonify(result)
+
+    return jsonify(result)
 
 
-@providers_route.route("/check_if_provider/<student_id>", methods=['POST'])
-def check_if_provider(student_id):
-    from app import session
-    provider = session.query(Providers).filter_by(student_id=student_id).first()
-
-    if provider:
-        return jsonify({'message': 'provider found'})
-    else:
-        return jsonify({'message': 'provider not found'})
 
 
-@providers_route.route("/update_provider_data/<student_id>", methods=['POST'])
-def update_provider_data(student_id):
-    from app import session
 
-    provider = session.query(Providers).filter_by(student_id=student_id).first()
-    # if provider:
+# @providers_route.route("/update_provider_data/<student_id>", methods=['POST'])
+# def update_provider_data(student_id):
+#     from app import session
 
-    provider_contact = request.json['contact']
-    profile_pic = request.json['picture']
-    bio = request.json['bio']
-    banner_image = request.json['banner_image']
-    business_name = request.json['business_name']
+#     provider = session.query(Providers).filter_by(student_id=student_id).first()
+#     # if provider:
 
-    provider.provider_contact = provider_contact
-    provider.profile_pic = profile_pic
-    provider.bio = bio
-    provider.banner_image = banner_image
-    provider.business_name = business_name
+#     provider_contact = request.json['contact']
+#     profile_pic = request.json['picture']
+#     bio = request.json['bio']
+#     banner_image = request.json['banner_image']
+#     business_name = request.json['business_name']
+
+#     provider.provider_contact = provider_contact
+#     provider.profile_pic = profile_pic
+#     provider.bio = bio
+#     provider.banner_image = banner_image
+#     provider.business_name = business_name
 
 
     #create the provider categories object here and merge them. so it identifies which provider and commits it to the 
@@ -98,8 +120,8 @@ def update_provider_data(student_id):
     #rows because of database normalisation. I want to use the student_id to populate the databse since its a foreign key
 
 
-    session.commit()
-    return jsonify({'message': 'Provider data updated successfully.'})
+    # session.commit()
+    # return jsonify({'message': 'Provider data updated successfully.'})
 
 
 # @providers_route.route("/login_as_provider", methods=['POST'])
