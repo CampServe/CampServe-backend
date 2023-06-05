@@ -12,4 +12,3 @@ class User(Base):
     username = Column("username",String(255),nullable=False)
     password = Column("password",String(255),nullable=False)
     email = Column("email",String(255),nullable=False)
-    ref_number = Column("ref_number",String(255),nullable=False)
