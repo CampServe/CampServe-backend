@@ -31,7 +31,7 @@ def add_user():
         }
  
     else: 
-        user = User(first_name=first_name, last_name=last_name, username=username, password=hashed_password,email=user_email)
+        user = User(first_name=first_name, last_name=last_name, username=username, password=hashed_password,email=user_email,is_service_provider=False)
         s.add(user)
         s.commit()
 
@@ -57,7 +57,8 @@ def login():
                 'last_name': user.last_name,
                 'username': user.username,
                 'email': user.email,
-                'user_id':user.user_id
+                'user_id':user.user_id,
+                'is_service_provider': user.is_service_provider
             }
 
             #this is where you generate the token. the token will have information on who the user is and what to send back
