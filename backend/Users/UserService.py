@@ -58,7 +58,8 @@ def login():
                 'username': user.username,
                 'email': user.email,
                 'user_id':user.user_id,
-                'is_service_provider': user.is_service_provider
+                'is_service_provider': user.is_service_provider,
+                'account_type': 'regular user'
             }
 
             #this is where you generate the token. the token will have information on who the user is and what to send back
