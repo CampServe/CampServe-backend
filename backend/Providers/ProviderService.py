@@ -4,6 +4,7 @@ from Students.StudentModel import Students
 from werkzeug.security import check_password_hash
 from Providers.ProviderModel import Providers
 from Users.UserModel import User
+from ProviderCategory.ProviderCategoriesModel import ProviderCategories
 
 
 
@@ -15,10 +16,16 @@ CORS(providers_route)
 @providers_route.route("/signup_as_provider/<user_id>", methods=['POST'])
 def sign_up(user_id):
     from app import session
+
+    #getting the selected categories from a provider
+    data = request.get_json()
+
+    #provider information when signing up
     provider_contact = request.json['provider_contact']
     bio = request.json['bio']
     business_name = request.json['business_name']
 
+    #using the user id to change the provider status
     user = session.query(User).filter_by(user_id=user_id).first()
     user.is_service_provider = True
     session.commit()
@@ -29,6 +36,7 @@ def sign_up(user_id):
         'user_id': user_id
     }
 
+    #updating the provider info
     provider = Providers(
         user_id=user_id,
         provider_contact=provider_contact,
@@ -39,9 +47,24 @@ def sign_up(user_id):
     session.add(provider)
     session.commit()
 
+    #looping through the categories
+    selected_categories = data['selectedSubcategories']
+
+    
+    for category in selected_categories:
+        category_name = category['category']
+        subcategories = category['subcategory']
+
+        for subcategory in subcategories:
+            categories = ProviderCategories(user_id=user_id, main_categories=category_name, subcategories=subcategory)
+            session.add(categories)
+
+    session.commit()
+
     result = {
-        'status': 'Provider created'
+        'status': 'Provider created with credentials'
     }
+
 
     return jsonify(result)
 
@@ -88,6 +111,24 @@ def provider_login():
 
 
 
+# @providers_route.route('/save_categories/<user_id>', methods=['POST'])
+# def save_categories(user_id):
+#     from app import session
+#     data = request.get_json()
+#     selected_categories = data['selectedSubcategories']
+
+    
+
+#     for category in selected_categories:
+#         category_name = category['category']
+#         subcategories = category['subcategory']
+
+#         for subcategory in subcategories:
+#             categories = ProviderCategories(user_id=user_id, main_categories=category_name, subcategories=subcategory)
+#             session.add(categories)
+
+#     session.commit()
+#     return jsonify(message='Categories saved successfully.')
 
 # @providers_route.route("/update_provider_data/<student_id>", methods=['POST'])
 # def update_provider_data(student_id):
