@@ -87,7 +87,9 @@ def provider_login():
         if provider:
             # Verify the password
             if check_password_hash(user.password, password):
-                # User is authenticated as a provider
+
+                # Retrieve user details from the users table
+                user_details = session.query(User).filter_by(user_id=user.user_id).first()
 
                 result = {
                     'status': 'Provider login successful',
@@ -96,7 +98,10 @@ def provider_login():
                     'business_name': provider.business_name,
                     'bio': provider.bio,
                     'provider_contact': provider.provider_contact,
-                    'account_type': 'provider'
+                    'account_type': 'provider',
+                    'first_name': user_details.first_name,
+                    'last_name': user_details.last_name,
+                    'email': user_details.email
                 }
                 return jsonify(result)
             else:
