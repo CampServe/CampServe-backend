@@ -16,17 +16,23 @@ CORS(providers_route)
 def sign_up(user_id):
     from app import session
     provider_contact = request.json['provider_contact']
-    profile_pic = request.json['profile_pic']
     bio = request.json['bio']
-    banner_image = request.json['banner_image']
     business_name = request.json['business_name']
+
+    user = session.query(User).filter_by(user_id=user_id).first()
+    user.is_service_provider = True
+    session.commit()
+
+    # Return the response
+    result = {
+        'status': 'Provider sign-up successful',
+        'user_id': user_id
+    }
 
     provider = Providers(
         user_id=user_id,
         provider_contact=provider_contact,
-        profile_pic=profile_pic,
         bio=bio,
-        banner_image=banner_image,
         business_name=business_name
     )
 
@@ -38,18 +44,6 @@ def sign_up(user_id):
     }
 
     return jsonify(result)
-
-@providers_route.route("/check_if_provider/<user_id>", methods=['POST'])
-def check_if_provider(user_id):
-    from app import session
-    provider = session.query(Providers).filter_by(student_id=user_id).first()
-
-    if provider:
-        return jsonify({'message': 'True'})
-    else:
-        return jsonify({'message': 'False'})
-
-
 
 
 @providers_route.route("/login_as_provider", methods=['POST'])
