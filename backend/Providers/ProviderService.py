@@ -37,14 +37,9 @@ def sign_up(user_id):
     }
 
     #updating the provider info
-    provider = Providers(
-        user_id=user_id,
-        provider_contact=provider_contact,
-        bio=bio,
-        business_name=business_name
-    )
-
-    session.add(provider)
+    Providers.provider_contact = provider_contact
+    Providers.bio = bio
+    Providers.business_name = business_name
     session.commit()
 
     #looping through the categories
