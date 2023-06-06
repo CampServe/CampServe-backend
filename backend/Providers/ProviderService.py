@@ -56,7 +56,7 @@ def sign_up(user_id):
         subcategories = category['subcategory']
 
         for subcategory in subcategories:
-            categories = ProviderCategories(user_id=user_id, main_categories=category_name, subcategories=subcategory)
+            categories = ProviderCategories(user_id=user_id, main_categories=category_name, sub_categories=subcategory)
             session.add(categories)
 
     session.commit()
