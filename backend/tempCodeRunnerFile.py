@@ -11,8 +11,6 @@ from flask_mail import Mail
 
 
 app = Flask(__name__)
-app.secret_key = '0hyvgta56h'
-
 
 #instantiating the database and sqlalchemy
 engine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')
@@ -27,12 +25,10 @@ app.register_blueprint(provider_categories_route)
 app.register_blueprint(users_route)
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'isinesam@gmail.com'
-app.config['MAIL_PASSWORD'] = 'lvrmqxfoqfbgaieg'
-app.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'
+app.config['MAIL_PASSWORD'] = 'Kwabotwe'
 
 mail = Mail(app)
 
