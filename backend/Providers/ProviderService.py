@@ -92,7 +92,11 @@ def provider_login():
                 result = {
                     'status': 'Provider login successful',
                     'user_id': user.user_id,
-                    'username': username
+                    'username': username,
+                    'business_name': provider.business_name,
+                    'bio': provider.bio,
+                    'provider_contact': provider.provider_contact,
+                    'account_type': 'provider'
                 }
                 return jsonify(result)
             else:
