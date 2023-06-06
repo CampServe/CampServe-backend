@@ -37,24 +37,37 @@ def sign_up(user_id):
     }
 
     #updating the provider info
-    Providers.provider_contact = provider_contact
-    Providers.bio = bio
-    Providers.business_name = business_name
+    provider = session.query(Providers).filter_by(user_id=user_id).first()
+
+    if provider:
+        # Update existing provider
+        provider.provider_contact = provider_contact
+        provider.bio = bio
+        provider.business_name = business_name
+    else:
+        # Create new provider
+        provider = Providers(
+            user_id=user_id,
+            provider_contact=provider_contact,
+            bio=bio,
+            business_name=business_name
+        )
+        session.add(provider)
     session.commit()
 
     #looping through the categories
-    selected_categories = data['selectedSubcategories']
+    # selected_categories = data['selectedSubcategories']
 
     
-    for category in selected_categories:
-        category_name = category['category']
-        subcategories = category['subcategory']
+    # for category in selected_categories:
+    #     category_name = category['category']
+    #     subcategories = category['subcategory']
 
-        for subcategory in subcategories:
-            categories = ProviderCategories(user_id=user_id, main_categories=category_name, sub_categories=subcategory)
-            session.add(categories)
+    #     for subcategory in subcategories:
+    #         categories = ProviderCategories(user_id=user_id, main_categories=category_name, sub_categories=subcategory)
+    #         session.add(categories)
 
-    session.commit()
+    # session.commit()
 
     result = {
         'status': 'Provider created with credentials'
