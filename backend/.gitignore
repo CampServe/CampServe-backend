@@ -3,5 +3,5 @@ env
 *__pycache__
 +*.pyc
 tempCodeRunnerFile.py
-
+.pyc
 active.bat
