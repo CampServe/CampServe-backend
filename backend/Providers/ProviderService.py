@@ -30,12 +30,6 @@ def sign_up(user_id):
     user.is_service_provider = True
     session.commit()
 
-    # Return the response
-    result = {
-        'status': 'Provider sign-up successful',
-        'user_id': user_id
-    }
-
     #updating the provider info
     provider = session.query(Providers).filter_by(user_id=user_id).first()
 
@@ -56,18 +50,18 @@ def sign_up(user_id):
     session.commit()
 
     #looping through the categories
-    # selected_categories = data['selectedSubcategories']
+    selected_categories = data['selectedSubcategories']
 
     
-    # for category in selected_categories:
-    #     category_name = category['category']
-    #     subcategories = category['subcategory']
+    for category in selected_categories:
+        category_name = category['category']
+        subcategories = category['subcategory']
 
-    #     for subcategory in subcategories:
-    #         categories = ProviderCategories(user_id=user_id, main_categories=category_name, sub_categories=subcategory)
-    #         session.add(categories)
+        for subcategory in subcategories:
+            categories = ProviderCategories(user_id=user_id, main_categories=category_name, sub_categories=subcategory)
+            session.add(categories)
 
-    # session.commit()
+    session.commit()
 
     result = {
         'status': 'Provider created with credentials'
