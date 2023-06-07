@@ -43,6 +43,33 @@ def add_user():
     return jsonify(result)
 
 
+def token_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        from app import app
+        token = None
+        # jwt is passed in the request header
+        if 'token' in request.headers:
+            token = request.headers['token']
+
+        # return message if token is not passed
+        if not token:
+            return jsonify({'message' : 'Token is missing !!'})
+  
+        try:
+            # decoding the payload to fetch the stored details
+            data = jwt.decode(token, app.config['SECRET_KEY'])
+            current_user = User.query\
+                .filter_by(username = data['username'])\
+                .first()
+        except:
+            return jsonify({
+                'message' : 'Token is invalid !!'
+            }), 401
+        # returns the current logged in users context to the routes
+        return  f(current_user, *args, **kwargs)
+  
+    return decorated
 
 @users_route.route("/user_login", methods=['POST'])
 def login():
@@ -92,32 +119,15 @@ def login():
 
 
 
+@users_route.route("/logout", methods=['POST'])
+@token_required
+def logout():
+    # removing the token from local storage or cookies
+    # Assuming the token is stored in local storage
+    if 'token' in request.headers:
+        del request.headers['token']
 
-# def token_required(f):
-#     @wraps(f)
-#     def decorated(*args, **kwargs):
-#         from app import app
-#         token = None
-#         # jwt is passed in the request header
-#         if 'x-access-token' in request.headers:
-#             token = request.headers['x-access-token']
 
-#         # return 401 if token is not passed
-#         if not token:
-#             return jsonify({'message' : 'Token is missing !!'})
-  
-#         try:
-#             # decoding the payload to fetch the stored details
-#             data = jwt.decode(token, app.config['SECRET_KEY'])
-#             current_user = User.query\
-#                 .filter_by(username = data['username'])\
-#                 .first()
-#         except:
-#             return jsonify({
-#                 'message' : 'Token is invalid !!'
-#             }), 401
-#         # returns the current logged in users context to the routes
-#         return  f(current_user, *args, **kwargs)
-  
-#     return decorated
+    # Send a response indicating successful logout
+    return jsonify({'message': 'Logout successful'})
 
