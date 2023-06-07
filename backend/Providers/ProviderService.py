@@ -5,8 +5,8 @@ from werkzeug.security import check_password_hash
 from Providers.ProviderModel import Providers
 from Users.UserModel import User
 from ProviderCategory.ProviderCategoriesModel import ProviderCategories
-
-
+import jwt
+from datetime import datetime, timedelta
 
 
 providers_route = Blueprint("providers_route", __name__)
@@ -17,20 +17,20 @@ CORS(providers_route)
 def sign_up(user_id):
     from app import session
 
-    #getting the selected categories from a provider
+    # getting the selected categories from a provider
     data = request.get_json()
 
-    #provider information when signing up
+    # provider information when signing up
     provider_contact = request.json['provider_contact']
     bio = request.json['bio']
     business_name = request.json['business_name']
 
-    #using the user id to change the provider status
+    # using the user id to change the provider status
     user = session.query(User).filter_by(user_id=user_id).first()
     user.is_service_provider = True
     session.commit()
 
-    #updating the provider info
+    # updating the provider info
     provider = session.query(Providers).filter_by(user_id=user_id).first()
 
     if provider:
@@ -49,16 +49,16 @@ def sign_up(user_id):
         session.add(provider)
     session.commit()
 
-    #looping through the categories
+    # looping through the categories
     selected_categories = data['selectedSubcategories']
 
-    
     for category in selected_categories:
         category_name = category['category']
         subcategories = category['subcategory']
 
         for subcategory in subcategories:
-            categories = ProviderCategories(user_id=user_id, main_categories=category_name, sub_categories=subcategory)
+            categories = ProviderCategories(
+                user_id=user_id, main_categories=category_name, sub_categories=subcategory)
             session.add(categories)
 
     session.commit()
@@ -67,13 +67,13 @@ def sign_up(user_id):
         'status': 'Provider created with credentials'
     }
 
-
     return jsonify(result)
 
 
 @providers_route.route("/login_as_provider", methods=['POST'])
 def provider_login():
     from app import session
+    from app import app
     username = request.json['username']
     password = request.json['password']
 
@@ -82,14 +82,23 @@ def provider_login():
 
     if user:
         # Check if the user is also a provider
-        provider = session.query(Providers).filter_by(user_id=user.user_id).first()
+        provider = session.query(Providers).filter_by(
+            user_id=user.user_id).first()
 
         if provider:
             # Verify the password
             if check_password_hash(user.password, password):
 
                 # Retrieve user details from the users table
-                user_details = session.query(User).filter_by(user_id=user.user_id).first()
+                user_details = session.query(User).filter_by(
+                    user_id=user.user_id).first()
+                # generate token
+
+                token = jwt.encode({
+                    'user': username,
+                    'user_id': user.user_id,
+                    'expiration': str(datetime.utcnow() + timedelta(days=1))
+                }, app.config['SECRET_KEY'])
 
                 result = {
                     'status': 'Provider login successful',
@@ -101,7 +110,8 @@ def provider_login():
                     'account_type': 'provider',
                     'first_name': user_details.first_name,
                     'last_name': user_details.last_name,
-                    'email': user_details.email
+                    'email': user_details.email,
+                    'token': token
                 }
                 return jsonify(result)
             else:
@@ -118,6 +128,3 @@ def provider_login():
         }
 
     return jsonify(result)
-
-
-
