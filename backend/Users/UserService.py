@@ -119,15 +119,15 @@ def login():
 
 
 
-@users_route.route("/logout", methods=['POST'])
-@token_required
-def logout():
-    # removing the token from local storage or cookies
-    # Assuming the token is stored in local storage
-    if 'token' in request.headers:
-        del request.headers['token']
+# @users_route.route("/logout", methods=['POST'])
+# @token_required
+# def logout():
+#     # removing the token from local storage or cookies
+#     # Assuming the token is stored in local storage
+#     if 'token' in request.headers:
+#         del request.headers['token']
 
 
-    # Send a response indicating successful logout
-    return jsonify({'message': 'Logout successful'})
+#     # Send a response indicating successful logout
+#     return jsonify({'message': 'Logout successful'})
 
