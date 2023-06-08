@@ -57,21 +57,19 @@ def login():
 
             #generate token
             token = jwt.encode({
-                'user': username,
+                'status': 'Login successful',
+                'username': user.username,
                 'user_id': user.user_id,
+                'first_name': user.first_name,
+                'last_name': user.last_name,
+                'email': user.email,
+                'is_service_provider': user.is_service_provider,
+                'account_type': 'regular user',
                 'expiration': str(datetime.utcnow() + timedelta(days=1))
             },
                 app.config['SECRET_KEY'])
 
             result = {
-                'status': 'Login successful',
-                'first_name': user.first_name,
-                'last_name': user.last_name,
-                'username': user.username,
-                'email': user.email,
-                'user_id': user.user_id,
-                'is_service_provider': user.is_service_provider,
-                'account_type': 'regular user',
                 'token': token
             }
 
@@ -90,93 +88,39 @@ def login():
         return jsonify(result)
 
 
+# @users_route.route("/check_token", methods=['GET'])
+# def protected_route():
+#     from app import app
 
-# Create a set to store revoked tokens
-# revoked_tokens = set()
+#     #Token is passed in the 'token' header
+#     token = request.headers.get('token')  
+    
+#     if token is None:
+#         return jsonify({'message': 'Unauthorized'}), 401
 
-# def token_required(f):
-#     @wraps(f)
-#     def decorated(*args, **kwargs):
-#         from app import app
-#         token = None
-#         # jwt is passed in the request header
-#         if 'token' in request.headers:
-#             token = request.headers['token']
+#     # Token validation
+#     try:
+#         user = jwt.decode(token, app.config['SECRET_KEY'])
+#     except jwt.InvalidTokenError:
+#         return jsonify({'message': 'Invalid token'}), 401
 
-#         # return message if token is not passed
-#         if not token:
-#             return jsonify({'message' : 'Token is missing !!'})
+#     # Token expiration check
+#     expiration = datetime.strptime(user['expiration'], "%Y-%m-%d %H:%M:%S.%f")
+#     if expiration < datetime.utcnow():
+#         return jsonify({'message': 'Token expired'}), 401
 
-#         if token in revoked_tokens:
-#             return jsonify({'message' : 'Token is revoked !!'})
+   
+#     # Proceed with regular application flow for an authenticated user
+#     result = {
+#         'message': 'Access granted',
+#         'username': user['username'],
+#         'user_id': user['user_id'],
+#         'first_name': user['first_name'],
+#         'last_name': user['last_name'],
+#         'email': user['email'],
+#         'is_service_provider': user['is_service_provider'],
+#         'account_type': user['account_type']
 
-#         try:
-#             # decoding the payload to fetch the stored details
-#             data = jwt.decode(token, app.config['SECRET_KEY'])
-#             current_user = User.query\
-#                 .filter_by(username=data['username'])\
-#                 .first()
-#         except:
-#             return jsonify({
-#                 'message' : 'Token is invalid !!'
-#             })
-#         # returns the current logged in user's context to the routes
-#         return f(current_user, *args, **kwargs)
+#     }
 
-#     return decorated
-
-
-# @users_route.route("/logout", methods=['POST'])
-# @token_required
-# def logout():
-#     # Get the token from the request headers
-#     token = request.headers.get('token')
-
-#     if token:
-#         # Add the token to the set of revoked tokens
-#         revoked_tokens.add(token)
-
-#     # Send a response indicating successful logout
-#     return jsonify({'message': 'Logout successful'})
-
-
-# @users_route.route("/logout", methods=['POST'])
-# @token_required
-# def logout():
-#     # removing the token from local storage or cookies
-#     # Assuming the token is stored in local storage
-#     if 'token' in request.headers:
-#         del request.headers['token']
-
-
-#     # Send a response indicating successful logout
-#     return jsonify({'message': 'Logout successful'})
-
-
-# def token_required(f):
-#     @wraps(f)
-#     def decorated(*args, **kwargs):
-#         from app import app
-#         token = None
-#         # jwt is passed in the request header
-#         if 'token' in request.headers:
-#             token = request.headers['token']
-
-#         # return message if token is not passed
-#         if not token:
-#             return jsonify({'message' : 'Token is missing !!'})
-  
-#         try:
-#             # decoding the payload to fetch the stored details
-#             data = jwt.decode(token, app.config['SECRET_KEY'])
-#             current_user = User.query\
-#                 .filter_by(username = data['username'])\
-#                 .first()
-#         except:
-#             return jsonify({
-#                 'message' : 'Token is invalid !!'
-#             }), 401
-#         # returns the current logged in users context to the routes
-#         return  f(current_user, *args, **kwargs)
-  
-#     return decorated
+#     return jsonify(result)
