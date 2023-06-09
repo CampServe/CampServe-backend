@@ -88,39 +88,22 @@ def login():
         return jsonify(result)
 
 
-# @users_route.route("/check_token", methods=['GET'])
-# def protected_route():
-#     from app import app
+revoked_tokens = set()
 
-#     #Token is passed in the 'token' header
-#     token = request.headers.get('token')  
-    
-#     if token is None:
-#         return jsonify({'message': 'Unauthorized'}), 401
+@users_route.route('/logout', methods=['POST'])
+def logout():
+    try:
+        token = request.headers.get('Authorization')
 
-#     # Token validation
-#     try:
-#         user = jwt.decode(token, app.config['SECRET_KEY'])
-#     except jwt.InvalidTokenError:
-#         return jsonify({'message': 'Invalid token'}), 401
+        # Check if the token is revoked
+        if token in revoked_tokens:
+            return jsonify({'message': 'Token has already been revoked'})
 
-#     # Token expiration check
-#     expiration = datetime.strptime(user['expiration'], "%Y-%m-%d %H:%M:%S.%f")
-#     if expiration < datetime.utcnow():
-#         return jsonify({'message': 'Token expired'}), 401
+        # Add the token to the revoked token set
+        revoked_tokens.add(token)
 
-   
-#     # Proceed with regular application flow for an authenticated user
-#     result = {
-#         'message': 'Access granted',
-#         'username': user['username'],
-#         'user_id': user['user_id'],
-#         'first_name': user['first_name'],
-#         'last_name': user['last_name'],
-#         'email': user['email'],
-#         'is_service_provider': user['is_service_provider'],
-#         'account_type': user['account_type']
+        return jsonify({'message': 'Logout successful'})
+    except Exception as e:
+        return jsonify({'message': 'Logout failed', 'error': str(e)})
 
-#     }
 
-#     return jsonify(result)
