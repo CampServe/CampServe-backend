@@ -1,3 +1,4 @@
+import email
 from flask_cors import CORS
 from flask import jsonify, Blueprint, request, session
 from Students.StudentModel import Students
@@ -11,6 +12,8 @@ from functools import wraps
 users_route = Blueprint("users_route", __name__)
 CORS(users_route)
 
+
+revoked_tokens = set()
 
 @users_route.route("/add_user", methods=['POST'])
 def add_user():
@@ -26,11 +29,16 @@ def add_user():
     hashed_password = generate_password_hash(password)
 
     check_username = s.query(User).filter_by(username=username).first()
+    check_email = s.query(User).filter_by(email=user_email).first()
     if check_username:
         result = {
             'status': 'user already exists'
         }
-
+    
+    elif check_email:
+        result = {
+            'status': 'user with that email already exists'
+        }
     else:
         user = User(first_name=first_name, last_name=last_name, username=username,
                     password=hashed_password, email=user_email, is_service_provider=False)
@@ -49,6 +57,7 @@ def login():
     from app import app
     username = request.json['username']
     password = request.json['password']
+
 
     user = session.query(User).filter_by(username=username).first()
     if user:
@@ -88,11 +97,11 @@ def login():
         return jsonify(result)
 
 
-revoked_tokens = set()
 
 @users_route.route('/logout', methods=['POST'])
 def logout():
     try:
+        #print(revoked_tokens)
         token = request.headers.get('Authorization')
 
         # Check if the token is revoked
@@ -101,6 +110,8 @@ def logout():
 
         # Add the token to the revoked token set
         revoked_tokens.add(token)
+        #print(revoked_tokens)
+
 
         return jsonify({'message': 'Logout successful'})
     except Exception as e:

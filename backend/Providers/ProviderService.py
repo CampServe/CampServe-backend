@@ -77,7 +77,7 @@ def provider_login():
     username = request.json['username']
     password = request.json['password']
 
-# Find the user in the users table
+    # Find the user in the users table
     user = session.query(User).filter_by(username=username).first()
 
     if user:
