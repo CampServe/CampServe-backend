@@ -130,7 +130,7 @@ def provider_login():
 
     return jsonify(result)
 
-@providers_route.route('/logout', methods=['POST'])
+@providers_route.route('/provider_logout', methods=['POST'])
 def logout():
     try:
         #print(revoked_tokens)
