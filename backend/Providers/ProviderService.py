@@ -100,7 +100,7 @@ def provider_login():
                 token = jwt.encode({
                     'status': 'Provider login successful',
                     'user_id': user.user_id,
-                    'username': username,
+                    'username': user.username,
                     'business_name': provider.business_name,
                     'bio': provider.bio,
                     'provider_contact': provider.provider_contact,
