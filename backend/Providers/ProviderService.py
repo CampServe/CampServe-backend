@@ -13,6 +13,9 @@ providers_route = Blueprint("providers_route", __name__)
 CORS(providers_route)
 
 
+revoked_tokens = set()
+
+
 @providers_route.route("/signup_as_provider/<user_id>", methods=['POST'])
 def sign_up(user_id):
     from app import session
@@ -95,12 +98,6 @@ def provider_login():
                 # generate token
 
                 token = jwt.encode({
-                    'user': username,
-                    'user_id': user.user_id,
-                    'expiration': str(datetime.utcnow() + timedelta(days=1))
-                }, app.config['SECRET_KEY'])
-
-                result = {
                     'status': 'Provider login successful',
                     'user_id': user.user_id,
                     'username': username,
@@ -111,6 +108,10 @@ def provider_login():
                     'first_name': user_details.first_name,
                     'last_name': user_details.last_name,
                     'email': user_details.email,
+                    'expiration': str(datetime.utcnow() + timedelta(days=1))
+                }, app.config['SECRET_KEY'])
+
+                result = {
                     'token': token
                 }
                 return jsonify(result)
@@ -129,4 +130,23 @@ def provider_login():
 
     return jsonify(result)
 
-#generate a route that checks if the tooken is expired upon another login
+@providers_route.route('/logout', methods=['POST'])
+def logout():
+    try:
+        #print(revoked_tokens)
+        token = request.headers.get('Authorization')
+
+        # Check if the token is revoked
+        if token in revoked_tokens:
+            return jsonify({'message': 'Token has already been revoked'})
+
+        # Add the token to the revoked token set
+        revoked_tokens.add(token)
+        #print(revoked_tokens)
+
+
+        return jsonify({'message': 'Logout successful'})
+    except Exception as e:
+        return jsonify({'message': 'Logout failed', 'error': str(e)})
+
+
