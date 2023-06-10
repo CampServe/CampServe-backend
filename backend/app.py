@@ -12,6 +12,8 @@ from flask_mail import Mail
 
 app = Flask(__name__)
 app.secret_key = '0hyvgta56h'
+# PAYSTACK_SECRET_KEY = 'sk_test_b7ff96b9d61aa803651c1a97c87bdea515a05a40'
+# PAYSTACK_URL = 'https://api.paystack.co'
 
 
 #instantiating the database and sqlalchemy
