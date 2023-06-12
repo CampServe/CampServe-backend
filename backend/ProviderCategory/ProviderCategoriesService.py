@@ -20,7 +20,7 @@ def get_services():
         Providers.bio,
         ProviderCategories.main_categories,
         ProviderCategories.sub_categories
-    ).all()
+    ).join(ProviderCategories, Providers.user_id == ProviderCategories.user_id).all()
 
     result = {
         'data': [
