@@ -19,7 +19,8 @@ def get_services():
         Providers.business_name,
         Providers.bio,
         ProviderCategories.main_categories,
-        ProviderCategories.sub_categories
+        ProviderCategories.sub_categories,
+        ProviderCategories.subcategories_description
     ).join(ProviderCategories, Providers.user_id == ProviderCategories.user_id).all()
 
     result = {
@@ -30,10 +31,11 @@ def get_services():
                 'business_name': business_name,
                 'bio': bio,
                 'main_categories': main_categories,
-                'sub_categories': sub_categories
+                'sub_categories': sub_categories,
+                'subcategories_description': subcategories_description
 
             }
-            for user_id,  provider_contact, business_name, bio, main_categories, sub_categories, in data
+            for user_id,  provider_contact, business_name, bio, main_categories, sub_categories, subcategories_description in data
         ]
     }
 
