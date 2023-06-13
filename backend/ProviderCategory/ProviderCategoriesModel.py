@@ -12,5 +12,6 @@ class ProviderCategories(Base):
     user_id = Column("user_id",Integer,ForeignKey(User.user_id),nullable=False)
     main_categories = Column("main_categories",String(255),nullable=False)
     sub_categories = Column("sub_categories",String(255),nullable=False)
+    subcategories_description = Column("subcategories_description",String(255),nullable=False)
 
 # users = relationship("Users", uselist=False, back_populates="users")
