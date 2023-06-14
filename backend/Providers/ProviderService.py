@@ -152,3 +152,36 @@ def logout():
         return jsonify({'message': 'Logout failed', 'error': str(e)})
 
 
+@providers_route.route('/switch_to_user',methods=['GET'])
+def switch_to_user():
+    from app import session
+    from app import app
+
+    token = request.headers.get('Authorization')
+    if not token:
+        return jsonify({'message': 'Token is missing'})
+
+    try:
+        decoded_token = jwt.decode(token, app.config['SECRET_KEY'])
+        user_id = decoded_token['user_id']
+
+        user = session.query(User).get(user_id)
+        
+
+        result = {
+            'user_id': user.user_id,
+            'username': user.username,
+            'account_type': 'provider',
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'email': user.email
+        }
+
+        return jsonify(result)
+
+    except jwt.ExpiredSignatureError:
+        return jsonify({'message': 'Token has expired'})
+    except jwt.InvalidTokenError:
+        return jsonify({'message': 'Invalid token'})
+
+
