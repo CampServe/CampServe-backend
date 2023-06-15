@@ -23,8 +23,8 @@ def store_ratings():
         comments = data['review']
         timestamp = data['timestamp']
 
-        ratings = session.query(Ratings).filter_by(
-            provider_id=provider_id).first()
+        # ratings = session.query(Ratings).filter_by(
+        #     provider_id=provider_id).first()
 
         ratings = Ratings(
             user_id=user_id,
