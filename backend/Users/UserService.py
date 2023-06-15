@@ -131,9 +131,9 @@ def switch_to_provider():
 
         user = session.query(User).get(user_id)
         provider = session.query(Providers).filter_by(user_id=user_id).first()
-    
+        expiration = decoded_token['expiration']
 
-        result = {
+        token = jwt.encode({
             'user_id': user.user_id,
             'username': user.username,
             'business_name': provider.business_name,
@@ -142,7 +142,12 @@ def switch_to_provider():
             'account_type': 'provider',
             'first_name': user.first_name,
             'last_name': user.last_name,
-            'email': user.email
+            'email': user.email,
+            'expiration': str(datetime.utcnow() + timedelta(days=1))
+        }, app.config['SECRET_KEY'])
+
+        result = {
+            'token': token
         }
 
         return jsonify(result)
