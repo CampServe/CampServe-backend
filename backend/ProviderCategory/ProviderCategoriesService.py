@@ -14,6 +14,7 @@ def get_services():
     from app import session
 
     data = session.query(
+        Providers.provider_id,
         Providers.user_id,
         Providers.provider_contact,
         Providers.business_name,
@@ -26,6 +27,7 @@ def get_services():
     result = {
         'data': [
             {
+                'provider_id': provider_id,
                 'user_id': user_id,
                 'provider_contact': provider_contact,
                 'business_name': business_name,
@@ -35,7 +37,7 @@ def get_services():
                 'subcategories_description': subcategories_description
 
             }
-            for user_id,  provider_contact, business_name, bio, main_categories, sub_categories, subcategories_description in data
+            for provider_id, user_id,  provider_contact, business_name, bio, main_categories, sub_categories, subcategories_description in data
         ]
     }
 
