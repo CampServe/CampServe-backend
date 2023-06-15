@@ -22,7 +22,7 @@ def store_and_get_ratings():
         comments = data['review']
 
 
-        ratings = session.query(Providers).filter_by(
+        ratings = session.query(Ratings).filter_by(
             provider_id=provider_id).first()
 
         if ratings:
