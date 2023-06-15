@@ -143,7 +143,7 @@ def switch_to_provider():
             'first_name': user.first_name,
             'last_name': user.last_name,
             'email': user.email,
-            'expiration': str(datetime.utcnow() + timedelta(days=1))
+            'expiration': expiration
         }, app.config['SECRET_KEY'])
 
         result = {

@@ -63,7 +63,7 @@ def sign_up(user_id):
             subcategory_name = subcategory['name']
             description = subcategory['description']
             categories = ProviderCategories(
-                user_id=user_id, main_categories=category_name, sub_categories=subcategory_name, subcategories_description=description)
+                user_id=user_id, main_categories=category_name, sub_categories=subcategory_name,subcategories_description=description)
             session.add(categories)
 
     session.commit()
@@ -132,11 +132,10 @@ def provider_login():
 
     return jsonify(result)
 
-
 @providers_route.route('/provider_logout', methods=['POST'])
 def logout():
     try:
-        # print(revoked_tokens)
+        #print(revoked_tokens)
         token = request.headers.get('Authorization')
 
         # Check if the token is revoked
@@ -145,14 +144,15 @@ def logout():
 
         # Add the token to the revoked token set
         revoked_tokens.add(token)
-        # print(revoked_tokens)
+        #print(revoked_tokens)
+
 
         return jsonify({'message': 'Logout successful'})
     except Exception as e:
         return jsonify({'message': 'Logout failed', 'error': str(e)})
 
 
-@providers_route.route('/switch_to_user', methods=['GET'])
+@providers_route.route('/switch_to_user',methods=['GET'])
 def switch_to_user():
     from app import session
     from app import app
@@ -164,24 +164,25 @@ def switch_to_user():
     try:
         decoded_token = jwt.decode(token, app.config['SECRET_KEY'])
         user_id = decoded_token['user_id']
+        expiration = decoded_token['expiration']
 
         user = session.query(User).get(user_id)
-
+        
         token = jwt.encode({
-            'username': user.username,
-            'user_id': user.user_id,
-            'first_name': user.first_name,
-            'last_name': user.last_name,
-            'email': user.email,
-            'is_service_provider': user.is_service_provider,
-            'account_type': 'regular user',
-            'expiration': str(datetime.utcnow() + timedelta(days=1))
-        },
-            app.config['SECRET_KEY'])
+                'username': user.username,
+                'user_id': user.user_id,
+                'first_name': user.first_name,
+                'last_name': user.last_name,
+                'email': user.email,
+                'is_service_provider': user.is_service_provider,
+                'account_type': 'regular user',
+                'expiration': expiration
+            },
+                app.config['SECRET_KEY'])
 
         result = {
-            'token': token
-        }
+                'token': token
+            }
 
         return jsonify(result)
 
@@ -189,3 +190,5 @@ def switch_to_user():
         return jsonify({'message': 'Token has expired'})
     except jwt.InvalidTokenError:
         return jsonify({'message': 'Invalid token'})
+
+
