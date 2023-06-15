@@ -15,7 +15,7 @@ class Ratings(Base):
     user_id = Column("user_id",Integer,ForeignKey(User.user_id),nullable=False)
     no_of_stars = Column("no_of_stars",Integer, nullable=False)
     comments = Column("comments", String(255), nullable=False)
-    timestamp = Column("timestamp",Date,nullable=False)
+    timestamp = Column("timestamp",String(255),nullable=False)
 
 # Relationships
 provider = relationship("Providers", back_populates="ratings")
