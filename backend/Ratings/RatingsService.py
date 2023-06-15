@@ -26,21 +26,14 @@ def store_ratings():
         ratings = session.query(Ratings).filter_by(
             provider_id=provider_id).first()
 
-        if ratings:
-            # Update existing providers ratings and comments
-            ratings.provider_id = provider_id
-            ratings.user_id = user_id,
-            ratings.no_of_stars = no_of_stars
-            ratings.comments = comments
-        else:
-            ratings = Ratings(
-                user_id=user_id,
-                provider_id=provider_id,
-                no_of_stars=no_of_stars,
-                comments=comments,
-                timestamp = timestamp
-            )
-            session.add(ratings)
+        ratings = Ratings(
+            user_id=user_id,
+            provider_id=provider_id,
+            no_of_stars=no_of_stars,
+            comments=comments,
+            timestamp=timestamp
+        )
+        session.add(ratings)
         session.commit()
         return jsonify({'message': 'Ratings stored successfully.'})
 
