@@ -21,24 +21,23 @@ def store_ratings():
         no_of_stars = data['ratings']
         comments = data['review']
 
+        # ratings = session.query(Ratings).filter_by(
+        #     provider_id=provider_id).first()
 
-        ratings = session.query(Ratings).filter_by(
-            provider_id=provider_id).first()
-
-        if ratings:
-            # Update existing providers ratings and comments
-            ratings.provider_id = provider_id
-            ratings.user_id = user_id,
-            ratings.no_of_stars = no_of_stars
-            ratings.comments = comments
-        else:
-            ratings = Ratings(
-                user_id=user_id,
-                provider_id=provider_id,
-                no_of_stars=no_of_stars,
-                comments=comments
-            )
-            session.add(ratings)
+        # if ratings:
+        #     # Update existing providers ratings and comments
+        #     ratings.provider_id = provider_id
+        #     ratings.user_id = user_id,
+        #     ratings.no_of_stars = no_of_stars
+        #     ratings.comments = comments
+        # else:
+        ratings = Ratings(
+            user_id=user_id,
+            provider_id=provider_id,
+            no_of_stars=no_of_stars,
+            comments=comments
+        )
+        session.add(ratings)
         session.commit()
 
         return jsonify({'message': 'Ratings stored successfully.'})
@@ -52,7 +51,6 @@ def get_ratings():
     try:
         from app import session
 
-        
         data = request.get_json()
 
         provider_id = data['provider_id']
@@ -75,7 +73,3 @@ def get_ratings():
 
     except Exception as e:
         return jsonify({'error': 'could not retrieve the information'})
-
-
-
-       
