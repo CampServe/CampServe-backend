@@ -6,6 +6,7 @@ from Students.StudentService import students_route
 from Providers.ProviderService import providers_route
 from ProviderCategory.ProviderCategoriesService import provider_categories_route
 from Users.UserService import users_route
+from Ratings.RatingsService import ratings_route
 from flask_cors import CORS
 from flask_mail import Mail
 
@@ -24,6 +25,7 @@ app.register_blueprint(students_route)
 app.register_blueprint(providers_route)
 app.register_blueprint(provider_categories_route)
 app.register_blueprint(users_route)
+app.register_blueprint(ratings_route)
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
