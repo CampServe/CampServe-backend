@@ -10,7 +10,7 @@ CORS(ratings_route)
 
 
 @ratings_route.route('/store_ratings', methods=['POST'])
-def store_and_get_ratings():
+def store_ratings():
     from app import session
 
     try:
