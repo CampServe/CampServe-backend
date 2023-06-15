@@ -1,3 +1,4 @@
+from sqlite3 import Date
 from sqlalchemy import String, Integer, Column, ForeignKey
 from sqlalchemy.orm import relationship
 from Providers.ProviderModel import Providers
@@ -14,6 +15,7 @@ class Ratings(Base):
     user_id = Column("user_id",Integer,ForeignKey(User.user_id),nullable=False)
     no_of_stars = Column("no_of_stars",Integer, nullable=False)
     comments = Column("comments", String(255), nullable=False)
+    timestamp = Column("timestamp",Date,nullable=False)
 
 # Relationships
 provider = relationship("Providers", back_populates="ratings")
