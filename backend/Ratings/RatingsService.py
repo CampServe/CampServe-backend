@@ -17,6 +17,12 @@ def store_ratings():
     try:
         data = request.get_json()
 
+        # user_id = request.json['user_id']
+        # provider_id = request.json['provider_id']
+        # no_of_stars = request.json['no_of_stars']
+        # comments = request.json['comments']
+        # timestamp = request.json['timestamp']
+
         user_id = data['id']
         provider_id = data['provider_id']
         no_of_stars = data['ratings']
