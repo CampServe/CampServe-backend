@@ -41,7 +41,7 @@ def store_ratings():
         return jsonify({'error': str(e)})
 
 
-@ratings_route.route('/get_ratings', methods=['GET'])
+@ratings_route.route('/get_ratings', methods=['POST'])
 def get_ratings():
     try:
         from app import session
@@ -53,17 +53,19 @@ def get_ratings():
         # Fetch ratings and user details for the given provider_id
         ratings = session.query(Ratings, User).join(User, Ratings.user_id == User.user_id)\
             .filter(Ratings.provider_id == provider_id).all()
-
+        
         rating_details = []
 
         for rating, user in ratings:
             rating_details.append({
+                'id':rating.rating_id,
                 'first_name': user.first_name,
                 'last_name': user.last_name,
-                'no_of_stars': rating.no_of_stars,
-                'comments': rating.comments
+                'stars': rating.no_of_stars,
+                'review': rating.comments,
+                'timestamp':rating.timestamp
             })
-
+        
         return jsonify(rating_details)
 
     except Exception as e:
