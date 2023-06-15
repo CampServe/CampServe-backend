@@ -9,7 +9,7 @@ ratings_route = Blueprint("ratings_route", __name__)
 CORS(ratings_route)
 
 
-@ratings_route.route('/store_ratings', methods=['GET'])
+@ratings_route.route('/store_ratings', methods=['POST'])
 def store_and_get_ratings():
     from app import session
 
