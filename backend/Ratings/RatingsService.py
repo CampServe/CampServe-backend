@@ -16,34 +16,38 @@ def store_ratings():
     try:
         data = request.get_json()
 
+        # user_id = request.json['user_id']
+        # provider_id = request.json['provider_id']
+        # no_of_stars = request.json['no_of_stars']
+        # comments = request.json['comments']
+
         user_id = data['id']
         provider_id = data['provider_id']
         no_of_stars = data['ratings']
         comments = data['review']
 
-        # ratings = session.query(Ratings).filter_by(
-        #     provider_id=provider_id).first()
+        ratings = session.query(Ratings).filter_by(
+            provider_id=provider_id).first()
 
-        # if ratings:
-        #     # Update existing providers ratings and comments
-        #     ratings.provider_id = provider_id
-        #     ratings.user_id = user_id,
-        #     ratings.no_of_stars = no_of_stars
-        #     ratings.comments = comments
-        # else:
-        ratings = Ratings(
-            user_id=user_id,
-            provider_id=provider_id,
-            no_of_stars=no_of_stars,
-            comments=comments
-        )
-        session.add(ratings)
+        if ratings:
+            # Update existing providers ratings and comments
+            ratings.provider_id = provider_id
+            ratings.user_id = user_id,
+            ratings.no_of_stars = no_of_stars
+            ratings.comments = comments
+        else:
+            ratings = Ratings(
+                user_id=user_id,
+                provider_id=provider_id,
+                no_of_stars=no_of_stars,
+                comments=comments
+            )
+            session.add(ratings)
         session.commit()
-
         return jsonify({'message': 'Ratings stored successfully.'})
 
     except Exception as e:
-        return jsonify({'error': 'Could not store ratings.'})
+        return jsonify({'error': str(e)})
 
 
 @ratings_route.route('/get_ratings', methods=['GET'])
