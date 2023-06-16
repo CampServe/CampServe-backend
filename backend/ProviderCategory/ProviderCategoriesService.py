@@ -90,13 +90,19 @@ def get_services():
                 'main_categories': main_categories,
                 'sub_categories': sub_categories,
                 'subcategories_description': subcategories_description,
-                'no_of_stars': ratings if ratings else []
+                'no_of_stars': [] if ratings is None else ratings
             }
             for provider_id, user_id, provider_contact, business_name, bio, main_categories, sub_categories, subcategories_description, ratings in data
         ]
     }
 
     return jsonify(result)
+
+
+
+
+
+
 
 
 
