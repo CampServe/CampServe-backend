@@ -134,7 +134,7 @@ def switch_to_provider():
         provider = session.query(Providers).filter_by(user_id=user_id).first()
         expiration = decoded_token['expiration']
 
-        decoded_token = {
+        token = jwt.encode({
             'user_id': user.user_id,
             'username': user.username,
             'business_name': provider.business_name,
@@ -146,9 +146,13 @@ def switch_to_provider():
             'email': user.email,
             'expiration': expiration
         },
+                app.secret_key)
+        
+        result = {
+            'token': token
+            }
 
-       
-        return jsonify(decoded_token)
+        return jsonify(result)
 
     except jwt.ExpiredSignatureError:
         return jsonify({'message': 'Token has expired'})
