@@ -18,4 +18,4 @@ class Ratings(Base):
     timestamp = Column("timestamp",String(255),nullable=False)
 
 # Relationships
-provider = relationship("Providers", back_populates="ratings")
+provider = relationship("providers",uselist=False,back_populates="providers")
