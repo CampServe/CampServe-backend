@@ -76,7 +76,7 @@ def login():
                 'account_type': 'regular user',
                 'expiration': str(datetime.utcnow() + timedelta(days=1))
             },
-                app.config['SECRET_KEY'])
+                app.secret_key)
 
             result = {
                 'token': token
@@ -116,24 +116,25 @@ def logout():
         return jsonify({'message': 'Logout failed', 'error': str(e)})
 
 
+
 @users_route.route('/switch_to_provider', methods=['GET'])
 def switch_to_provider():
     from app import session
     from app import app
 
     token = request.headers.get('Authorization')
-    if not token:
-        return jsonify({'message': 'Token is missing'})
+    # print(token)
 
     try:
-        decoded_token = jwt.decode(token, app.config['SECRET_KEY'])
+        decoded_token = jwt.decode(token, app.secret_key, algorithms=['HS256'])
+        # print(f"decoded token: {decoded_token}")
         user_id = decoded_token['user_id']
 
         user = session.query(User).get(user_id)
         provider = session.query(Providers).filter_by(user_id=user_id).first()
         expiration = decoded_token['expiration']
 
-        token = jwt.encode({
+        decoded_token = {
             'user_id': user.user_id,
             'username': user.username,
             'business_name': provider.business_name,
@@ -144,15 +145,15 @@ def switch_to_provider():
             'last_name': user.last_name,
             'email': user.email,
             'expiration': expiration
-        }, app.config['SECRET_KEY'])
+        },
 
-        result = {
-            'token': token
-        }
-
-        return jsonify(result)
+       
+        return jsonify(decoded_token)
 
     except jwt.ExpiredSignatureError:
         return jsonify({'message': 'Token has expired'})
     except jwt.InvalidTokenError:
         return jsonify({'message': 'Invalid token'})
+    except Exception as e:
+        print(f"Exception: {e}")
+        return jsonify({'message': 'An error occurred'})
