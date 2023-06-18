@@ -23,21 +23,20 @@ def add_user():
     last_name = request.json['last_name']
     username = request.json['username'].lower()
     password = request.json['password']
-    email = request.json['email']
 
-    # if 'email' in session:
-    #     user_email = session['email']
+    if 'email' in session:
+        user_email = session['email']
 
     hashed_password = generate_password_hash(password)
 
     check_username = s.query(User).filter_by(username=username).first()
-    #check_email = s.query(User).filter_by(email=user_email).first()
+    check_email = s.query(User).filter_by(email=user_email).first()
     if check_username:
         result = {
             'status': 'user already exists'
         }
 
-    #elif check_email:
+    elif check_email:
         result = {
             'status': 'user with that email already exists'
         }
