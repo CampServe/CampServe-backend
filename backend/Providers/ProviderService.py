@@ -164,7 +164,7 @@ def switch_to_user():
         return jsonify({'message': 'Token is missing'})
 
     try:
-        decoded_token = jwt.decode(token, app.config['SECRET_KEY'])
+        decoded_token = jwt.decode(token, app.secret_key, algorithms=['HS256'])
         user_id = decoded_token['user_id']
         expiration = decoded_token['expiration']
 
@@ -180,7 +180,7 @@ def switch_to_user():
                 'account_type': 'regular user',
                 'expiration': expiration
             },
-                app.config['SECRET_KEY'])
+                app.secret_key)
 
         result = {
                 'token': token
@@ -192,5 +192,8 @@ def switch_to_user():
         return jsonify({'message': 'Token has expired'})
     except jwt.InvalidTokenError:
         return jsonify({'message': 'Invalid token'})
+    except Exception as e:
+        print(f"Exception: {e}")
+        return jsonify({'message': 'An error occurred'})
 
 
