@@ -21,28 +21,29 @@ def add_user():
     from app import session as s
     first_name = request.json['first_name']
     last_name = request.json['last_name']
-    username = request.json['username']
+    username = request.json['username'].lower()
     password = request.json['password']
+    email = request.json['email']
 
-    if 'email' in session:
-        user_email = session['email']
+    # if 'email' in session:
+    #     user_email = session['email']
 
     hashed_password = generate_password_hash(password)
 
     check_username = s.query(User).filter_by(username=username).first()
-    check_email = s.query(User).filter_by(email=user_email).first()
+    #check_email = s.query(User).filter_by(email=user_email).first()
     if check_username:
         result = {
             'status': 'user already exists'
         }
 
-    elif check_email:
+    #elif check_email:
         result = {
             'status': 'user with that email already exists'
         }
     else:
         user = User(first_name=first_name, last_name=last_name, username=username,
-                    password=hashed_password, email=user_email, is_service_provider=False)
+                    password=hashed_password, email=email, is_service_provider=False)
         s.add(user)
         s.commit()
 
@@ -56,7 +57,7 @@ def add_user():
 def login():
     from app import session
     from app import app
-    username = request.json['username']
+    username = request.json['username'].lower()
     password = request.json['password']
 
     user = session.query(User).filter_by(username=username).first()
