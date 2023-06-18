@@ -79,7 +79,7 @@ def sign_up(user_id):
 def provider_login():
     from app import session
     from app import app
-    username = request.json['username']
+    username = request.json['username'].lower()
     password = request.json['password']
 
     # Find the user in the users table
