@@ -136,6 +136,7 @@ def switch_to_provider():
 
         token = jwt.encode({
             'user_id': user.user_id,
+            'provider_id': provider.provider_id,
             'username': user.username,
             'business_name': provider.business_name,
             'bio': provider.bio,
