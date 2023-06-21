@@ -1,5 +1,272 @@
 [
     {
+        "label": "Paystack",
+        "importPath": "pypaystack2",
+        "description": "pypaystack2",
+        "isExtraImport": true,
+        "detail": "pypaystack2",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "ssl",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "ssl",
+        "description": "ssl",
+        "detail": "ssl",
+        "documentation": {}
+    },
+    {
+        "label": "http.client",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "http.client",
+        "description": "http.client",
+        "detail": "http.client",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
         "label": "String",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
@@ -57,6 +324,14 @@
     },
     {
         "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "func",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
         "isExtraImport": true,
@@ -224,6 +499,14 @@
         "documentation": {}
     },
     {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "relationship",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
@@ -296,6 +579,46 @@
         "documentation": {}
     },
     {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
         "label": "Providers",
         "importPath": "Providers.ProviderModel",
         "description": "Providers.ProviderModel",
@@ -392,11 +715,11 @@
         "documentation": {}
     },
     {
-        "label": "Students",
-        "importPath": "Students.StudentModel",
-        "description": "Students.StudentModel",
+        "label": "Base",
+        "importPath": "base",
+        "description": "base",
         "isExtraImport": true,
-        "detail": "Students.StudentModel",
+        "detail": "base",
         "documentation": {}
     },
     {
@@ -432,187 +755,11 @@
         "documentation": {}
     },
     {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
+        "label": "Students",
+        "importPath": "Students.StudentModel",
+        "description": "Students.StudentModel",
         "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "jsonify",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Blueprint",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "jsonify",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Blueprint",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "jsonify",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Blueprint",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "jsonify",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Blueprint",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Flask",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "check_password_hash",
-        "importPath": "werkzeug.security",
-        "description": "werkzeug.security",
-        "isExtraImport": true,
-        "detail": "werkzeug.security",
-        "documentation": {}
-    },
-    {
-        "label": "generate_password_hash",
-        "importPath": "werkzeug.security",
-        "description": "werkzeug.security",
-        "isExtraImport": true,
-        "detail": "werkzeug.security",
-        "documentation": {}
-    },
-    {
-        "label": "check_password_hash",
-        "importPath": "werkzeug.security",
-        "description": "werkzeug.security",
-        "isExtraImport": true,
-        "detail": "werkzeug.security",
-        "documentation": {}
-    },
-    {
-        "label": "generate_password_hash",
-        "importPath": "werkzeug.security",
-        "description": "werkzeug.security",
-        "isExtraImport": true,
-        "detail": "werkzeug.security",
-        "documentation": {}
-    },
-    {
-        "label": "check_password_hash",
-        "importPath": "werkzeug.security",
-        "description": "werkzeug.security",
-        "isExtraImport": true,
-        "detail": "werkzeug.security",
+        "detail": "Students.StudentModel",
         "documentation": {}
     },
     {
@@ -621,6 +768,274 @@
         "description": "Users.UserModel",
         "isExtraImport": true,
         "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "ProviderCategories",
+        "importPath": "ProviderCategory.ProviderCategoriesModel",
+        "description": "ProviderCategory.ProviderCategoriesModel",
+        "isExtraImport": true,
+        "detail": "ProviderCategory.ProviderCategoriesModel",
+        "documentation": {}
+    },
+    {
+        "label": "ProviderCategories",
+        "importPath": "ProviderCategory.ProviderCategoriesModel",
+        "description": "ProviderCategory.ProviderCategoriesModel",
+        "isExtraImport": true,
+        "detail": "ProviderCategory.ProviderCategoriesModel",
+        "documentation": {}
+    },
+    {
+        "label": "Ratings",
+        "importPath": "Ratings.RatingsModel",
+        "description": "Ratings.RatingsModel",
+        "isExtraImport": true,
+        "detail": "Ratings.RatingsModel",
+        "documentation": {}
+    },
+    {
+        "label": "Ratings",
+        "importPath": "Ratings.RatingsModel",
+        "description": "Ratings.RatingsModel",
+        "isExtraImport": true,
+        "detail": "Ratings.RatingsModel",
+        "documentation": {}
+    },
+    {
+        "label": "check_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "generate_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "check_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "generate_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "check_password_hash",
+        "importPath": "werkzeug.security",
+        "description": "werkzeug.security",
+        "isExtraImport": true,
+        "detail": "werkzeug.security",
+        "documentation": {}
+    },
+    {
+        "label": "jwt",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "jwt",
+        "description": "jwt",
+        "detail": "jwt",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Date",
+        "importPath": "sqlite3",
+        "description": "sqlite3",
+        "isExtraImport": true,
+        "detail": "sqlite3",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "Message",
+        "importPath": "flask_mail",
+        "description": "flask_mail",
+        "isExtraImport": true,
+        "detail": "flask_mail",
+        "documentation": {}
+    },
+    {
+        "label": "Mail",
+        "importPath": "flask_mail",
+        "description": "flask_mail",
+        "isExtraImport": true,
+        "detail": "flask_mail",
+        "documentation": {}
+    },
+    {
+        "label": "Mail",
+        "importPath": "flask_mail",
+        "description": "flask_mail",
+        "isExtraImport": true,
+        "detail": "flask_mail",
+        "documentation": {}
+    },
+    {
+        "label": "generate_otp",
+        "importPath": "Students.otp_service",
+        "description": "Students.otp_service",
+        "isExtraImport": true,
+        "detail": "Students.otp_service",
+        "documentation": {}
+    },
+    {
+        "label": "save_otp",
+        "importPath": "Students.otp_service",
+        "description": "Students.otp_service",
+        "isExtraImport": true,
+        "detail": "Students.otp_service",
+        "documentation": {}
+    },
+    {
+        "label": "retrieve_otp",
+        "importPath": "Students.otp_service",
+        "description": "Students.otp_service",
+        "isExtraImport": true,
+        "detail": "Students.otp_service",
+        "documentation": {}
+    },
+    {
+        "label": "clear_otp",
+        "importPath": "Students.otp_service",
+        "description": "Students.otp_service",
+        "isExtraImport": true,
+        "detail": "Students.otp_service",
+        "documentation": {}
+    },
+    {
+        "label": "send_otp_email",
+        "importPath": "Students.otp_service",
+        "description": "Students.otp_service",
+        "isExtraImport": true,
+        "detail": "Students.otp_service",
+        "documentation": {}
+    },
+    {
+        "label": "email",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "email",
+        "description": "email",
+        "detail": "email",
+        "documentation": {}
+    },
+    {
+        "label": "students_route",
+        "importPath": "Students.StudentService",
+        "description": "Students.StudentService",
+        "isExtraImport": true,
+        "detail": "Students.StudentService",
         "documentation": {}
     },
     {
@@ -640,6 +1055,22 @@
         "documentation": {}
     },
     {
+        "label": "providers_route",
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "provider_categories_route",
+        "importPath": "ProviderCategory.ProviderCategoriesService",
+        "description": "ProviderCategory.ProviderCategoriesService",
+        "isExtraImport": true,
+        "detail": "ProviderCategory.ProviderCategoriesService",
+        "documentation": {}
+    },
+    {
         "label": "provider_categories_route",
         "importPath": "ProviderCategory.ProviderCategoriesService",
         "description": "ProviderCategory.ProviderCategoriesService",
@@ -656,6 +1087,76 @@
         "documentation": {}
     },
     {
+        "label": "users_route",
+        "importPath": "Users.UserService",
+        "description": "Users.UserService",
+        "isExtraImport": true,
+        "detail": "Users.UserService",
+        "documentation": {}
+    },
+    {
+        "label": "ratings_route",
+        "importPath": "Ratings.RatingsService",
+        "description": "Ratings.RatingsService",
+        "isExtraImport": true,
+        "detail": "Ratings.RatingsService",
+        "documentation": {}
+    },
+    {
+        "label": "ssl_context",
+        "kind": 5,
+        "importPath": "Paystack.payment",
+        "description": "Paystack.payment",
+        "peekOfCode": "ssl_context = ssl.create_default_context(\ncafile='/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/certifi/cacert.pem')\npaystack = Paystack(auth_key='sk_test_7c2e2eec657534c8fef2b7fe4c3cb81270e29402')\nheaders = {\n    \"Authorization\": \"Bearer sk_test_7c2e2eec657534c8fef2b7fe4c3cb81270e29402\",\n    \"Content-Type\": \"application/json\"\n}\n#creating a customer\nnew_customer = paystack.customers.create(\n    email=\"jeffkwakye17@gmail.com\",",
+        "detail": "Paystack.payment",
+        "documentation": {}
+    },
+    {
+        "label": "paystack",
+        "kind": 5,
+        "importPath": "Paystack.payment",
+        "description": "Paystack.payment",
+        "peekOfCode": "paystack = Paystack(auth_key='sk_test_7c2e2eec657534c8fef2b7fe4c3cb81270e29402')\nheaders = {\n    \"Authorization\": \"Bearer sk_test_7c2e2eec657534c8fef2b7fe4c3cb81270e29402\",\n    \"Content-Type\": \"application/json\"\n}\n#creating a customer\nnew_customer = paystack.customers.create(\n    email=\"jeffkwakye17@gmail.com\",\n    first_name=\"Jeffrey\",\n    last_name=\"Kwakye\",",
+        "detail": "Paystack.payment",
+        "documentation": {}
+    },
+    {
+        "label": "headers",
+        "kind": 5,
+        "importPath": "Paystack.payment",
+        "description": "Paystack.payment",
+        "peekOfCode": "headers = {\n    \"Authorization\": \"Bearer sk_test_7c2e2eec657534c8fef2b7fe4c3cb81270e29402\",\n    \"Content-Type\": \"application/json\"\n}\n#creating a customer\nnew_customer = paystack.customers.create(\n    email=\"jeffkwakye17@gmail.com\",\n    first_name=\"Jeffrey\",\n    last_name=\"Kwakye\",\n    phone=\"+233501334031\"",
+        "detail": "Paystack.payment",
+        "documentation": {}
+    },
+    {
+        "label": "new_customer",
+        "kind": 5,
+        "importPath": "Paystack.payment",
+        "description": "Paystack.payment",
+        "peekOfCode": "new_customer = paystack.customers.create(\n    email=\"jeffkwakye17@gmail.com\",\n    first_name=\"Jeffrey\",\n    last_name=\"Kwakye\",\n    phone=\"+233501334031\"\n)\n# Mobile money payments\nmobile_money = {\n    \"email\": \"jeffkwakye17@gmail.com\",\n    \"amount\": \"50\",",
+        "detail": "Paystack.payment",
+        "documentation": {}
+    },
+    {
+        "label": "mobile_money",
+        "kind": 5,
+        "importPath": "Paystack.payment",
+        "description": "Paystack.payment",
+        "peekOfCode": "mobile_money = {\n    \"email\": \"jeffkwakye17@gmail.com\",\n    \"amount\": \"50\",\n    \"currency\": \"GHS\",\n    \"mobile_money\": {\n        \"phone\": \"0551234987\",\n        \"provider\": \"tgo\"\n    }\n}\nconn = http.client.HTTPSConnection(\"api.paystack.co\", 443, context=ssl_context)",
+        "detail": "Paystack.payment",
+        "documentation": {}
+    },
+    {
+        "label": "conn",
+        "kind": 5,
+        "importPath": "Paystack.payment",
+        "description": "Paystack.payment",
+        "peekOfCode": "conn = http.client.HTTPSConnection(\"api.paystack.co\", 443, context=ssl_context)\ntry:\n    payload = json.dumps(mobile_money)\n    conn.request(\"POST\", \"/charge\", payload, headers)\n    # get response from server\n    res = conn.getresponse()\n    # decode response from server\n    data = res.read().decode(\"utf-8\")\n    print(json.loads(data))\n    # d = json.loads(data)",
+        "detail": "Paystack.payment",
+        "documentation": {}
+    },
+    {
         "label": "Product",
         "kind": 6,
         "importPath": "Product.ProductModel",
@@ -669,8 +1170,17 @@
         "kind": 6,
         "importPath": "ProviderCategory.ProviderCategoriesModel",
         "description": "ProviderCategory.ProviderCategoriesModel",
-        "peekOfCode": "class ProviderCategories(Base):\n    __tablename__ = \"provider_categories\"\n    category_id = Column(\"category_id\",Integer,primary_key =True,autoincrement=True)\n    student_id = Column(\"student_id\",Integer,ForeignKey(Students.student_id),nullable=False)\n    main_categories = Column(\"main_categories\",String(255),nullable=False)\n    sub_categories = Column(\"sub_categories\",String(255),nullable=False)",
+        "peekOfCode": "class ProviderCategories(Base):\n    __tablename__ = \"provider_categories\"\n    category_id = Column(\"category_id\",Integer,primary_key =True,autoincrement=True)\n    user_id = Column(\"user_id\",Integer,ForeignKey(User.user_id),nullable=False)\n    main_categories = Column(\"main_categories\",String(255),nullable=False)\n    sub_categories = Column(\"sub_categories\",String(255),nullable=False)\n    subcategories_description = Column(\"subcategories_description\",String(255),nullable=False)\n# users = relationship(\"Users\", uselist=False, back_populates=\"users\")",
         "detail": "ProviderCategory.ProviderCategoriesModel",
+        "documentation": {}
+    },
+    {
+        "label": "get_services",
+        "kind": 2,
+        "importPath": "ProviderCategory.ProviderCategoriesService",
+        "description": "ProviderCategory.ProviderCategoriesService",
+        "peekOfCode": "def get_services():\n    from app import session\n    # SQL query to fetch the provider IDs with non-null no_of_stars\n    rated_providers_query = session.query(Ratings.provider_id).filter(Ratings.no_of_stars.isnot(None)).distinct().subquery()\n    # Fetch all services with joined provider and category information\n    data = session.query(\n        Providers.provider_id,\n        Providers.user_id,\n        Providers.provider_contact,\n        Providers.business_name,",
+        "detail": "ProviderCategory.ProviderCategoriesService",
         "documentation": {}
     },
     {
@@ -678,7 +1188,7 @@
         "kind": 5,
         "importPath": "ProviderCategory.ProviderCategoriesService",
         "description": "ProviderCategory.ProviderCategoriesService",
-        "peekOfCode": "provider_categories_route = Blueprint(\"provider_categories_route\", __name__)\nCORS(provider_categories_route)\n#2 routs\n#1. to return all the main categories associated with a particular student id\n#2. to return all the sub categories associated with a particular student id",
+        "peekOfCode": "provider_categories_route = Blueprint(\"provider_categories_route\", __name__)\nCORS(provider_categories_route)\n# @provider_categories_route.route(\"/get_all_services\", methods=['GET'])\n# def get_services():\n#     from app import session\n#     data = session.query(\n#         Providers.provider_id,\n#         Providers.user_id,\n#         Providers.provider_contact,\n#         Providers.business_name,",
         "detail": "ProviderCategory.ProviderCategoriesService",
         "documentation": {}
     },
@@ -687,7 +1197,7 @@
         "kind": 6,
         "importPath": "Providers.ProviderModel",
         "description": "Providers.ProviderModel",
-        "peekOfCode": "class Providers(Base):\n    __tablename__ = \"providers\"\n    provider_id = Column(\"provider_id\",Integer, primary_key=True, autoincrement=True)\n    student_id = Column(\"student_id\",Integer, ForeignKey(Students.student_id), nullable=False)\n    profile_pic = Column(\"profile_pic\",String(255), nullable=True, default=None)\n    banner_image = Column(\"banner_image\",String(255), nullable=True, default=None)\n    provider_contact = Column(\"provider_contact\",String(255), nullable=True, default=None)\n    business_name = Column(\"business_name\",String(255), nullable=True, default=None)\n    bio = Column(\"bio\",String(255), nullable=True, default=None)\n# Relationships",
+        "peekOfCode": "class Providers(Base):\n    __tablename__ = \"providers\"\n    provider_id = Column(\"provider_id\",Integer, primary_key=True, autoincrement=True)\n    user_id = Column(\"user_id\",Integer, ForeignKey(User.user_id), nullable=False)\n    provider_contact = Column(\"provider_contact\",String(255), nullable=True, default=None)\n    business_name = Column(\"business_name\",String(255), nullable=True, default=None)\n    bio = Column(\"bio\",String(255), nullable=True, default=None)\n# Relationships\nratings = relationship(\"Ratings\", uselist=False, back_populates=\"provider\")\nproduct = relationship(\"Product\", uselist=False, back_populates=\"provider\")",
         "detail": "Providers.ProviderModel",
         "documentation": {}
     },
@@ -696,7 +1206,7 @@
         "kind": 5,
         "importPath": "Providers.ProviderModel",
         "description": "Providers.ProviderModel",
-        "peekOfCode": "ratings = relationship(\"Ratings\", uselist=False, back_populates=\"provider\")\nproduct = relationship(\"Product\", uselist=False, back_populates=\"provider\")",
+        "peekOfCode": "ratings = relationship(\"Ratings\", uselist=False, back_populates=\"provider\")\nproduct = relationship(\"Product\", uselist=False, back_populates=\"provider\")\nusers = relationship(\"Users\", uselist=False, back_populates=\"users\")",
         "detail": "Providers.ProviderModel",
         "documentation": {}
     },
@@ -705,7 +1215,16 @@
         "kind": 5,
         "importPath": "Providers.ProviderModel",
         "description": "Providers.ProviderModel",
-        "peekOfCode": "product = relationship(\"Product\", uselist=False, back_populates=\"provider\")",
+        "peekOfCode": "product = relationship(\"Product\", uselist=False, back_populates=\"provider\")\nusers = relationship(\"Users\", uselist=False, back_populates=\"users\")",
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "users",
+        "kind": 5,
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "peekOfCode": "users = relationship(\"Users\", uselist=False, back_populates=\"users\")",
         "detail": "Providers.ProviderModel",
         "documentation": {}
     },
@@ -714,7 +1233,7 @@
         "kind": 2,
         "importPath": "Providers.ProviderService",
         "description": "Providers.ProviderService",
-        "peekOfCode": "def sign_up():\n    from app import session\n    username = request.json['username']\n    ref_number = request.json['ref_number']\n    password = request.json['password']\n    student = session.query(Students).filter_by(username=username).first()\n    if student and ref_number and check_password_hash(pwhash=student.password, password=password):\n        provider = Providers(student_id=student.student_id)\n        session.add(provider)\n        session.commit()",
+        "peekOfCode": "def sign_up(user_id):\n    from app import session\n    # getting the selected categories from a provider\n    data = request.get_json()\n    # provider information when signing up\n    provider_contact = request.json['provider_contact']\n    bio = request.json['bio']\n    business_name = request.json['business_name']\n    # using the user id to change the provider status\n    user = session.query(User).filter_by(user_id=user_id).first()",
         "detail": "Providers.ProviderService",
         "documentation": {}
     },
@@ -723,25 +1242,25 @@
         "kind": 2,
         "importPath": "Providers.ProviderService",
         "description": "Providers.ProviderService",
-        "peekOfCode": "def provider_login():\n    from app import session\n    username = request.json['username']\n    password = request.json['password']\n    student = session.query(Students).filter_by(username=username).first()\n    if student:\n        verify = check_password_hash(pwhash=student.password, password=password)\n        if verify:\n            result = {\n                'student_id': student.student_id,",
+        "peekOfCode": "def provider_login():\n    from app import session\n    from app import app\n    username = request.json['username'].lower()\n    password = request.json['password']\n    # Find the user in the users table\n    user = session.query(User).filter_by(username=username).first()\n    if user:\n        # Check if the user is also a provider\n        provider = session.query(Providers).filter_by(",
         "detail": "Providers.ProviderService",
         "documentation": {}
     },
     {
-        "label": "check_if_provider",
+        "label": "logout",
         "kind": 2,
         "importPath": "Providers.ProviderService",
         "description": "Providers.ProviderService",
-        "peekOfCode": "def check_if_provider(student_id):\n    from app import session\n    provider = session.query(Providers).filter_by(student_id=student_id).first()\n    if provider:\n        return jsonify({'message': 'provider found'})\n    else:\n        return jsonify({'message': 'provider not found'})\n@providers_route.route(\"/update_provider_data/<student_id>\", methods=['POST'])\ndef update_provider_data(student_id):\n    from app import session",
+        "peekOfCode": "def logout():\n    try:\n        #print(revoked_tokens)\n        token = request.headers.get('Authorization')\n        # Check if the token is revoked\n        if token in revoked_tokens:\n            return jsonify({'message': 'Token has already been revoked'})\n        # Add the token to the revoked token set\n        revoked_tokens.add(token)\n        #print(revoked_tokens)",
         "detail": "Providers.ProviderService",
         "documentation": {}
     },
     {
-        "label": "update_provider_data",
+        "label": "switch_to_user",
         "kind": 2,
         "importPath": "Providers.ProviderService",
         "description": "Providers.ProviderService",
-        "peekOfCode": "def update_provider_data(student_id):\n    from app import session\n    provider = session.query(Providers).filter_by(student_id=student_id).first()\n    # if provider:\n    provider_contact = request.json['contact']\n    profile_pic = request.json['picture']\n    bio = request.json['bio']\n    banner_image = request.json['banner_image']\n    business_name = request.json['business_name']\n    provider.provider_contact = provider_contact",
+        "peekOfCode": "def switch_to_user():\n    from app import session\n    from app import app\n    token = request.headers.get('Authorization')\n    print(token)\n    if not token:\n        return jsonify({'message': 'Token is missing'})\n    try:\n        decoded_token = jwt.decode(token, app.secret_key, algorithms=['HS256'])\n        user_id = decoded_token['user_id']",
         "detail": "Providers.ProviderService",
         "documentation": {}
     },
@@ -750,7 +1269,16 @@
         "kind": 5,
         "importPath": "Providers.ProviderService",
         "description": "Providers.ProviderService",
-        "peekOfCode": "providers_route = Blueprint(\"providers_route\", __name__)\nCORS(providers_route)\n@providers_route.route(\"/signup_as_provider\", methods=['POST'])\ndef sign_up():\n    from app import session\n    username = request.json['username']\n    ref_number = request.json['ref_number']\n    password = request.json['password']\n    student = session.query(Students).filter_by(username=username).first()\n    if student and ref_number and check_password_hash(pwhash=student.password, password=password):",
+        "peekOfCode": "providers_route = Blueprint(\"providers_route\", __name__)\nCORS(providers_route)\nrevoked_tokens = set()\n@providers_route.route(\"/signup_as_provider/<user_id>\", methods=['POST'])\ndef sign_up(user_id):\n    from app import session\n    # getting the selected categories from a provider\n    data = request.get_json()\n    # provider information when signing up\n    provider_contact = request.json['provider_contact']",
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "revoked_tokens",
+        "kind": 5,
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "peekOfCode": "revoked_tokens = set()\n@providers_route.route(\"/signup_as_provider/<user_id>\", methods=['POST'])\ndef sign_up(user_id):\n    from app import session\n    # getting the selected categories from a provider\n    data = request.get_json()\n    # provider information when signing up\n    provider_contact = request.json['provider_contact']\n    bio = request.json['bio']\n    business_name = request.json['business_name']",
         "detail": "Providers.ProviderService",
         "documentation": {}
     },
@@ -759,7 +1287,7 @@
         "kind": 6,
         "importPath": "Ratings.RatingsModel",
         "description": "Ratings.RatingsModel",
-        "peekOfCode": "class Ratings(Base):\n    __tablename__ = \"ratings\"\n    rating_id = Column(Integer, primary_key=True, nullable=False)\n    provider_id = Column(Integer, ForeignKey(Providers.provider_id), nullable=False)\n    no_of_stars = Column(Integer, nullable=False)\n    comments = Column(String(255), nullable=False)\n# Relationships\nprovider = relationship(\"Providers\", back_populates=\"ratings\")",
+        "peekOfCode": "class Ratings(Base):\n    __tablename__ = \"ratings\"\n    rating_id = Column(\"rating_id\", Integer, primary_key=True, nullable=False)\n    provider_id = Column(\"provider_id\",Integer, ForeignKey(Providers.provider_id), nullable=False)\n    user_id = Column(\"user_id\",Integer,ForeignKey(User.user_id),nullable=False)\n    no_of_stars = Column(\"no_of_stars\",Integer, nullable=False)\n    comments = Column(\"comments\", String(255), nullable=False)\n    timestamp = Column(\"timestamp\",String(255),nullable=False)\n# Relationships\nprovider = relationship(\"providers\",uselist=False,back_populates=\"providers\")",
         "detail": "Ratings.RatingsModel",
         "documentation": {}
     },
@@ -768,8 +1296,89 @@
         "kind": 5,
         "importPath": "Ratings.RatingsModel",
         "description": "Ratings.RatingsModel",
-        "peekOfCode": "provider = relationship(\"Providers\", back_populates=\"ratings\")",
+        "peekOfCode": "provider = relationship(\"providers\",uselist=False,back_populates=\"providers\")",
         "detail": "Ratings.RatingsModel",
+        "documentation": {}
+    },
+    {
+        "label": "store_ratings",
+        "kind": 2,
+        "importPath": "Ratings.RatingsService",
+        "description": "Ratings.RatingsService",
+        "peekOfCode": "def store_ratings():\n    from app import session\n    try:\n        data = request.get_json()\n        user_id = data['id']\n        provider_id = data['provider_id']\n        no_of_stars = data['ratings']\n        comments = data['review']\n        timestamp = data['timestamp']\n        ratings = Ratings(",
+        "detail": "Ratings.RatingsService",
+        "documentation": {}
+    },
+    {
+        "label": "get_ratings",
+        "kind": 2,
+        "importPath": "Ratings.RatingsService",
+        "description": "Ratings.RatingsService",
+        "peekOfCode": "def get_ratings():\n    try:\n        from app import session\n        data = request.get_json()\n        provider_id = data['provider_id']\n        # Fetch ratings and user details for the given provider_id\n        ratings = session.query(Ratings, User).join(User, Ratings.user_id == User.user_id)\\\n            .filter(Ratings.provider_id == provider_id).all()\n        rating_details = []\n        for rating, user in ratings:",
+        "detail": "Ratings.RatingsService",
+        "documentation": {}
+    },
+    {
+        "label": "ratings_route",
+        "kind": 5,
+        "importPath": "Ratings.RatingsService",
+        "description": "Ratings.RatingsService",
+        "peekOfCode": "ratings_route = Blueprint(\"ratings_route\", __name__)\nCORS(ratings_route)\n@ratings_route.route('/store_ratings', methods=['POST'])\ndef store_ratings():\n    from app import session\n    try:\n        data = request.get_json()\n        user_id = data['id']\n        provider_id = data['provider_id']\n        no_of_stars = data['ratings']",
+        "detail": "Ratings.RatingsService",
+        "documentation": {}
+    },
+    {
+        "label": "generate_otp",
+        "kind": 2,
+        "importPath": "Students.otp_service",
+        "description": "Students.otp_service",
+        "peekOfCode": "def generate_otp():\n    return str(random.randint(100000, 999999))\ndef save_otp(email, otp, otp_expiration):\n    otp_storage[email] = (otp, otp_expiration)\ndef retrieve_otp(email):\n    return otp_storage.get(email, (None, None))\ndef clear_otp(email):\n    if email in otp_storage:\n        del otp_storage[email]\ndef send_otp_email(email, otp):",
+        "detail": "Students.otp_service",
+        "documentation": {}
+    },
+    {
+        "label": "save_otp",
+        "kind": 2,
+        "importPath": "Students.otp_service",
+        "description": "Students.otp_service",
+        "peekOfCode": "def save_otp(email, otp, otp_expiration):\n    otp_storage[email] = (otp, otp_expiration)\ndef retrieve_otp(email):\n    return otp_storage.get(email, (None, None))\ndef clear_otp(email):\n    if email in otp_storage:\n        del otp_storage[email]\ndef send_otp_email(email, otp):\n    from app import mail\n    message = Message(subject='OTP Verification', recipients=[email])",
+        "detail": "Students.otp_service",
+        "documentation": {}
+    },
+    {
+        "label": "retrieve_otp",
+        "kind": 2,
+        "importPath": "Students.otp_service",
+        "description": "Students.otp_service",
+        "peekOfCode": "def retrieve_otp(email):\n    return otp_storage.get(email, (None, None))\ndef clear_otp(email):\n    if email in otp_storage:\n        del otp_storage[email]\ndef send_otp_email(email, otp):\n    from app import mail\n    message = Message(subject='OTP Verification', recipients=[email])\n    message.body = f'Your OTP is: {otp}'\n    with mail.connect() as conn:",
+        "detail": "Students.otp_service",
+        "documentation": {}
+    },
+    {
+        "label": "clear_otp",
+        "kind": 2,
+        "importPath": "Students.otp_service",
+        "description": "Students.otp_service",
+        "peekOfCode": "def clear_otp(email):\n    if email in otp_storage:\n        del otp_storage[email]\ndef send_otp_email(email, otp):\n    from app import mail\n    message = Message(subject='OTP Verification', recipients=[email])\n    message.body = f'Your OTP is: {otp}'\n    with mail.connect() as conn:\n        conn.send(message)",
+        "detail": "Students.otp_service",
+        "documentation": {}
+    },
+    {
+        "label": "send_otp_email",
+        "kind": 2,
+        "importPath": "Students.otp_service",
+        "description": "Students.otp_service",
+        "peekOfCode": "def send_otp_email(email, otp):\n    from app import mail\n    message = Message(subject='OTP Verification', recipients=[email])\n    message.body = f'Your OTP is: {otp}'\n    with mail.connect() as conn:\n        conn.send(message)",
+        "detail": "Students.otp_service",
+        "documentation": {}
+    },
+    {
+        "label": "otp_storage",
+        "kind": 5,
+        "importPath": "Students.otp_service",
+        "description": "Students.otp_service",
+        "peekOfCode": "otp_storage = {}\ndef generate_otp():\n    return str(random.randint(100000, 999999))\ndef save_otp(email, otp, otp_expiration):\n    otp_storage[email] = (otp, otp_expiration)\ndef retrieve_otp(email):\n    return otp_storage.get(email, (None, None))\ndef clear_otp(email):\n    if email in otp_storage:\n        del otp_storage[email]",
+        "detail": "Students.otp_service",
         "documentation": {}
     },
     {
@@ -827,11 +1436,20 @@
         "documentation": {}
     },
     {
-        "label": "student_login",
+        "label": "student_verification",
         "kind": 2,
         "importPath": "Students.StudentService",
         "description": "Students.StudentService",
-        "peekOfCode": "def student_login():\n    from app import session\n    username = request.json['username']\n    ref_number = request.json['ref_number']\n    password = request.json['password']\n    student = session.query(Students).filter_by(username=username).first()\n    # number = session.query(Students).filter_by(ref_number=ref_number)\n    if student:\n        verify = check_password_hash(pwhash=student.password, password=password)\n        if verify and student.ref_number == ref_number:",
+        "peekOfCode": "def student_verification():\n    email = request.json['email']\n    otp = generate_otp()\n    otp_expiration = datetime.datetime.now() + datetime.timedelta(hours=1)\n    save_otp(email, otp, otp_expiration)\n    send_otp_email(email, otp)\n    result = {\n        'status': 'OTP sent to email',\n        'email': email\n    }",
+        "detail": "Students.StudentService",
+        "documentation": {}
+    },
+    {
+        "label": "student_email_verification",
+        "kind": 2,
+        "importPath": "Students.StudentService",
+        "description": "Students.StudentService",
+        "peekOfCode": "def student_email_verification():\n    email = request.json['email']\n    otp = request.json['otp']\n    stored_otp, otp_expiration = retrieve_otp(email)\n    if stored_otp:\n        if otp == stored_otp and datetime.datetime.now() <= otp_expiration:\n            clear_otp(email)\n            session['email'] = email\n            result = {\n                'status': 'Email verification successful',",
         "detail": "Students.StudentService",
         "documentation": {}
     },
@@ -858,7 +1476,7 @@
         "kind": 6,
         "importPath": "Users.UserModel",
         "description": "Users.UserModel",
-        "peekOfCode": "class User(Base):\n    __tablename__ = \"users\"\n    user_id = Column(\"user_id\",Integer, primary_key =True, nullable = False)\n    first_name = Column(\"first_name\",String(255),nullable=False)\n    last_name = Column(\"last_name\",String(255),nullable=False)\n    username = Column(\"username\",String(255),nullable=False)\n    password = Column(\"password\",String(255),nullable=False)\n    email = Column(\"email\",String(255),nullable=False)\n    ref_number = Column(\"ref_number\",String(255),nullable=False)",
+        "peekOfCode": "class User(Base):\n    __tablename__ = \"users\"\n    user_id = Column(\"user_id\",Integer, primary_key =True, nullable = False)\n    first_name = Column(\"first_name\",String(255),nullable=False)\n    last_name = Column(\"last_name\",String(255),nullable=False)\n    username = Column(\"username\",String(255),nullable=False)\n    password = Column(\"password\",String(255),nullable=False)\n    email = Column(\"email\",String(255),nullable=False)\n    is_service_provider = Column(\"is_service_provider\",String(255),nullable=True)",
         "detail": "Users.UserModel",
         "documentation": {}
     },
@@ -867,7 +1485,7 @@
         "kind": 2,
         "importPath": "Users.UserService",
         "description": "Users.UserService",
-        "peekOfCode": "def add_user():\n    from app import session\n    first_name = request.json['first_name']\n    last_name = request.json['last_name']\n    username = request.json['username']\n    password = request.json['password']\n    email = request.json['email']\n    ref_number = request.json['ref_number']\n    hashed_password = generate_password_hash(password)\n    existinguser = session.query(User).filter_by(username=username).first()",
+        "peekOfCode": "def add_user():\n    from app import session as s\n    first_name = request.json['first_name']\n    last_name = request.json['last_name']\n    username = request.json['username'].lower()\n    password = request.json['password']\n    if 'email' in session:\n        user_email = session['email']\n    hashed_password = generate_password_hash(password)\n    check_username = s.query(User).filter_by(username=username).first()",
         "detail": "Users.UserService",
         "documentation": {}
     },
@@ -876,7 +1494,25 @@
         "kind": 2,
         "importPath": "Users.UserService",
         "description": "Users.UserService",
-        "peekOfCode": "def login():\n    from app import session\n    username = request.json['username']\n    password = request.json['password']\n    user = session.query(User).filter_by(username=username).first()\n    if user:\n        verify = check_password_hash(pwhash=user.password, password=password)\n        if verify:\n            result = {\n                'status': 'Login successful',",
+        "peekOfCode": "def login():\n    from app import session\n    from app import app\n    username = request.json['username'].lower()\n    password = request.json['password']\n    user = session.query(User).filter_by(username=username).first()\n    if user:\n        verify = check_password_hash(pwhash=user.password, password=password)\n        if verify:\n            # generate token",
+        "detail": "Users.UserService",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "kind": 2,
+        "importPath": "Users.UserService",
+        "description": "Users.UserService",
+        "peekOfCode": "def logout():\n    try:\n        # print(revoked_tokens)\n        token = request.headers.get('Authorization')\n        # Check if the token is revoked\n        if token in revoked_tokens:\n            return jsonify({'message': 'Token has already been revoked'})\n        # Add the token to the revoked token set\n        revoked_tokens.add(token)\n        # print(revoked_tokens)",
+        "detail": "Users.UserService",
+        "documentation": {}
+    },
+    {
+        "label": "switch_to_provider",
+        "kind": 2,
+        "importPath": "Users.UserService",
+        "description": "Users.UserService",
+        "peekOfCode": "def switch_to_provider():\n    from app import session\n    from app import app\n    token = request.headers.get('Authorization')\n    # print(token)\n    try:\n        decoded_token = jwt.decode(token, app.secret_key, algorithms=['HS256'])\n        # print(f\"decoded token: {decoded_token}\")\n        user_id = decoded_token['user_id']\n        user = session.query(User).get(user_id)",
         "detail": "Users.UserService",
         "documentation": {}
     },
@@ -885,7 +1521,16 @@
         "kind": 5,
         "importPath": "Users.UserService",
         "description": "Users.UserService",
-        "peekOfCode": "users_route = Blueprint(\"users_route\", __name__)\nCORS(users_route)\n@users_route.route(\"/add_user\",methods=['POST'])\ndef add_user():\n    from app import session\n    first_name = request.json['first_name']\n    last_name = request.json['last_name']\n    username = request.json['username']\n    password = request.json['password']\n    email = request.json['email']",
+        "peekOfCode": "users_route = Blueprint(\"users_route\", __name__)\nCORS(users_route)\nrevoked_tokens = set()\n@users_route.route(\"/add_user\", methods=['POST'])\ndef add_user():\n    from app import session as s\n    first_name = request.json['first_name']\n    last_name = request.json['last_name']\n    username = request.json['username'].lower()\n    password = request.json['password']",
+        "detail": "Users.UserService",
+        "documentation": {}
+    },
+    {
+        "label": "revoked_tokens",
+        "kind": 5,
+        "importPath": "Users.UserService",
+        "description": "Users.UserService",
+        "peekOfCode": "revoked_tokens = set()\n@users_route.route(\"/add_user\", methods=['POST'])\ndef add_user():\n    from app import session as s\n    first_name = request.json['first_name']\n    last_name = request.json['last_name']\n    username = request.json['username'].lower()\n    password = request.json['password']\n    if 'email' in session:\n        user_email = session['email']",
         "detail": "Users.UserService",
         "documentation": {}
     },
@@ -894,7 +1539,16 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app = Flask(__name__)\n#instantiating the database and sqlalchemy\nengine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)",
+        "peekOfCode": "app = Flask(__name__)\napp.secret_key = '0hyvgta56h'\n#instantiating the database and sqlalchemy\nengine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.secret_key",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.secret_key = '0hyvgta56h'\n#instantiating the database and sqlalchemy\nengine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)",
         "detail": "app",
         "documentation": {}
     },
@@ -903,7 +1557,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "engine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\n#Database connection",
+        "peekOfCode": "engine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)",
         "detail": "app",
         "documentation": {}
     },
@@ -912,7 +1566,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "Session = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\n#Database connection\ntry:",
+        "peekOfCode": "Session = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'",
         "detail": "app",
         "documentation": {}
     },
@@ -921,7 +1575,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "session = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\n#Database connection\ntry:\n    engine.connect()",
+        "peekOfCode": "session = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'\napp.config['MAIL_PORT'] = 465",
         "detail": "app",
         "documentation": {}
     },
@@ -930,7 +1584,79 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "Base = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)",
+        "peekOfCode": "Base = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'\napp.config['MAIL_PORT'] = 465\napp.config['MAIL_USE_TLS'] = False",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['MAIL_SERVER']",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.config['MAIL_SERVER'] = 'smtp.gmail.com'\napp.config['MAIL_PORT'] = 465\napp.config['MAIL_USE_TLS'] = False\napp.config['MAIL_USE_SSL'] = True\napp.config['MAIL_USERNAME'] = 'isinesam@gmail.com'\napp.config['MAIL_PASSWORD'] = 'lvrmqxfoqfbgaieg'\napp.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)\n#Database connection\ntry:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['MAIL_PORT']",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.config['MAIL_PORT'] = 465\napp.config['MAIL_USE_TLS'] = False\napp.config['MAIL_USE_SSL'] = True\napp.config['MAIL_USERNAME'] = 'isinesam@gmail.com'\napp.config['MAIL_PASSWORD'] = 'lvrmqxfoqfbgaieg'\napp.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['MAIL_USE_TLS']",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.config['MAIL_USE_TLS'] = False\napp.config['MAIL_USE_SSL'] = True\napp.config['MAIL_USERNAME'] = 'isinesam@gmail.com'\napp.config['MAIL_PASSWORD'] = 'lvrmqxfoqfbgaieg'\napp.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['MAIL_USE_SSL']",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.config['MAIL_USE_SSL'] = True\napp.config['MAIL_USERNAME'] = 'isinesam@gmail.com'\napp.config['MAIL_PASSWORD'] = 'lvrmqxfoqfbgaieg'\napp.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['MAIL_USERNAME']",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.config['MAIL_USERNAME'] = 'isinesam@gmail.com'\napp.config['MAIL_PASSWORD'] = 'lvrmqxfoqfbgaieg'\napp.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    print('database created')",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['MAIL_PASSWORD']",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.config['MAIL_PASSWORD'] = 'lvrmqxfoqfbgaieg'\napp.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    print('database created')\nexcept Exception as e:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['MAIL_DEFAULT_SENDER']",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    print('database created')\nexcept Exception as e:\n    print('connection failed: %s'%(e))",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "mail",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "mail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    print('database created')\nexcept Exception as e:\n    print('connection failed: %s'%(e))\n    session.rollback()",
         "detail": "app",
         "documentation": {}
     },
@@ -941,6 +1667,105 @@
         "description": "base",
         "peekOfCode": "Base = declarative_base()",
         "detail": "base",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "tempCodeRunnerFile",
+        "description": "tempCodeRunnerFile",
+        "peekOfCode": "app = Flask(__name__)\n#instantiating the database and sqlalchemy\nengine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)",
+        "detail": "tempCodeRunnerFile",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "tempCodeRunnerFile",
+        "description": "tempCodeRunnerFile",
+        "peekOfCode": "engine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'",
+        "detail": "tempCodeRunnerFile",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "kind": 5,
+        "importPath": "tempCodeRunnerFile",
+        "description": "tempCodeRunnerFile",
+        "peekOfCode": "Session = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'\napp.config['MAIL_PORT'] = 587",
+        "detail": "tempCodeRunnerFile",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "kind": 5,
+        "importPath": "tempCodeRunnerFile",
+        "description": "tempCodeRunnerFile",
+        "peekOfCode": "session = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'\napp.config['MAIL_PORT'] = 587\napp.config['MAIL_USE_TLS'] = True",
+        "detail": "tempCodeRunnerFile",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "tempCodeRunnerFile",
+        "description": "tempCodeRunnerFile",
+        "peekOfCode": "Base = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'\napp.config['MAIL_PORT'] = 587\napp.config['MAIL_USE_TLS'] = True\napp.config['MAIL_USERNAME'] = 'isinesam@gmail.com'",
+        "detail": "tempCodeRunnerFile",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['MAIL_SERVER']",
+        "kind": 5,
+        "importPath": "tempCodeRunnerFile",
+        "description": "tempCodeRunnerFile",
+        "peekOfCode": "app.config['MAIL_SERVER'] = 'smtp.gmail.com'\napp.config['MAIL_PORT'] = 587\napp.config['MAIL_USE_TLS'] = True\napp.config['MAIL_USERNAME'] = 'isinesam@gmail.com'\napp.config['MAIL_PASSWORD'] = 'Kwabotwe'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)",
+        "detail": "tempCodeRunnerFile",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['MAIL_PORT']",
+        "kind": 5,
+        "importPath": "tempCodeRunnerFile",
+        "description": "tempCodeRunnerFile",
+        "peekOfCode": "app.config['MAIL_PORT'] = 587\napp.config['MAIL_USE_TLS'] = True\napp.config['MAIL_USERNAME'] = 'isinesam@gmail.com'\napp.config['MAIL_PASSWORD'] = 'Kwabotwe'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()",
+        "detail": "tempCodeRunnerFile",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['MAIL_USE_TLS']",
+        "kind": 5,
+        "importPath": "tempCodeRunnerFile",
+        "description": "tempCodeRunnerFile",
+        "peekOfCode": "app.config['MAIL_USE_TLS'] = True\napp.config['MAIL_USERNAME'] = 'isinesam@gmail.com'\napp.config['MAIL_PASSWORD'] = 'Kwabotwe'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    print('database created')",
+        "detail": "tempCodeRunnerFile",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['MAIL_USERNAME']",
+        "kind": 5,
+        "importPath": "tempCodeRunnerFile",
+        "description": "tempCodeRunnerFile",
+        "peekOfCode": "app.config['MAIL_USERNAME'] = 'isinesam@gmail.com'\napp.config['MAIL_PASSWORD'] = 'Kwabotwe'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    print('database created')\nexcept Exception as e:",
+        "detail": "tempCodeRunnerFile",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['MAIL_PASSWORD']",
+        "kind": 5,
+        "importPath": "tempCodeRunnerFile",
+        "description": "tempCodeRunnerFile",
+        "peekOfCode": "app.config['MAIL_PASSWORD'] = 'Kwabotwe'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    print('database created')\nexcept Exception as e:\n    print('connection failed: %s'%(e))",
+        "detail": "tempCodeRunnerFile",
+        "documentation": {}
+    },
+    {
+        "label": "mail",
+        "kind": 5,
+        "importPath": "tempCodeRunnerFile",
+        "description": "tempCodeRunnerFile",
+        "peekOfCode": "mail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    print('database created')\nexcept Exception as e:\n    print('connection failed: %s'%(e))\n    session.rollback()",
+        "detail": "tempCodeRunnerFile",
         "documentation": {}
     }
 ]
