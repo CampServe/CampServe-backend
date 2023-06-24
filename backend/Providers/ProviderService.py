@@ -9,11 +9,13 @@ import jwt
 from datetime import datetime, timedelta
 
 
+
 providers_route = Blueprint("providers_route", __name__)
 CORS(providers_route)
 
 
 revoked_tokens = set()
+
 
 
 @providers_route.route("/signup_as_provider/<user_id>", methods=['POST'])
@@ -62,9 +64,9 @@ def sign_up(user_id):
         for subcategory in subcategories:
             subcategory_name = subcategory['name']
             description = subcategory['description']
-            subcategory_image = subcategory.get('image') or None 
-            categories = ProviderCategories(
-                user_id=user_id, main_categories=category_name, sub_categories=subcategory_name, subcategories_description=description,subcategory_image=subcategory_image)
+            subcategory_image = subcategory.get('image') or None
+
+            categories = ProviderCategories(user_id=user_id, main_categories=category_name, sub_categories=subcategory_name, subcategories_description=description, subcategory_image=subcategory_image)
             session.add(categories)
 
     session.commit()
@@ -75,6 +77,9 @@ def sign_up(user_id):
 
     return jsonify(result)
 
+
+
+            
 
 @providers_route.route("/login_as_provider", methods=['POST'])
 def provider_login():
@@ -126,6 +131,7 @@ def provider_login():
         result = 'User not found'
 
     return jsonify(result)
+
 
 @providers_route.route('/provider_logout', methods=['POST'])
 def logout():
