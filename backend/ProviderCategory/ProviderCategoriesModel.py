@@ -13,5 +13,6 @@ class ProviderCategories(Base):
     main_categories = Column("main_categories",String(255),nullable=False)
     sub_categories = Column("sub_categories",String(255),nullable=False)
     subcategories_description = Column("subcategories_description",String(255),nullable=False)
+    subcategory_image = Column("subcategory_image",String(255),nullable=True)
 
 # users = relationship("Users", uselist=False, back_populates="users")
