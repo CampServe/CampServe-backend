@@ -64,6 +64,7 @@ def get_services():
         ProviderCategories.main_categories,
         ProviderCategories.sub_categories,
         ProviderCategories.subcategories_description,
+        ProviderCategories.subcategory_image,
         func.array_agg(Ratings.no_of_stars).label('ratings')
     ).join(ProviderCategories, Providers.user_id == ProviderCategories.user_id)\
      .join(rated_providers_query, Providers.provider_id == rated_providers_query.c.provider_id, isouter=True)\
@@ -76,7 +77,8 @@ def get_services():
         Providers.bio,
         ProviderCategories.main_categories,
         ProviderCategories.sub_categories,
-        ProviderCategories.subcategories_description
+        ProviderCategories.subcategories_description,
+        ProviderCategories.subcategory_image,
     ).all()
 
     result = {
@@ -90,9 +92,10 @@ def get_services():
                 'main_categories': main_categories,
                 'sub_categories': sub_categories,
                 'subcategories_description': subcategories_description,
+                'subcategory_image': subcategory_image,
                 'no_of_stars': [] if ratings is None else ratings
             }
-            for provider_id, user_id, provider_contact, business_name, bio, main_categories, sub_categories, subcategories_description, ratings in data
+            for provider_id, user_id, provider_contact, business_name, bio, main_categories, sub_categories, subcategories_description, subcategory_image, ratings in data
         ]
     }
 
