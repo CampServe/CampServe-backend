@@ -119,17 +119,11 @@ def provider_login():
                     'token': token
                 }
             else:
-                result = {
-                    'status': 'Invalid username or password'
-                }
+                result = 'Invalid username or password'
         else:
-            result = {
-                'status': 'User is not a provider'
-            }
+            result = 'User is not a provider'
     else:
-        result = {
-            'status': 'User not found'
-        }
+        result = 'User not found'
 
     return jsonify(result)
 
