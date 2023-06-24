@@ -62,8 +62,9 @@ def sign_up(user_id):
         for subcategory in subcategories:
             subcategory_name = subcategory['name']
             description = subcategory['description']
+            subcategory_image = subcategory.get('image') or None 
             categories = ProviderCategories(
-                user_id=user_id, main_categories=category_name, sub_categories=subcategory_name, subcategories_description=description)
+                user_id=user_id, main_categories=category_name, sub_categories=subcategory_name, subcategories_description=description,subcategory_image=subcategory_image)
             session.add(categories)
 
     session.commit()
