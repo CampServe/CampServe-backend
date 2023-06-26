@@ -21,6 +21,7 @@ def book_services():
     payment_mode = data['paymentMode']
     agreed_price = data['price']
     scheduled_datetime = data['scheduledDateTime']
+    subcategory = data['subcategory']
 
    
     try:
@@ -31,6 +32,7 @@ def book_services():
             payment_mode=payment_mode,
             agreed_price=agreed_price,
             scheduled_datetime=scheduled_datetime,
+            subcategory = subcategory,
             status_comp_inco="no action",
             status_acc_dec="no action"
         )

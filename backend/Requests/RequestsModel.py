@@ -18,4 +18,5 @@ class Requests(Base):
     status_comp_inco = Column("status_comp_inco",String(255),nullable=False)
     status_acc_dec = Column("status_acc_dec",String(255),nullable=False)
     payment_mode = Column("payment_mode",String(255),nullable=False)
+    subcategory = Column("subcategory",String(255),nullable=False)
     
