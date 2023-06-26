@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import jsonify, Blueprint, request
 from flask_cors import CORS
 from Requests.RequestsModel import Requests
@@ -46,4 +45,26 @@ def book_services():
         return jsonify({'error': str(e)})
 
 #for shwoing the requests for a particular provider when they log in to their account
-# @request_services_route.route('/get_specific_provider_requests', methods=['GET'])
+@request_services_route.route('/get_specific_provider_requests/<provider_id>', methods=['GET'])
+def get_provider_requests(provider_id):
+    from app import session
+    try:
+        requests = session.query(Requests).filter(Requests.provider_id == provider_id).all()
+
+        if not requests:
+            return jsonify({'message': 'No requests at the moment.'})
+
+        
+        for request in requests:
+            request_data = {
+                'agreed_price': request.agreed_price,
+                'location': request.location,
+                'scheduled_datetime': request.scheduled_datetime,
+                'payment_mode': request.payment_mode
+               
+            }
+            
+        return jsonify(request_data)
+    except Exception as e:
+        return jsonify({'error': str(e)})
+

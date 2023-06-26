@@ -103,8 +103,9 @@ def provider_login():
                 # Retrieve user details from the users table
                 user_details = session.query(User).filter_by(
                     user_id=user.user_id).first()
-                # generate token
 
+                #we can call the route here
+                # generate token
                 token = jwt.encode({
                     'status': 'Provider login successful',
                     'user_id': user.user_id,
