@@ -16,5 +16,6 @@ class Requests(Base):
     payment_mode = Column("payment_mode",String(255),nullable=False)
     scheduled_datetime = Column("scheduled_datetime",String(255),nullable=False)
     status_comp_inco = Column("status_comp_inco",String(255),nullable=False)
+    status_acc_dec = Column("status_acc_dec",String(255),nullable=False)
     payment_mode = Column("payment_mode",String(255),nullable=False)
     
