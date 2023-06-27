@@ -46,6 +46,44 @@ def book_services():
     except Exception as e:
         return jsonify({'error': str(e)})
 
+
+#returns the status of a booked service
+@request_services_route.route('/get_service_status', methods=['GET'])
+def get_service_status():
+    try:
+        from app import session
+        data = request.get_json()
+
+        user_id = data['user_id']
+        subcategory = data['subcategory']
+        #provider_id = data['provider_id']
+        user = session.query(Requests).filter_by(user_id=user_id).first()
+        subcategory_found = user.subcategory == subcategory
+
+        service_status = {
+            'agreed_price': user.agreed_price,
+            'location': user.location,
+            'payment_mode': user.payment_mode,
+            'status_comp_inco': user.status_comp_inco,
+            'status_acc_dec': user.status_acc_dec,
+            'datetime': user.scheduled_datetime
+        }
+
+        if subcategory_found and user.status_acc_dec == 'no action':
+            return jsonify({'message': 'Request pending'})
+        elif subcategory_found and user.status_acc_dec == 'accepted':
+            return jsonify({'message': 'Request accepted', 'result': service_status})
+        elif subcategory_found and user.status_acc_dec == 'declined':
+            return jsonify({'message': 'Request declined','result': service_status})
+        else:
+            return jsonify({'message': 'Not found'})
+
+    except Exception as e:
+        return jsonify({'message': 'Error', 'error': str(e)})
+
+
+
+
 #for shwoing the requests for a particular provider when they log in to their account
 @request_services_route.route('/get_specific_provider_requests/<provider_id>', methods=['GET'])
 def get_provider_requests(provider_id):
