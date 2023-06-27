@@ -1,7 +1,6 @@
 import email
 from flask_cors import CORS
 from flask import jsonify, Blueprint, request, session
-from Students.StudentModel import Students
 from werkzeug.security import generate_password_hash, check_password_hash
 from Users.UserModel import User
 import jwt
@@ -14,6 +13,26 @@ CORS(users_route)
 
 
 revoked_tokens = set()
+
+@users_route.route('/hash/<user_id>', methods=['POST'])
+def update_password(user_id):
+    from app import session
+    # Retrieve the user from the database
+    user = session.query(User).filter_by(user_id=user_id).first()
+    if user is None:
+        return "User not found", 404
+
+    # Retrieve the password from the request
+    password = request.json['password']
+
+    # Hash the password
+    hashed_password = generate_password_hash(password)
+
+    # Update the user's password
+    user.password = hashed_password
+    session.commit()
+
+    return "Password updated successfully"
 
 
 @users_route.route("/add_user", methods=['POST'])
