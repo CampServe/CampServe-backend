@@ -45,7 +45,7 @@ def book_services():
 
 
 
-@request_services_route.route('/get_service_status', methods=['GET'])
+@request_services_route.route('/get_service_status', methods=['POST'])
 def get_service_status():
     from app import session
     data = request.get_json()
