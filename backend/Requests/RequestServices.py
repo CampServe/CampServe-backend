@@ -116,8 +116,6 @@ def get_provider_requests():
                 'subcategory': requestt.subcategory
             })    
 
-            
-
         return jsonify({
             'all_requests': all_requests
         })
