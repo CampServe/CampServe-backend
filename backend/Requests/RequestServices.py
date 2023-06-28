@@ -44,19 +44,17 @@ def book_services():
         return jsonify({'error': str(e)})
 
 
-
 @request_services_route.route('/get_service_status', methods=['POST'])
 def get_service_status():
     from app import session
     data = request.get_json()
-
     user_id = data['user_id']
     subcategory = data['subcategory']
     provider_id = data['provider_id']
 
     user = session.query(Requests).filter_by(user_id=user_id).first()
     if user:
-    # Check if the user has already booked a service with this provider and subcategory.
+        # Check if the user has already booked a service with this provider and subcategory.
         existing_booking = session.query(Requests).filter(
             Requests.user_id == user_id,
             Requests.subcategory == subcategory,
@@ -84,33 +82,42 @@ def get_service_status():
                 return jsonify({'acc_dec': status_acc_dec, 'comp_inco': status_comp_inco, 'result': service_status})
             else:
                 return {'status': 'service not booked'}
-       
+
     else:
         return {'status': 'service not booked'}
 
     return jsonify({'status': 'no bookings found'})
 
 
-# for shwoing the requests for a particular provider when they log in to their account
-@request_services_route.route('/get_specific_provider_requests/<provider_id>', methods=['GET'])
-def get_provider_requests(provider_id):
+# for shwoing the requests for a particular user when they log in to their account
+@request_services_route.route('/get_all_user_requests/', methods=['GET'])
+def get_provider_requests():
     from app import session
+
+    data = request.get_json()
+    user_id = data['user_id']
+
     try:
-        requests = session.query(Requests).filter(
-            Requests.provider_id == provider_id).all()
+        user_request = session.query(Requests).filter(
+            Requests.user_id == user_id).all()
 
-        if not requests:
-            return jsonify({'message': 'No requests at the moment.'})
+        if not user_request:
+            return jsonify({'message': 'No requests found.'})
+        
+        all_requests = []
+        for requestt in user_request:
+            all_requests.append({
+                'agreed_price': requestt.agreed_price,
+                'location': requestt.location,
+                'payment_mode': requestt.payment_mode,
+                'datetime': requestt.scheduled_datetime,
+                'status_acc_dec': requestt.status_acc_dec,
+                'status_comp_inco': requestt.status_comp_inco
+            })
 
-        for request in requests:
-            request_data = {
-                'agreed_price': request.agreed_price,
-                'location': request.location,
-                'scheduled_datetime': request.scheduled_datetime,
-                'payment_mode': request.payment_mode
+        return jsonify({
+            'all_requests': all_requests
+        })
 
-            }
-
-        return jsonify(request_data)
     except Exception as e:
         return jsonify({'error': str(e)})
