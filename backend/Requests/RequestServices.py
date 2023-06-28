@@ -54,38 +54,41 @@ def get_service_status():
     subcategory = data['subcategory']
     provider_id = data['provider_id']
 
-    # Check if the user has already booked a service with this provider and subcategory.
-    existing_booking = session.query(Requests).filter(
-        Requests.user_id == user_id,
-        Requests.subcategory == subcategory,
-        Requests.provider_id == provider_id,
-    ).first()
-
     user = session.query(Requests).filter_by(user_id=user_id).first()
+    if user:
+    # Check if the user has already booked a service with this provider and subcategory.
+        existing_booking = session.query(Requests).filter(
+            Requests.user_id == user_id,
+            Requests.subcategory == subcategory,
+            Requests.provider_id == provider_id,
+        ).first()
 
-    service_status = {
-        'agreed_price': user.agreed_price,
-        'location': user.location,
-        'payment_mode': user.payment_mode,
-        'datetime': user.scheduled_datetime
-    }
+        service_status = {
+            'agreed_price': user.agreed_price,
+            'location': user.location,
+            'payment_mode': user.payment_mode,
+            'datetime': user.scheduled_datetime
+        }
 
-    if existing_booking:
-        status_acc_dec = existing_booking.status_acc_dec
-        status_comp_inco = existing_booking.status_comp_inco
+        if existing_booking:
+            status_acc_dec = existing_booking.status_acc_dec
+            status_comp_inco = existing_booking.status_comp_inco
 
-        if status_acc_dec == "no action":
-            return jsonify({'status': 'request pending', 'result': service_status})
-        elif status_acc_dec == "declined":
-            return jsonify({'status': 'request declined', 'result': service_status})
-        elif status_acc_dec == "accepted" and status_comp_inco == "complete":
-            return jsonify({'acc_dec': status_acc_dec, 'comp_inco': status_comp_inco, 'result': service_status})
-        elif status_acc_dec == "accepted" and status_comp_inco == "incomplete":
-            return jsonify({'acc_dec': status_acc_dec, 'comp_inco': status_comp_inco, 'result': service_status})
+            if status_acc_dec == "no action":
+                return jsonify({'status': 'request pending', 'result': service_status})
+            elif status_acc_dec == "declined":
+                return jsonify({'status': 'request declined', 'result': service_status})
+            elif status_acc_dec == "accepted" and status_comp_inco == "complete":
+                return jsonify({'acc_dec': status_acc_dec, 'comp_inco': status_comp_inco, 'result': service_status})
+            elif status_acc_dec == "accepted" and status_comp_inco == "incomplete":
+                return jsonify({'acc_dec': status_acc_dec, 'comp_inco': status_comp_inco, 'result': service_status})
+            else:
+                return {'status': 'service not booked'}
        
     else:
         return {'status': 'service not booked'}
 
+    return jsonify({'status': 'no bookings found'})
 
 
 # for shwoing the requests for a particular provider when they log in to their account
