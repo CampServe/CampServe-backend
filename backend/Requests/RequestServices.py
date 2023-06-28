@@ -114,7 +114,9 @@ def get_provider_requests():
                 'status_acc_dec': requestt.status_acc_dec,
                 'status_comp_inco': requestt.status_comp_inco,
                 'subcategory': requestt.subcategory
-            })
+            })    
+
+            
 
         return jsonify({
             'all_requests': all_requests
