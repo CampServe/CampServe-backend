@@ -112,7 +112,8 @@ def get_provider_requests():
                 'payment_mode': requestt.payment_mode,
                 'datetime': requestt.scheduled_datetime,
                 'status_acc_dec': requestt.status_acc_dec,
-                'status_comp_inco': requestt.status_comp_inco
+                'status_comp_inco': requestt.status_comp_inco,
+                'subcategory': requestt.subcategory
             })
 
         return jsonify({
