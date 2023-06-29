@@ -1,6 +1,7 @@
 from flask import jsonify, Blueprint, request
 from flask_cors import CORS
 from Requests.RequestsModel import Requests
+from Providers.ProviderModel import Providers
 
 
 request_services_route = Blueprint("request_services_route", __name__)
@@ -90,7 +91,7 @@ def get_service_status():
 
 
 # for shwoing the requests for a particular user when they log in to their account
-@request_services_route.route('/get_all_user_requests/', methods=['GET'])
+@request_services_route.route('/get_all_user_requests', methods=['GET'])
 def get_provider_requests():
     from app import session
 
@@ -98,14 +99,15 @@ def get_provider_requests():
     user_id = data['user_id']
 
     try:
-        user_request = session.query(Requests).filter(
-            Requests.user_id == user_id).all()
+        user_request = session.query(Requests,Providers).join(
+           Providers, Requests.provider_id == Providers.provider_id).filter(
+                Requests.user_id == user_id).all()
 
         if not user_request:
             return jsonify({'message': 'No requests found.'})
         
         all_requests = []
-        for requestt in user_request:
+        for requestt,provider in user_request:
             all_requests.append({
                 'agreed_price': requestt.agreed_price,
                 'location': requestt.location,
@@ -113,7 +115,8 @@ def get_provider_requests():
                 'datetime': requestt.scheduled_datetime,
                 'status_acc_dec': requestt.status_acc_dec,
                 'status_comp_inco': requestt.status_comp_inco,
-                'subcategory': requestt.subcategory
+                'subcategory': requestt.subcategory,
+                'business_name': provider.business_name
             })    
 
         return jsonify({
