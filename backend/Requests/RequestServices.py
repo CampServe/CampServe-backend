@@ -91,7 +91,7 @@ def get_service_status():
 
 
 # for shwoing the requests for a particular user when they log in to their account
-@request_services_route.route('/get_all_user_requests', methods=['GET'])
+@request_services_route.route('/get_all_user_requests', methods=['POST'])
 def get_provider_requests():
     from app import session
 

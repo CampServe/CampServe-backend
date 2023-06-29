@@ -147,6 +147,30 @@
         "documentation": {}
     },
     {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "session",
         "importPath": "flask",
         "description": "flask",
@@ -200,6 +224,14 @@
         "description": "flask",
         "isExtraImport": true,
         "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
         "documentation": {}
     },
     {
@@ -427,6 +459,38 @@
         "documentation": {}
     },
     {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "String",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
@@ -651,6 +715,22 @@
         "documentation": {}
     },
     {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "base",
+        "description": "base",
+        "isExtraImport": true,
+        "detail": "base",
+        "documentation": {}
+    },
+    {
         "label": "Base",
         "importPath": "base",
         "description": "base",
@@ -755,11 +835,11 @@
         "documentation": {}
     },
     {
-        "label": "Students",
-        "importPath": "Students.StudentModel",
-        "description": "Students.StudentModel",
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
         "isExtraImport": true,
-        "detail": "Students.StudentModel",
+        "detail": "Users.UserModel",
         "documentation": {}
     },
     {
@@ -949,6 +1029,14 @@
         "documentation": {}
     },
     {
+        "label": "Requests",
+        "importPath": "Requests.RequestsModel",
+        "description": "Requests.RequestsModel",
+        "isExtraImport": true,
+        "detail": "Requests.RequestsModel",
+        "documentation": {}
+    },
+    {
         "label": "random",
         "kind": 6,
         "isExtraImport": true,
@@ -1103,6 +1191,14 @@
         "documentation": {}
     },
     {
+        "label": "request_services_route",
+        "importPath": "Requests.RequestServices",
+        "description": "Requests.RequestServices",
+        "isExtraImport": true,
+        "detail": "Requests.RequestServices",
+        "documentation": {}
+    },
+    {
         "label": "ssl_context",
         "kind": 5,
         "importPath": "Paystack.payment",
@@ -1170,7 +1266,7 @@
         "kind": 6,
         "importPath": "ProviderCategory.ProviderCategoriesModel",
         "description": "ProviderCategory.ProviderCategoriesModel",
-        "peekOfCode": "class ProviderCategories(Base):\n    __tablename__ = \"provider_categories\"\n    category_id = Column(\"category_id\",Integer,primary_key =True,autoincrement=True)\n    user_id = Column(\"user_id\",Integer,ForeignKey(User.user_id),nullable=False)\n    main_categories = Column(\"main_categories\",String(255),nullable=False)\n    sub_categories = Column(\"sub_categories\",String(255),nullable=False)\n    subcategories_description = Column(\"subcategories_description\",String(255),nullable=False)\n# users = relationship(\"Users\", uselist=False, back_populates=\"users\")",
+        "peekOfCode": "class ProviderCategories(Base):\n    __tablename__ = \"provider_categories\"\n    category_id = Column(\"category_id\",Integer,primary_key =True,autoincrement=True)\n    user_id = Column(\"user_id\",Integer,ForeignKey(User.user_id),nullable=False)\n    main_categories = Column(\"main_categories\",String(255),nullable=False)\n    sub_categories = Column(\"sub_categories\",String(255),nullable=False)\n    subcategories_description = Column(\"subcategories_description\",String(255),nullable=False)\n    subcategory_image = Column(\"subcategory_image\",String(255),nullable=True)\n# users = relationship(\"Users\", uselist=False, back_populates=\"users\")",
         "detail": "ProviderCategory.ProviderCategoriesModel",
         "documentation": {}
     },
@@ -1251,7 +1347,7 @@
         "kind": 2,
         "importPath": "Providers.ProviderService",
         "description": "Providers.ProviderService",
-        "peekOfCode": "def logout():\n    try:\n        #print(revoked_tokens)\n        token = request.headers.get('Authorization')\n        # Check if the token is revoked\n        if token in revoked_tokens:\n            return jsonify({'message': 'Token has already been revoked'})\n        # Add the token to the revoked token set\n        revoked_tokens.add(token)\n        #print(revoked_tokens)",
+        "peekOfCode": "def logout():\n    try:\n        # print(revoked_tokens)\n        token = request.headers.get('Authorization')\n        # Check if the token is revoked\n        if token in revoked_tokens:\n            return jsonify({'message': 'Token has already been revoked'})\n        # Add the token to the revoked token set\n        revoked_tokens.add(token)\n        # print(revoked_tokens)",
         "detail": "Providers.ProviderService",
         "documentation": {}
     },
@@ -1325,6 +1421,51 @@
         "description": "Ratings.RatingsService",
         "peekOfCode": "ratings_route = Blueprint(\"ratings_route\", __name__)\nCORS(ratings_route)\n@ratings_route.route('/store_ratings', methods=['POST'])\ndef store_ratings():\n    from app import session\n    try:\n        data = request.get_json()\n        user_id = data['id']\n        provider_id = data['provider_id']\n        no_of_stars = data['ratings']",
         "detail": "Ratings.RatingsService",
+        "documentation": {}
+    },
+    {
+        "label": "book_services",
+        "kind": 2,
+        "importPath": "Requests.RequestServices",
+        "description": "Requests.RequestServices",
+        "peekOfCode": "def book_services():\n    from app import session\n    data = request.get_json()\n    provider_id = data['provider_id']\n    user_id = data['user_id']\n    location = data['location']\n    payment_mode = data['paymentMode']\n    agreed_price = data['price']\n    scheduled_datetime = data['scheduledDateTime']\n    subcategory = data['subcategory']",
+        "detail": "Requests.RequestServices",
+        "documentation": {}
+    },
+    {
+        "label": "get_service_status",
+        "kind": 2,
+        "importPath": "Requests.RequestServices",
+        "description": "Requests.RequestServices",
+        "peekOfCode": "def get_service_status():\n    from app import session\n    data = request.get_json()\n    user_id = data['user_id']\n    subcategory = data['subcategory']\n    provider_id = data['provider_id']\n    user = session.query(Requests).filter_by(user_id=user_id).first()\n    if user:\n    # Check if the user has already booked a service with this provider and subcategory.\n        existing_booking = session.query(Requests).filter(",
+        "detail": "Requests.RequestServices",
+        "documentation": {}
+    },
+    {
+        "label": "get_provider_requests",
+        "kind": 2,
+        "importPath": "Requests.RequestServices",
+        "description": "Requests.RequestServices",
+        "peekOfCode": "def get_provider_requests(provider_id):\n    from app import session\n    try:\n        requests = session.query(Requests).filter(\n            Requests.provider_id == provider_id).all()\n        if not requests:\n            return jsonify({'message': 'No requests at the moment.'})\n        for request in requests:\n            request_data = {\n                'agreed_price': request.agreed_price,",
+        "detail": "Requests.RequestServices",
+        "documentation": {}
+    },
+    {
+        "label": "request_services_route",
+        "kind": 5,
+        "importPath": "Requests.RequestServices",
+        "description": "Requests.RequestServices",
+        "peekOfCode": "request_services_route = Blueprint(\"request_services_route\", __name__)\nCORS(request_services_route)\n@request_services_route.route('/book_services', methods=['POST'])\ndef book_services():\n    from app import session\n    data = request.get_json()\n    provider_id = data['provider_id']\n    user_id = data['user_id']\n    location = data['location']\n    payment_mode = data['paymentMode']",
+        "detail": "Requests.RequestServices",
+        "documentation": {}
+    },
+    {
+        "label": "Requests",
+        "kind": 6,
+        "importPath": "Requests.RequestsModel",
+        "description": "Requests.RequestsModel",
+        "peekOfCode": "class Requests(Base):\n    __tablename__ = \"requests\"\n    request_id = Column(\"request_id\",Integer, primary_key =True, nullable = False)\n    provider_id = Column(\"provider_id\",Integer,ForeignKey(Providers.provider_id),nullable=False)\n    user_id = Column(\"user_id\",Integer,ForeignKey(User.user_id),nullable=False)\n    agreed_price = Column(\"agreed_price\",String(255),nullable=False)        \n    location = Column(\"location\",String(255),nullable=False)\n    payment_mode = Column(\"payment_mode\",String(255),nullable=False)\n    scheduled_datetime = Column(\"scheduled_datetime\",String(255),nullable=False)\n    status_comp_inco = Column(\"status_comp_inco\",String(255),nullable=False)",
+        "detail": "Requests.RequestsModel",
         "documentation": {}
     },
     {
@@ -1481,6 +1622,15 @@
         "documentation": {}
     },
     {
+        "label": "update_password",
+        "kind": 2,
+        "importPath": "Users.UserService",
+        "description": "Users.UserService",
+        "peekOfCode": "def update_password(user_id):\n    from app import session\n    # Retrieve the user from the database\n    user = session.query(User).filter_by(user_id=user_id).first()\n    if user is None:\n        return \"User not found\", 404\n    # Retrieve the password from the request\n    password = request.json['password']\n    # Hash the password\n    hashed_password = generate_password_hash(password)",
+        "detail": "Users.UserService",
+        "documentation": {}
+    },
+    {
         "label": "add_user",
         "kind": 2,
         "importPath": "Users.UserService",
@@ -1521,7 +1671,7 @@
         "kind": 5,
         "importPath": "Users.UserService",
         "description": "Users.UserService",
-        "peekOfCode": "users_route = Blueprint(\"users_route\", __name__)\nCORS(users_route)\nrevoked_tokens = set()\n@users_route.route(\"/add_user\", methods=['POST'])\ndef add_user():\n    from app import session as s\n    first_name = request.json['first_name']\n    last_name = request.json['last_name']\n    username = request.json['username'].lower()\n    password = request.json['password']",
+        "peekOfCode": "users_route = Blueprint(\"users_route\", __name__)\nCORS(users_route)\nrevoked_tokens = set()\n@users_route.route('/hash/<user_id>', methods=['POST'])\ndef update_password(user_id):\n    from app import session\n    # Retrieve the user from the database\n    user = session.query(User).filter_by(user_id=user_id).first()\n    if user is None:\n        return \"User not found\", 404",
         "detail": "Users.UserService",
         "documentation": {}
     },
@@ -1530,7 +1680,7 @@
         "kind": 5,
         "importPath": "Users.UserService",
         "description": "Users.UserService",
-        "peekOfCode": "revoked_tokens = set()\n@users_route.route(\"/add_user\", methods=['POST'])\ndef add_user():\n    from app import session as s\n    first_name = request.json['first_name']\n    last_name = request.json['last_name']\n    username = request.json['username'].lower()\n    password = request.json['password']\n    if 'email' in session:\n        user_email = session['email']",
+        "peekOfCode": "revoked_tokens = set()\n@users_route.route('/hash/<user_id>', methods=['POST'])\ndef update_password(user_id):\n    from app import session\n    # Retrieve the user from the database\n    user = session.query(User).filter_by(user_id=user_id).first()\n    if user is None:\n        return \"User not found\", 404\n    # Retrieve the password from the request\n    password = request.json['password']",
         "detail": "Users.UserService",
         "documentation": {}
     },
@@ -1566,7 +1716,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "Session = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'",
+        "peekOfCode": "Session = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)\napp.register_blueprint(request_services_route)",
         "detail": "app",
         "documentation": {}
     },
@@ -1575,7 +1725,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "session = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'\napp.config['MAIL_PORT'] = 465",
+        "peekOfCode": "session = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)\napp.register_blueprint(request_services_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'",
         "detail": "app",
         "documentation": {}
     },
@@ -1584,7 +1734,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "Base = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'\napp.config['MAIL_PORT'] = 465\napp.config['MAIL_USE_TLS'] = False",
+        "peekOfCode": "Base = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)\napp.register_blueprint(request_services_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'\napp.config['MAIL_PORT'] = 465",
         "detail": "app",
         "documentation": {}
     },
