@@ -2,6 +2,7 @@ from flask import jsonify, Blueprint, request
 from flask_cors import CORS
 from Requests.RequestsModel import Requests
 from Providers.ProviderModel import Providers
+from Users.UserModel import User
 
 
 request_services_route = Blueprint("request_services_route", __name__)
@@ -92,7 +93,7 @@ def get_service_status():
 
 # for shwoing the requests for a particular user when they log in to their account
 @request_services_route.route('/get_all_user_requests', methods=['POST'])
-def get_provider_requests():
+def get_all_user_requests():
     from app import session
 
     data = request.get_json()
