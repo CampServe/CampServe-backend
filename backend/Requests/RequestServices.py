@@ -75,13 +75,13 @@ def get_service_status():
             status_comp_inco = existing_booking.status_comp_inco
 
             if status_acc_dec == "no action":
-                return jsonify({'status': 'request pending', 'result': service_status})
+                return jsonify({'status': 'request pending'})
             elif status_acc_dec == "declined":
-                return jsonify({'status': 'request declined', 'result': service_status})
+                return jsonify({'status': 'request declined'})
             elif status_acc_dec == "accepted" and status_comp_inco == "complete":
-                return jsonify({'acc_dec': status_acc_dec, 'comp_inco': status_comp_inco, 'result': service_status})
+                return jsonify({'status': 'request complete'})
             elif status_acc_dec == "accepted" and status_comp_inco == "incomplete":
-                return jsonify({'acc_dec': status_acc_dec, 'comp_inco': status_comp_inco, 'result': service_status})
+                return jsonify({'status': 'request in progress'})
             else:
                 return {'status': 'service not booked'}
 
