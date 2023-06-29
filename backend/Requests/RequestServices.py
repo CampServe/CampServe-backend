@@ -126,3 +126,43 @@ def get_all_user_requests():
 
     except Exception as e:
         return jsonify({'error': str(e)})
+
+
+# for shwoing the requests for a provider user when they log in to their account
+@request_services_route.route('/get_all_provider_requests', methods=['POST'])
+def get_all_provider_requests():
+    from app import session
+
+    data = request.get_json()
+    provider_id = data['provider_id']
+
+    try:
+        provider_requests = session.query(Requests).filter_by(provider_id=provider_id).all()
+
+        if not provider_requests:
+            return jsonify({'message': 'No requests found.'})
+        
+        all_requests = []
+        for req in provider_requests:
+            user_id = req.user_id
+
+            # Query the users table to obtain the first and last name of the user
+            user = session.query(User).filter_by(user_id=user_id).first()
+
+            request_data = {
+                'agreed_price': req.agreed_price,
+                'location': req.location,
+                'payment_mode': req.payment_mode,
+                'datetime': req.scheduled_datetime,
+                'status_acc_dec': req.status_acc_dec,
+                'status_comp_inco': req.status_comp_inco,
+                'subcategory': req.subcategory,
+                'first_name': user.first_name,
+                'last_name': user.last_name
+            }
+            all_requests.append(request_data)
+
+        return jsonify({'all_requests': all_requests})
+
+    except Exception as e:
+        return jsonify({'error': str(e)})
