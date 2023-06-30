@@ -200,7 +200,9 @@ def change_request_status():
 
         session.commit()
         return jsonify({'message': 'Request status updated successfully.'})
-
+        
+    except Exception:
+        return jsonify({'error': 'An error occurred while updating the request status.'})
     finally:
         session.close()
 
