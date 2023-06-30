@@ -110,6 +110,7 @@ def get_all_user_requests():
         all_requests = []
         for requestt,provider in user_request:
             all_requests.append({
+                'request_id': requestt.request_id,
                 'agreed_price': requestt.agreed_price,
                 'location': requestt.location,
                 'payment_mode': requestt.payment_mode,
@@ -150,6 +151,7 @@ def get_all_provider_requests():
             user = session.query(User).filter_by(user_id=user_id).first()
 
             request_data = {
+                'request_id': req.request_id,
                 'agreed_price': req.agreed_price,
                 'location': req.location,
                 'payment_mode': req.payment_mode,
