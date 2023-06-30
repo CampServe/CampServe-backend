@@ -157,7 +157,7 @@ def switch_to_provider():
 
         subcategories = session.query(
             ProviderCategories).filter_by(
-                provider_id=provider.provider_id).all()
+                user_id=user.user_id).all()
 
 
         token = jwt.encode({
