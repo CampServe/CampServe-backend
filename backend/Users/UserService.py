@@ -6,6 +6,8 @@ from Users.UserModel import User
 import jwt
 from datetime import datetime, timedelta
 from Providers.ProviderModel import Providers
+from ProviderCategory.ProviderCategoriesModel import ProviderCategories
+
 
 
 users_route = Blueprint("users_route", __name__)
@@ -153,6 +155,11 @@ def switch_to_provider():
         provider = session.query(Providers).filter_by(user_id=user_id).first()
         expiration = decoded_token['expiration']
 
+        subcategories = session.query(
+            ProviderCategories).filter_by(
+                provider_id=provider.provider_id).all()
+
+
         token = jwt.encode({
             'user_id': user.user_id,
             'provider_id': provider.provider_id,
@@ -164,7 +171,10 @@ def switch_to_provider():
             'first_name': user.first_name,
             'last_name': user.last_name,
             'email': user.email,
-            'expiration': expiration
+            'expiration': expiration,
+              'subcategories': [
+                subcategory.sub_categories for subcategory in subcategories
+            ]
         },
                 app.secret_key)
         
