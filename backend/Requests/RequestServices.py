@@ -1,8 +1,10 @@
+from crypt import methods
 from flask import jsonify, Blueprint, request
 from flask_cors import CORS
 from Requests.RequestsModel import Requests
 from Providers.ProviderModel import Providers
 from Users.UserModel import User
+from Requests.RequestsModel import Requests
 
 
 request_services_route = Blueprint("request_services_route", __name__)
@@ -168,3 +170,38 @@ def get_all_provider_requests():
 
     except Exception as e:
         return jsonify({'error': str(e)})
+
+#for all buttons associated with canceling,accepting, declining and completing a request.
+@request_services_route.route('/change_request_status', methods=['POST'])
+def change_request_status():
+    from app import session
+    
+    data = request.get_json()
+    action_type = data['action_type']
+    request_id = data['request_id']
+
+    req = session.query(Requests).filter_by(request_id=request_id).first()
+
+
+    try:
+        if action_type == 'accept':
+            req.status_acc_dec = 'accepted'
+            req.status_comp_inco = 'incomplete'
+
+        elif action_type == 'decline':
+            req.status_acc_dec = 'declined'
+
+        elif action_type == 'cancel':
+            # Delete the request with the provided request_id
+            session.query(Requests).filter_by(request_id=request_id).delete()
+
+        elif action_type == 'mark_complete':
+            # Update the request with the provided request_id
+            req.status_comp_inco = 'complete'
+
+        session.commit()
+        return jsonify({'message': 'Request status updated successfully.'})
+
+    finally:
+        session.close()
+
