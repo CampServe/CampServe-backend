@@ -91,6 +91,7 @@ def provider_login():
     # Find the user in the users table
     user = session.query(User).filter_by(username=username).first()
 
+
     if user:
         # Check if the user is also a provider
         provider = session.query(Providers).filter_by(
@@ -104,6 +105,9 @@ def provider_login():
                 user_details = session.query(User).filter_by(
                     user_id=user.user_id).first()
 
+                subcategories = session.query(
+                    ProviderCategories).filter_by(
+                        user_id=user.user_id).all()
                 #we can call the route here
                 # generate token
                 token = jwt.encode({
@@ -118,7 +122,11 @@ def provider_login():
                     'first_name': user_details.first_name,
                     'last_name': user_details.last_name,
                     'email': user_details.email,
-                    'expiration': str(datetime.utcnow() + timedelta(days=1))
+                    'expiration': str(datetime.utcnow() + timedelta(days=1)),
+                    'subcategories': [
+                        subcategory.sub_categories for subcategory in subcategories
+                    ],
+
                 }, app.config['SECRET_KEY'])
 
                 result = {
