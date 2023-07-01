@@ -23,7 +23,7 @@ def store_ratings():
         no_of_stars = data['ratings']
         comments = data['review']
         timestamp = data['timestamp']
-
+        subcategory = data['subcategory']
 
         ratings = Ratings(
             user_id=user_id,
@@ -31,6 +31,7 @@ def store_ratings():
             no_of_stars=no_of_stars,
             comments=comments,
             timestamp=timestamp,
+            subcategory=subcategory
            
         )
         session.add(ratings)
@@ -49,10 +50,11 @@ def get_ratings():
         data = request.get_json()
 
         provider_id = data['provider_id']
+        subcategory = data['subcategory']
 
         # Fetch ratings and user details for the given provider_id
         ratings = session.query(Ratings, User).join(User, Ratings.user_id == User.user_id)\
-            .filter(Ratings.provider_id == provider_id).all()
+            .filter(Ratings.provider_id == provider_id, Ratings.subcategory == subcategory).all()
         
         rating_details = []
 
@@ -63,7 +65,8 @@ def get_ratings():
                 'last_name': user.last_name,
                 'stars': rating.no_of_stars,
                 'review': rating.comments,
-                'timestamp':rating.timestamp
+                'timestamp':rating.timestamp,
+                'subcategory': rating.subcategory
             })
         
         return jsonify(rating_details)
