@@ -16,6 +16,7 @@ class Ratings(Base):
     no_of_stars = Column("no_of_stars",Integer, nullable=False)
     comments = Column("comments", String(255), nullable=False)
     timestamp = Column("timestamp",String(255),nullable=False)
+    subcategory = Column("subcategory",String(255),nullable=False)
 
 # Relationships
 provider = relationship("providers",uselist=False,back_populates="providers")
