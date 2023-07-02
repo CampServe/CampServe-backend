@@ -255,13 +255,10 @@ def get_provider_info():
     comments = []
     for rating in ratings:
         subcategory = rating.subcategory
-        matching_provider_category = next(
-        (category for category in provider_categories if category.sub_categories == subcategory),
-        None
-    )
-    if matching_provider_category:
-        user = session.query(User).filter_by(user_id=rating.user_id).first()
-        comments.append({
+        matching_provider_categories = [category for category in provider_categories if category.sub_categories == subcategory]
+        for matching_provider_category in matching_provider_categories:
+            user = session.query(User).filter_by(user_id=rating.user_id).first()
+            comments.append({
             'comment': rating.comments,
             'no_of_stars': rating.no_of_stars,
             'first_name': user.first_name,
