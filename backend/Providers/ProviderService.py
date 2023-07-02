@@ -1,3 +1,4 @@
+from crypt import methods
 from flask_cors import CORS
 from flask import jsonify, Blueprint, request
 from Students.StudentModel import Students
@@ -7,6 +8,8 @@ from Users.UserModel import User
 from ProviderCategory.ProviderCategoriesModel import ProviderCategories
 import jwt
 from datetime import datetime, timedelta
+from Ratings.RatingsModel import Ratings
+from Users.UserModel import User
 
 
 
@@ -102,12 +105,9 @@ def provider_login():
             if check_password_hash(user.password, password):
 
                 # Retrieve user details from the users table
-                user_details = session.query(User).filter_by(
-                    user_id=user.user_id).first()
+                user_details = session.query(User).filter_by(user_id=user.user_id).first()
 
-                subcategories = session.query(
-                    ProviderCategories).filter_by(
-                        user_id=user.user_id).all()
+                subcategories = session.query(ProviderCategories).filter_by(user_id=user.user_id).all()
                 #we can call the route here
                 # generate token
                 token = jwt.encode({
@@ -203,3 +203,80 @@ def switch_to_user():
     except Exception as e:
         print(f"Exception: {e}")
         return jsonify({'message': 'An error occurred'})
+
+
+#this route returns every bit of information related to a provider
+@providers_route.route('/get_provider_info', methods=['GET'])
+def get_provider_info():
+    from app import session
+
+    data = request.get_json()
+    provider_id = data['provider_id']
+   
+
+    # Retrieve provider information from the providers table
+    provider = session.query(Providers).filter_by(provider_id=provider_id).first()
+
+    if not provider:
+        return jsonify({'message': 'Provider not found'}), 404
+
+    # Retrieve ratings for the provider
+    ratings = session.query(Ratings).filter_by(provider_id=provider_id).all()
+
+    # Retrieve provider categories using the user_id from the providers table
+    provider_categories = session.query(ProviderCategories).filter_by(user_id=provider.user_id).all()
+
+    # Group main_categories and sub_categories
+    main_categories = {}
+
+    for category in provider_categories:
+        main_category = category.main_categories
+        sub_category = category.sub_categories
+        subcategory_description = category.subcategories_description
+        subcategory_image = category.subcategory_image
+
+        if main_category not in main_categories:
+            main_categories[main_category] = {
+                "sub_categories": []
+            }
+
+        if sub_category not in main_categories[main_category]["sub_categories"]:
+            subcategory_entry = {
+            "sub_category": sub_category,
+            "image": subcategory_image,
+            "description": subcategory_description
+        }
+        main_categories[main_category]["sub_categories"].append(subcategory_entry)
+
+    # Get an array of no_of_stars from ratings
+    no_of_stars = [rating.no_of_stars for rating in ratings]
+
+    # Get comments associated with the provider_id and matching subcategory from ratings
+    comments = []
+    for rating in ratings:
+        subcategory = rating.subcategory
+        matching_provider_category = next(
+        (category for category in provider_categories if category.sub_categories == subcategory),
+        None
+    )
+    if matching_provider_category:
+        user = session.query(User).filter_by(user_id=rating.user_id).first()
+        comments.append({
+            'comment': rating.comments,
+            'no_of_stars': rating.no_of_stars,
+            'first_name': user.first_name,
+            'last_name': user.last_name
+        })
+
+    # Prepare the response
+    response = {
+        'provider_contact': provider.provider_contact,
+        'bio': provider.bio,
+        'business_name': provider.business_name,
+        'no_of_stars': no_of_stars,
+        'comments': comments,
+        'main_categories': main_categories
+    }
+
+    return jsonify(response)
+
