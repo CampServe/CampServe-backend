@@ -205,7 +205,7 @@ def switch_to_user():
 
 
 #this route returns every bit of information related to a provider
-@providers_route.route('/get_provider_info', methods=['GET'])
+@providers_route.route('/get_provider_info', methods=['POST'])
 def get_provider_info():
     from app import session
 
