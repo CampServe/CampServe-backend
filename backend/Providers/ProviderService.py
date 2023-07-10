@@ -1,4 +1,3 @@
-from crypt import methods
 from flask_cors import CORS
 from flask import jsonify, Blueprint, request
 from Students.StudentModel import Students
@@ -212,13 +211,12 @@ def get_provider_info():
 
     data = request.get_json()
     provider_id = data['provider_id']
-   
 
     # Retrieve provider information from the providers table
     provider = session.query(Providers).filter_by(provider_id=provider_id).first()
 
     if not provider:
-        return jsonify({'message': 'Provider not found'}), 404
+        return jsonify({'message': 'Provider not found'})
 
     # Retrieve ratings for the provider
     ratings = session.query(Ratings).filter_by(provider_id=provider_id).all()
@@ -226,54 +224,41 @@ def get_provider_info():
     # Retrieve provider categories using the user_id from the providers table
     provider_categories = session.query(ProviderCategories).filter_by(user_id=provider.user_id).all()
 
-    # Group main_categories and sub_categories
-    main_categories = {}
-
-    for category in provider_categories:
-        main_category = category.main_categories
-        sub_category = category.sub_categories
-        subcategory_description = category.subcategories_description
-        subcategory_image = category.subcategory_image
-
-        if main_category not in main_categories:
-            main_categories[main_category] = {
-                "sub_categories": []
-            }
-
-        if sub_category not in main_categories[main_category]["sub_categories"]:
-            subcategory_entry = {
-            "sub_category": sub_category,
-            "image": subcategory_image,
-            "description": subcategory_description
-        }
-        main_categories[main_category]["sub_categories"].append(subcategory_entry)
-
-    # Get an array of no_of_stars from ratings
-    no_of_stars = [rating.no_of_stars for rating in ratings]
-
-    # Get comments associated with the provider_id and matching subcategory from ratings
-    comments = []
-    for rating in ratings:
-        subcategory = rating.subcategory
-        matching_provider_categories = [category for category in provider_categories if category.sub_categories == subcategory]
-        for matching_provider_category in matching_provider_categories:
-            user = session.query(User).filter_by(user_id=rating.user_id).first()
-            comments.append({
-            'comment': rating.comments,
-            'no_of_stars': rating.no_of_stars,
-            'first_name': user.first_name,
-            'last_name': user.last_name
-        })
-
-    # Prepare the response
-    response = {
-        'provider_contact': provider.provider_contact,
-        'bio': provider.bio,
+    # Prepare the output dictionary
+    output = {
         'business_name': provider.business_name,
-        'no_of_stars': no_of_stars,
-        'comments': comments,
-        'main_categories': main_categories
+        'contact': provider.provider_contact,
+        'bio': provider.bio,
+        'main_categories': [],
+        'sub_categories': []
     }
 
-    return jsonify(response)
+    # Extract subcategories from provider_categories
+    subcategories_dict = {}
+    for category in provider_categories:
+        subcategories_dict[category.sub_categories] = {
+            'subcategory_image': category.subcategory_image,
+            'description': category.subcategories_description,
+            'rating_details': []
+        }
+        output['main_categories'].append(category.main_categories)
 
+    # Populate comments, no_of_stars, and rating_details for each subcategory
+    for rating in ratings:
+        subcategory = rating.subcategory
+        if subcategory in subcategories_dict:
+            user = session.query(User).filter_by(user_id=rating.user_id).first()
+            rating_details = {
+                'id': rating.rating_id,
+                'first_name': user.first_name,
+                'last_name': user.last_name,
+                'stars': rating.no_of_stars,
+                'review': rating.comments,
+                'timestamp': rating.timestamp
+            }
+            subcategories_dict[subcategory]['rating_details'].append(rating_details)
+
+    # Assign subcategories dictionary to the output
+    output['sub_categories'] = subcategories_dict
+
+    return jsonify(output)
