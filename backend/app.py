@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_socketio import SocketIO,emit
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from base import Base
@@ -14,6 +15,8 @@ from flask_mail import Mail
 
 app = Flask(__name__)
 app.secret_key = '0hyvgta56h'
+CORS(app,resources={r"/*":{"origins":"*"}})
+socketio = SocketIO(app,cors_allowed_origins = "*")
 
 #instantiating the database and sqlalchemy
 engine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')
@@ -54,4 +57,4 @@ finally:
 
 if __name__ == '__main__':
     CORS(app)
-    app.run(host= '0.0.0.0', port= 5000, debug=True)
+    socketio.run(app,host= '0.0.0.0', port= 5000, debug=True)
