@@ -52,6 +52,49 @@ def book_services():
         return jsonify({'error': str(e)})
 
 
+# @request_services_route.route('/get_service_status', methods=['POST'])
+# def get_service_status():
+#     from app import session
+#     data = request.get_json()
+#     user_id = data['user_id']
+#     subcategory = data['subcategory']
+#     provider_id = data['provider_id']
+
+#     user = session.query(Requests).filter_by(user_id=user_id).first()
+#     if user:
+#         # Check if the user has already booked a service with this provider and subcategory.
+#         existing_booking = session.query(Requests).filter(
+#             Requests.user_id == user_id,
+#             Requests.subcategory == subcategory,
+#             Requests.provider_id == provider_id,
+#         ).first()
+
+#         service_status = {
+#             'agreed_price': user.agreed_price,
+#             'location': user.location,
+#             'payment_mode': user.payment_mode,
+#             'datetime': user.scheduled_datetime
+#         }
+
+#         if existing_booking:
+#             status_acc_dec = existing_booking.status_acc_dec
+#             status_comp_inco = existing_booking.status_comp_inco
+
+#             if status_acc_dec == "no action":
+#                 return jsonify({'status': 'request pending'})
+#             elif status_acc_dec == "declined":
+#                 return jsonify({'status': 'request declined'})
+#             elif status_acc_dec == "accepted" and status_comp_inco == "complete":
+#                 return jsonify({'status': 'request complete'})
+#             elif status_acc_dec == "accepted" and status_comp_inco == "incomplete":
+#                 return jsonify({'status': 'request in progress'})
+#             else:
+#                 return {'status': 'service not booked'}
+
+#     else:
+#         return {'status': 'service not booked'}
+
+#     return jsonify({'status': 'no bookings found'})
 @request_services_route.route('/get_service_status', methods=['POST'])
 def get_service_status():
     from app import session
@@ -60,41 +103,29 @@ def get_service_status():
     subcategory = data['subcategory']
     provider_id = data['provider_id']
 
-    user = session.query(Requests).filter_by(user_id=user_id).first()
-    if user:
-        # Check if the user has already booked a service with this provider and subcategory.
-        existing_booking = session.query(Requests).filter(
-            Requests.user_id == user_id,
-            Requests.subcategory == subcategory,
-            Requests.provider_id == provider_id,
-        ).first()
+    recent_booking = session.query(Requests).filter(
+        Requests.user_id == user_id,
+        Requests.subcategory == subcategory,
+        Requests.provider_id == provider_id,
+    ).order_by(Requests.request_id.desc()).first()
 
-        service_status = {
-            'agreed_price': user.agreed_price,
-            'location': user.location,
-            'payment_mode': user.payment_mode,
-            'datetime': user.scheduled_datetime
-        }
+    if recent_booking:
+        status_acc_dec = recent_booking.status_acc_dec
+        status_comp_inco = recent_booking.status_comp_inco
 
-        if existing_booking:
-            status_acc_dec = existing_booking.status_acc_dec
-            status_comp_inco = existing_booking.status_comp_inco
-
-            if status_acc_dec == "no action":
-                return jsonify({'status': 'request pending'})
-            elif status_acc_dec == "declined":
-                return jsonify({'status': 'request declined'})
-            elif status_acc_dec == "accepted" and status_comp_inco == "complete":
-                return jsonify({'status': 'request complete'})
-            elif status_acc_dec == "accepted" and status_comp_inco == "incomplete":
-                return jsonify({'status': 'request in progress'})
-            else:
-                return {'status': 'service not booked'}
-
+        if status_acc_dec == "no action":
+            return jsonify({'status': 'request pending'})
+        elif status_acc_dec == "declined":
+            return jsonify({'status': 'request declined'})
+        elif status_acc_dec == "accepted" and status_comp_inco == "complete":
+            return jsonify({'status': 'request complete'})
+        elif status_acc_dec == "accepted" and status_comp_inco == "incomplete":
+            return jsonify({'status': 'request in progress'})
+        else:
+            return jsonify({'status': 'service not booked'})
     else:
-        return {'status': 'service not booked'}
+        return jsonify({'status': 'service not booked'})
 
-    return jsonify({'status': 'no bookings found'})
 
 
 # for shwoing the requests for a particular user when they log in to their account
