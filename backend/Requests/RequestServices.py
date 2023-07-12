@@ -13,6 +13,8 @@ CORS(request_services_route)
 @request_services_route.route('/book_services', methods=['POST'])
 def book_services():
     from app import session
+    from app import socketio
+
 
     data = request.get_json()
 
@@ -40,6 +42,9 @@ def book_services():
         # Add the new_request to the session and commit to the database
         session.add(new_request)
         session.commit()
+        
+        # Emit an event to notify the provider of the new request
+        socketio.emit('new_request', new_request, room=provider_id)
 
         return jsonify({'message': 'Request added successfully'})
 
@@ -134,6 +139,8 @@ def get_all_user_requests():
 @request_services_route.route('/get_all_provider_requests', methods=['POST'])
 def get_all_provider_requests():
     from app import session
+    from app import socketio
+
 
     data = request.get_json()
     provider_id = data['provider_id']
@@ -143,7 +150,10 @@ def get_all_provider_requests():
 
         if not provider_requests:
             return jsonify({'message': 'No requests found.'})
-        
+
+        # Emit an event to the provider's room to establish a connection
+        socketio.emit('join_room', room=provider_id, namespace='/')
+   
         #i want to include a count for all their requests tht shows on the ui
         all_requests = []
         for req in provider_requests:
