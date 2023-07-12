@@ -144,6 +144,7 @@ def get_all_provider_requests():
         if not provider_requests:
             return jsonify({'message': 'No requests found.'})
         
+        #i want to include a count for all their requests tht shows on the ui
         all_requests = []
         for req in provider_requests:
             user_id = req.user_id
