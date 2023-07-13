@@ -1,13 +1,15 @@
 from flask import jsonify, Blueprint, request
+from flask_socketio import SocketIO, emit, join_room
 from flask_cors import CORS
 from Requests.RequestsModel import Requests
 from Providers.ProviderModel import Providers
 from Users.UserModel import User
 from Requests.RequestsModel import Requests
 
-
 request_services_route = Blueprint("request_services_route", __name__)
 CORS(request_services_route)
+
+
 
 
 @request_services_route.route('/book_services', methods=['POST'])
@@ -42,9 +44,12 @@ def book_services():
         # Add the new_request to the session and commit to the database
         session.add(new_request)
         session.commit()
+
+         # Emit an event to notify the provider of the new request
+        provider_id = provider_id  # Replace with the actual provider ID
+        room = f'provider_{provider_id}'
+        socketio.emit('new_request', room=room, namespace='/requests')
         
-        # Emit an event to notify the provider of the new request
-        socketio.emit('new_request', new_request, room=provider_id)
 
         return jsonify({'message': 'Request added successfully'})
 
@@ -52,49 +57,7 @@ def book_services():
         return jsonify({'error': str(e)})
 
 
-# @request_services_route.route('/get_service_status', methods=['POST'])
-# def get_service_status():
-#     from app import session
-#     data = request.get_json()
-#     user_id = data['user_id']
-#     subcategory = data['subcategory']
-#     provider_id = data['provider_id']
 
-#     user = session.query(Requests).filter_by(user_id=user_id).first()
-#     if user:
-#         # Check if the user has already booked a service with this provider and subcategory.
-#         existing_booking = session.query(Requests).filter(
-#             Requests.user_id == user_id,
-#             Requests.subcategory == subcategory,
-#             Requests.provider_id == provider_id,
-#         ).first()
-
-#         service_status = {
-#             'agreed_price': user.agreed_price,
-#             'location': user.location,
-#             'payment_mode': user.payment_mode,
-#             'datetime': user.scheduled_datetime
-#         }
-
-#         if existing_booking:
-#             status_acc_dec = existing_booking.status_acc_dec
-#             status_comp_inco = existing_booking.status_comp_inco
-
-#             if status_acc_dec == "no action":
-#                 return jsonify({'status': 'request pending'})
-#             elif status_acc_dec == "declined":
-#                 return jsonify({'status': 'request declined'})
-#             elif status_acc_dec == "accepted" and status_comp_inco == "complete":
-#                 return jsonify({'status': 'request complete'})
-#             elif status_acc_dec == "accepted" and status_comp_inco == "incomplete":
-#                 return jsonify({'status': 'request in progress'})
-#             else:
-#                 return {'status': 'service not booked'}
-
-#     else:
-#         return {'status': 'service not booked'}
-
-#     return jsonify({'status': 'no bookings found'})
 @request_services_route.route('/get_service_status', methods=['POST'])
 def get_service_status():
     from app import session
@@ -216,6 +179,7 @@ def get_all_provider_requests():
 @request_services_route.route('/change_request_status', methods=['POST'])
 def change_request_status():
     from app import session
+    from app import socketio
     
     data = request.get_json()
     action_type = data['action_type']
@@ -241,6 +205,9 @@ def change_request_status():
             req.status_comp_inco = 'complete'
 
         session.commit()
+
+        # socketio.emit('request_status_updated', room='relevant_room', namespace='/requests')
+
         return jsonify({'message': 'Request status updated successfully.'})
         
     except Exception:

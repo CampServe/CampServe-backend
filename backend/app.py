@@ -1,5 +1,5 @@
-from flask import Flask
-from flask_socketio import SocketIO,emit
+from flask import Flask, request
+from flask_socketio import SocketIO,emit,join_room
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from base import Base
@@ -31,6 +31,14 @@ app.register_blueprint(provider_categories_route)
 app.register_blueprint(users_route)
 app.register_blueprint(ratings_route)
 app.register_blueprint(request_services_route)
+
+
+@socketio.on('connect', namespace='/requests')
+def handle_request_connect():
+    data = request.get_json()
+    provider_id = data['provider_id']  # Assuming provider_id is the socket ID
+    room = f'provider_{provider_id}'
+    join_room(room)
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
