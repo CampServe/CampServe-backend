@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request,jsonify
 from flask_socketio import SocketIO,emit,join_room
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
@@ -35,10 +35,16 @@ app.register_blueprint(request_services_route)
 
 @socketio.on('connect', namespace='/requests')
 def handle_request_connect():
-    data = request.get_json()
-    provider_id = data['provider_id']  # Assuming provider_id is the socket ID
-    room = f'provider_{provider_id}'
-    join_room(room)
+    try:
+     data = request.get_json()
+     provider_id = data['provider_id']  # Assuming provider_id is the socket ID
+     room = f'provider_{provider_id}'
+     join_room(room)
+     print('connected')
+
+    except Exception as e:
+        return jsonify({'error': str(e)})
+    
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
