@@ -16,7 +16,7 @@ from flask_mail import Mail
 app = Flask(__name__)
 app.secret_key = '0hyvgta56h'
 CORS(app,resources={r"/*":{"origins":"*"}})
-socketio = SocketIO(app,cors_allowed_origins = "*")
+socketio = SocketIO(app)
 
 #instantiating the database and sqlalchemy
 engine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')
@@ -33,18 +33,17 @@ app.register_blueprint(ratings_route)
 app.register_blueprint(request_services_route)
 
 
-@socketio.on('connect', namespace='/requests')
-def handle_request_connect():
+
+@socketio.on('join_room', namespace='/requests')
+def handle_request_connect(data):
     try:
-     data = request.get_json()
-     provider_id = data['provider_id']  # Assuming provider_id is the socket ID
-     room = f'provider_{provider_id}'
-     join_room(room)
-     print('connected')
+        provider_id = data['provider_id']
+        room = f'provider_{provider_id}'
+        join_room(room)
+        print('Connected with provider_id:', provider_id)
 
     except Exception as e:
         return jsonify({'error': str(e)})
-    
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
