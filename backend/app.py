@@ -45,6 +45,12 @@ def handle_request_connect(data):
     except Exception as e:
         return jsonify({'error': str(e)})
 
+
+@socketio.on("user_login")
+def handle_user_login(data):
+    provider_id = data["provider_id"]
+    print("User logged in. Provider ID:", provider_id)
+
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
