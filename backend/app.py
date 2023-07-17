@@ -1,8 +1,8 @@
-from flask import Flask, request,jsonify
-from flask_socketio import SocketIO,emit,join_room
+from flask import Flask
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from base import Base
+import json
 from Students.StudentService import students_route
 from Providers.ProviderService import providers_route
 from ProviderCategory.ProviderCategoriesService import provider_categories_route
@@ -15,10 +15,9 @@ from flask_mail import Mail
 
 app = Flask(__name__)
 app.secret_key = '0hyvgta56h'
-CORS(app,resources={r"/*":{"origins":"*"}})
-socketio = SocketIO(app)
 
-#instantiating the database and sqlalchemy
+
+#instantiating the database and sqlalcheml;
 engine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -33,23 +32,6 @@ app.register_blueprint(ratings_route)
 app.register_blueprint(request_services_route)
 
 
-
-@socketio.on('join_room', namespace='/requests')
-def handle_request_connect(data):
-    try:
-        provider_id = data['provider_id']
-        room = f'provider_{provider_id}'
-        join_room(room)
-        print('Connected with provider_id:', provider_id)
-
-    except Exception as e:
-        return jsonify({'error': str(e)})
-
-
-@socketio.on("user_login")
-def handle_user_login(data):
-    provider_id = data["provider_id"]
-    print("User logged in. Provider ID:", provider_id)
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
@@ -76,4 +58,4 @@ finally:
 
 if __name__ == '__main__':
     CORS(app)
-    socketio.run(app,host= '0.0.0.0', port= 5000, debug=True)
+    app.run(host= '0.0.0.0', port= 5000, debug=True)
