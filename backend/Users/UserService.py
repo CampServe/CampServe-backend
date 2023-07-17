@@ -191,3 +191,30 @@ def switch_to_provider():
     except Exception as e:
         print(f"Exception: {e}")
         return jsonify({'message': 'An error occurred'})
+
+
+@users_route.route('/reset_password', methods=['POST'])
+def reset_password():
+    from app import session as s
+
+    try:
+        if 'email' in session:
+            user_email = session['email']
+            new_password = request.json['password']
+
+            # Check if the 'email' exists in the users table
+            user = User.query.filter_by(email=user_email).first()
+
+            if user:
+                user.password = new_password
+                s.commit()
+
+                return jsonify({'message': 'Password reset successful'})
+            else:
+                return jsonify({'error': 'User not found'})
+                
+    except Exception as e:
+        return jsonify({'error': 'An error occurred', 'details': str(e)})
+
+    
+
