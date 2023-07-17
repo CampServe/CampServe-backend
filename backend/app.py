@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_socketio import SocketIO
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from base import Base
@@ -15,6 +16,8 @@ from flask_mail import Mail
 
 app = Flask(__name__)
 app.secret_key = '0hyvgta56h'
+CORS(app,resources={r"/*":{"origins":"*"}})
+socketio = SocketIO(app,engineio_logger=False, cors_allowed_origins='*')
 
 
 #instantiating the database and sqlalcheml;
@@ -31,8 +34,16 @@ app.register_blueprint(users_route)
 app.register_blueprint(ratings_route)
 app.register_blueprint(request_services_route)
 
+@socketio.on('connect')
+def handle_connect():
+    print('Client connected')
+    # socketio.emit("connect", {"data": request.sid}, namespace="/")
 
-
+    
+@socketio.on('disconnect')
+def handle_disconnect():
+    print('Client disconnected')
+    
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
@@ -48,7 +59,7 @@ try:
     engine.connect()
     Base.metadata.create_all(engine)
     session.commit()
-    print('database created')
+    # print('database created')
 except Exception as e:
     print('connection failed: %s'%(e))
     session.rollback()
@@ -58,4 +69,5 @@ finally:
 
 if __name__ == '__main__':
     CORS(app)
-    app.run(host= '0.0.0.0', port= 5000, debug=True)
+    socketio.run(app,host= '0.0.0.0', port= 5000, debug=True)
+    
