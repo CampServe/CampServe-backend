@@ -45,14 +45,8 @@ def book_services():
         session.add(new_request)
         session.commit()
 
-         # Emit an event to notify the provider of the new request
-        provider_id = provider_id  # Replace with the actual provider ID
-        room = f'provider_{provider_id}'
-        socketio.emit('new_request', room=room, namespace='/requests')
-        
-
         return jsonify({'message': 'Request added successfully'})
-
+        
     except Exception as e:
         return jsonify({'error': str(e)})
 
@@ -145,9 +139,7 @@ def get_all_provider_requests():
         if not provider_requests:
             return jsonify({'message': 'No requests found.'})
 
-        # Emit an event to the provider's room to establish a connection
-        socketio.emit('join_room', room=provider_id, namespace='/')
-   
+
         #i want to include a count for all their requests tht shows on the ui
         all_requests = []
         for req in provider_requests:
@@ -170,7 +162,10 @@ def get_all_provider_requests():
             }
             all_requests.append(request_data)
 
+           
+
         return jsonify({'all_requests': all_requests})
+
 
     except Exception as e:
         return jsonify({'error': str(e)})
