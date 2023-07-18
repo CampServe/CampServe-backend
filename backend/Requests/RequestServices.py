@@ -103,6 +103,7 @@ def get_all_user_requests():
         for requestt,provider in user_request:
             all_requests.append({
                 'request_id': requestt.request_id,
+                'provider_id':requestt.provider_id,
                 'agreed_price': requestt.agreed_price,
                 'location': requestt.location,
                 'payment_mode': requestt.payment_mode,
