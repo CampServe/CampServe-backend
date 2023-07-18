@@ -1,5 +1,4 @@
 from flask import jsonify, Blueprint, request
-from flask_socketio import SocketIO, emit, join_room
 from flask_cors import CORS
 from Requests.RequestsModel import Requests
 from Providers.ProviderModel import Providers
@@ -15,7 +14,6 @@ CORS(request_services_route)
 @request_services_route.route('/book_services', methods=['POST'])
 def book_services():
     from app import session
-    from app import socketio
 
 
     data = request.get_json()
@@ -174,7 +172,6 @@ def get_all_provider_requests():
 @request_services_route.route('/change_request_status', methods=['POST'])
 def change_request_status():
     from app import session
-    from app import socketio
     
     data = request.get_json()
     action_type = data['action_type']
@@ -201,7 +198,6 @@ def change_request_status():
 
         session.commit()
 
-        # socketio.emit('request_status_updated', room='relevant_room', namespace='/requests')
 
         return jsonify({'message': 'Request status updated successfully.'})
         
