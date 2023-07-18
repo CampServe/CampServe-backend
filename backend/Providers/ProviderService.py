@@ -1,14 +1,18 @@
 from flask_cors import CORS
 from flask import jsonify, Blueprint, request
-from Students.StudentModel import Students
 from werkzeug.security import check_password_hash
 from Providers.ProviderModel import Providers
 from Users.UserModel import User
+from sqlalchemy import func,cast, Float,Numeric
+from Requests.RequestsModel import Requests
 from ProviderCategory.ProviderCategoriesModel import ProviderCategories
 import jwt
 from datetime import datetime, timedelta
 from Ratings.RatingsModel import Ratings
 from Users.UserModel import User
+import re
+
+
 
 
 
@@ -205,6 +209,68 @@ def switch_to_user():
 
 
 #this route returns every bit of information related to a provider
+# @providers_route.route('/get_provider_info', methods=['POST'])
+# def get_provider_info():
+#     from app import session
+
+#     data = request.get_json()
+#     provider_id = data['provider_id']
+
+#     # Retrieve provider information from the providers table
+#     provider = session.query(Providers).filter_by(provider_id=provider_id).first()
+
+#     if not provider:
+#         return jsonify({'message': 'Provider not found'})
+
+#     # Retrieve ratings for the provider
+#     ratings = session.query(Ratings).filter_by(provider_id=provider_id).all()
+
+#     # Retrieve provider categories using the user_id from the providers table
+#     provider_categories = session.query(ProviderCategories).filter_by(user_id=provider.user_id).all()
+
+#     # Prepare the output dictionary
+#     output = {
+#         'business_name': provider.business_name,
+#         'contact': provider.provider_contact,
+#         'bio': provider.bio,
+#         'main_categories': [],
+#         'sub_categories': []
+        
+#     }
+
+#     # Extract subcategories from provider_categories
+#     subcategories_dict = {}
+#     for category in provider_categories:
+#         subcategories_dict[category.sub_categories] = {
+#             'subcategory_image': category.subcategory_image,
+#             'description': category.subcategories_description,
+#             'rating_details': []
+#         }
+#         output['main_categories'].append(category.main_categories)
+
+#     # Populate comments, no_of_stars, and rating_details for each subcategory
+#     for rating in ratings:
+#         subcategory = rating.subcategory
+#         if subcategory in subcategories_dict:
+#             user = session.query(User).filter_by(user_id=rating.user_id).first()
+#             rating_details = {
+#                 'id': rating.rating_id,
+#                 'first_name': user.first_name,
+#                 'last_name': user.last_name,
+#                 'stars': rating.no_of_stars,
+#                 'review': rating.comments,
+#                 'timestamp': rating.timestamp
+#             }
+#             subcategories_dict[subcategory]['rating_details'].append(rating_details)
+
+#     # Assign subcategories dictionary to the output
+#     output['sub_categories'] = subcategories_dict
+
+#     return jsonify(output)
+
+
+
+
 @providers_route.route('/get_provider_info', methods=['POST'])
 def get_provider_info():
     from app import session
@@ -239,6 +305,13 @@ def get_provider_info():
         subcategories_dict[category.sub_categories] = {
             'subcategory_image': category.subcategory_image,
             'description': category.subcategories_description,
+            'request_summary': {
+                'pending': 0,
+                'in_progress': 0,
+                'completed': 0,
+                'declined': 0,
+                'total_amount_earned': 0
+            },
             'rating_details': []
         }
         output['main_categories'].append(category.main_categories)
@@ -261,4 +334,76 @@ def get_provider_info():
     # Assign subcategories dictionary to the output
     output['sub_categories'] = subcategories_dict
 
+
+    #Count the requests and calculate the total amount earned for each subcategory
+    for subcategory, subcategory_info in subcategories_dict.items():
+        pending_count = session.query(func.count(Requests.provider_id)).filter(
+            Requests.provider_id == provider_id,
+            Requests.subcategory == subcategory,
+            Requests.status_acc_dec == 'no action',
+            Requests.status_comp_inco == 'no action'
+        ).scalar()
+
+        in_progress_count = session.query(func.count(Requests.provider_id)).filter(
+            Requests.provider_id == provider_id,
+            Requests.subcategory == subcategory,
+            Requests.status_acc_dec == 'accepted',
+            Requests.status_comp_inco == 'incomplete'
+        ).scalar()
+
+        completed_count = session.query(func.count(Requests.provider_id)).filter(
+            Requests.provider_id == provider_id,
+            Requests.subcategory == subcategory,
+            Requests.status_acc_dec == 'accepted',
+            Requests.status_comp_inco == 'complete'
+        ).scalar()
+
+        declined_count = session.query(func.count(Requests.provider_id)).filter(
+            Requests.provider_id == provider_id,
+            Requests.subcategory == subcategory,
+            Requests.status_acc_dec == 'declined',
+            Requests.status_comp_inco == 'no action'
+        ).scalar()
+
+        print("Calling session.query with extract_numeric")
+
+        total_amount_earned = session.query(
+        func.coalesce(func.sum(func.cast(func.replace(Requests.agreed_price, 'GH¢ ', ''), Numeric)), 0.0)
+        ).filter(
+        Requests.provider_id == provider_id,
+        Requests.subcategory == subcategory,
+        Requests.status_acc_dec == 'accepted',
+        Requests.status_comp_inco == 'complete'
+        ).scalar()
+
+
+        # Update the request summary for each subcategory in the output dictionary
+        subcategory_info['request_summary']['pending'] = pending_count
+        subcategory_info['request_summary']['in_progress'] = in_progress_count
+        subcategory_info['request_summary']['completed'] = completed_count
+        subcategory_info['request_summary']['declined'] = declined_count
+        subcategory_info['request_summary']['total_amount_earned'] = total_amount_earned or 0
+        # subcategories_dict[subcategory]['request_summary']['total_amount_earned'] = total_amount_earned or 0.0
+
+
     return jsonify(output)
+
+
+
+def extract_numeric(s):
+    # Helper function to extract numeric part from a string
+    if isinstance(s, str) or isinstance(s, bytes):
+        # Remove any non-numeric characters except for '.' or ',' (decimal separators)
+        numeric_part = re.sub(r'[^\d.,]', '', s)
+        # Replace ',' (thousand separators) with empty string
+        numeric_part = numeric_part.replace(',', '')
+        print("Received input:", s)
+        print("Extracted numeric part:", numeric_part)
+        try:
+            return float(numeric_part)
+        except ValueError:
+            print(f"error {ValueError} ")
+            return 0.0
+    else:
+        return 0.0
+
