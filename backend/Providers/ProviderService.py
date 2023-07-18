@@ -390,20 +390,4 @@ def get_provider_info():
 
 
 
-def extract_numeric(s):
-    # Helper function to extract numeric part from a string
-    if isinstance(s, str) or isinstance(s, bytes):
-        # Remove any non-numeric characters except for '.' or ',' (decimal separators)
-        numeric_part = re.sub(r'[^\d.,]', '', s)
-        # Replace ',' (thousand separators) with empty string
-        numeric_part = numeric_part.replace(',', '')
-        print("Received input:", s)
-        print("Extracted numeric part:", numeric_part)
-        try:
-            return float(numeric_part)
-        except ValueError:
-            print(f"error {ValueError} ")
-            return 0.0
-    else:
-        return 0.0
 
