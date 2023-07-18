@@ -2,19 +2,20 @@ from flask import Flask
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from base import Base
-import json
 from Students.StudentService import students_route
 from Providers.ProviderService import providers_route
 from ProviderCategory.ProviderCategoriesService import provider_categories_route
 from Users.UserService import users_route
 from Ratings.RatingsService import ratings_route
 from Requests.RequestServices import request_services_route
+from payment.PaymentService import payment_route
 from flask_cors import CORS
 from flask_mail import Mail
 
 
 app = Flask(__name__)
 app.secret_key = '0hyvgta56h'
+
 
 
 #instantiating the database and sqlalcheml;
@@ -30,6 +31,7 @@ app.register_blueprint(provider_categories_route)
 app.register_blueprint(users_route)
 app.register_blueprint(ratings_route)
 app.register_blueprint(request_services_route)
+app.register_blueprint(payment_route)
 
 
 
