@@ -1,9 +1,11 @@
+from crypt import methods
 from flask import jsonify, Blueprint, request
 from flask_cors import CORS
 from Requests.RequestsModel import Requests
 from Providers.ProviderModel import Providers
 from Users.UserModel import User
 from Requests.RequestsModel import Requests
+from ProviderCategory.ProviderCategoriesModel import ProviderCategories
 
 request_services_route = Blueprint("request_services_route", __name__)
 CORS(request_services_route)
@@ -207,3 +209,33 @@ def change_request_status():
     finally:
         session.close()
 
+
+@request_services_route.route("/number_of_visits", methods=['POST'])
+def number_of_visits():
+    from app import session
+    data = request.get_json()
+
+    provider_id = data['provider_id']
+    subcategory = data['subcategory']
+
+    # Query the providers table to get the user_id associated with the provider_id
+    provider = session.query(Providers).filter_by(provider_id=provider_id).first()
+
+    if provider is None:
+        return jsonify({"message": "Provider not found"})
+
+    user_id = provider.user_id
+
+    # Search for the user in the provider_categories table
+    provider_category = session.query(ProviderCategories).filter_by(user_id=user_id, sub_categories=subcategory).first()
+
+    if provider_category is None:
+        return jsonify({"message": "Provider category not found"})
+
+    # Increase the count of the number_of_visits column in the provider_categories table
+    provider_category.number_of_visits += 1
+
+    # Commit the changes to the database
+    session.commit()
+
+    return jsonify({"message": "Number of visits updated successfully"})
