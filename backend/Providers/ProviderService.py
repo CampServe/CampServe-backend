@@ -5,7 +5,6 @@ from Providers.ProviderModel import Providers
 from Users.UserModel import User
 from sqlalchemy import func,cast, Float,Numeric
 from Requests.RequestsModel import Requests
-from ProviderCategory.ProviderCategoriesModel import ProviderCategories
 import jwt
 from datetime import datetime, timedelta
 from Ratings.RatingsModel import Ratings
@@ -27,6 +26,8 @@ revoked_tokens = set()
 @providers_route.route("/signup_as_provider/<user_id>", methods=['POST'])
 def sign_up(user_id):
     from app import session
+    from ProviderCategory.ProviderCategoriesModel import ProviderCategories
+
 
     # getting the selected categories from a provider
     data = request.get_json()
@@ -72,7 +73,7 @@ def sign_up(user_id):
             description = subcategory['description']
             subcategory_image = subcategory.get('image') or None
 
-            categories = ProviderCategories(user_id=user_id, main_categories=category_name, sub_categories=subcategory_name, subcategories_description=description, subcategory_image=subcategory_image)
+            categories = ProviderCategories(user_id=user_id, main_categories=category_name, sub_categories=subcategory_name, subcategories_description=description, subcategory_image=subcategory_image,number_of_visits=0)
             session.add(categories)
 
     session.commit()
@@ -91,6 +92,8 @@ def sign_up(user_id):
 def provider_login():
     from app import session
     from app import app
+    from ProviderCategory.ProviderCategoriesModel import ProviderCategories
+
     username = request.json['username'].lower()
     password = request.json['password']
 
@@ -274,6 +277,8 @@ def switch_to_user():
 @providers_route.route('/get_provider_info', methods=['POST'])
 def get_provider_info():
     from app import session
+    from ProviderCategory.ProviderCategoriesModel import ProviderCategories
+
 
     data = request.get_json()
     provider_id = data['provider_id']
