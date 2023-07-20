@@ -1,7 +1,4 @@
 from sqlalchemy import String, Integer, Column, ForeignKey
-from sqlalchemy.orm import relationship
-from Providers.ProviderModel import Providers
-from Students.StudentModel import Students
 from Users.UserModel import User
 
 from base import Base
@@ -14,5 +11,6 @@ class ProviderCategories(Base):
     sub_categories = Column("sub_categories",String(255),nullable=False)
     subcategories_description = Column("subcategories_description",String(255),nullable=False)
     subcategory_image = Column("subcategory_image",String(255),nullable=True)
+    number_of_visits = Column("number_of_visits", Integer, nullable=True)
 
 # users = relationship("Users", uselist=False, back_populates="users")

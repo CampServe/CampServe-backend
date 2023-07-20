@@ -92,6 +92,7 @@ def get_services():
         ProviderCategories.sub_categories,
         ProviderCategories.subcategories_description,
         ProviderCategories.subcategory_image,
+        ProviderCategories.number_of_visits,
         Ratings.no_of_stars
     ).join(ProviderCategories, Providers.user_id == ProviderCategories.user_id)\
      .outerjoin(Ratings, and_(Providers.provider_id == Ratings.provider_id, ProviderCategories.sub_categories == Ratings.subcategory))\
@@ -102,7 +103,7 @@ def get_services():
         'data': []
     }
 
-    for provider_id, user_id, provider_contact, business_name, bio, main_categories, sub_categories, subcategories_description, subcategory_image, no_of_stars in data:
+    for provider_id, user_id, provider_contact, business_name, bio, main_categories, sub_categories, subcategories_description, subcategory_image, number_of_visits, no_of_stars in data:
         found = False
         for item in result['data']:
             if item['provider_id'] == provider_id and item['sub_categories'] == sub_categories:
@@ -121,6 +122,7 @@ def get_services():
                 'sub_categories': sub_categories,
                 'subcategories_description': subcategories_description,
                 'subcategory_image': subcategory_image,
+                'number_of_visits': number_of_visits,
                 'no_of_stars': [] if no_of_stars is None else [no_of_stars]
             })
 
