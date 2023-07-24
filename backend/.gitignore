@@ -6,3 +6,8 @@ tempCodeRunnerFile.py
 .pyc
 active.bat
 */__pycache__/*.pyc
+/Users/Jeffrey/Desktop/project/CampServe-backend/backend/__pycache__
+/Users/Jeffrey/Desktop/project/CampServe-backend/backend/Paystack/__pycache__
+/Users/Jeffrey/Desktop/project/CampServe-backend/backend/ProviderCategory/__pycache__
+/Users/Jeffrey/Desktop/project/CampServe-backend/backend/Providers/__pycache__
+/Users/Jeffrey/Desktop/project/CampServe-backend/backend/Users/__pycache__
