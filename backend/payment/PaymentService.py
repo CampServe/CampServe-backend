@@ -4,45 +4,39 @@ import requests
 from flask_cors import CORS
 import base64
 from requests.auth import HTTPBasicAuth
-from hubtel import Hubtel
-
 
 
 
 payment_route = Blueprint("payment_route", __name__)
 CORS(payment_route)
 
-class Hubtel:
-    def __init__(self,username,password,merchantId):
-        self.base_url = "https://api.hubtel.com/v1/merchantaccount/"
-        self.username = username
-        self.password = password
-        self.merchant_id = merchantId
-        usrPass = "{0}:{1}".format(self.username,self.password)
-        auth_byte = usrPass.encode('utf-8')
-        self.basic = str(base64.b64encode(auth_byte))[2:-1]
-        self.headers = {'Authorization': 'Basic {0}'.format(self.basic)}
-        self.items = []
-        print(self.basic)
 
+@payment_route.route('/send_money', methods=['POST'])
+def send_money():
+    mobile_number = request.json['mobile_number']
 
-@payment_route.route("/send_money", methods=['POST'])
-def send():
-        #name = request.json['name']
-        #number = request.json['number']
-        #email = request.json['email']
-        #amount = request.json['amount']
+    url = f"https://consumer-smrmapi.hubtel.com/send-money"
+    username = "xkgfwoxa"
+    password = "baiuytlj"
+
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + base64.b64encode(f'{username}:{password}'.encode()).decode()
+    }
+
+    payload = {
+    "amount": 1.00,
+    "title": "Testing",
+    "description": "Testing",
+    "clientReference": "731",
+    "callbackUrl": "https://webhook.site/a16f5ccd-2916-4904-90e4-0cc455ce105e",
+    "cancellationUrl": "http://example.com",
+    "returnUrl": "http://example.com",
+}
+
+    try:
+        res = requests.post(f"{url}/{mobile_number}", headers=headers, json=payload, auth=HTTPBasicAuth(username,password))
+        return jsonify(res.text)
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": f"Error occurred: {e}"})
         
-        base_url = "https://devp-reqsendmoney-230622-api.hubtel.com/request-money/0206436575"
-        payload = {
-            "PrimaryCallbackUrl": "https://webhook.site/a16f5ccd-2916-4904-90e4-0cc455ce105e"
-        }
-
-        headers = {
-            'Content-Type': 'application/json',
-        }
-        try:
-            r = requests.post(base_url, headers=headers, data=payload)
-            return r.json()
-        except Exception as e:
-            print(e)
