@@ -86,8 +86,6 @@ def sign_up(user_id):
 
 
 
-            
-
 @providers_route.route("/login_as_provider", methods=['POST'])
 def provider_login():
     from app import session
@@ -340,7 +338,6 @@ def add_new_service():
 
 
     data = request.get_json()
-    #provider_id = data['provider_id']
     user_id = data['user_id']
 
    
