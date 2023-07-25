@@ -86,8 +86,6 @@ def sign_up(user_id):
 
 
 
-            
-
 @providers_route.route("/login_as_provider", methods=['POST'])
 def provider_login():
     from app import session
@@ -209,68 +207,6 @@ def switch_to_user():
     except Exception as e:
         print(f"Exception: {e}")
         return jsonify({'message': 'An error occurred'})
-
-
-#this route returns every bit of information related to a provider
-# @providers_route.route('/get_provider_info', methods=['POST'])
-# def get_provider_info():
-#     from app import session
-
-#     data = request.get_json()
-#     provider_id = data['provider_id']
-
-#     # Retrieve provider information from the providers table
-#     provider = session.query(Providers).filter_by(provider_id=provider_id).first()
-
-#     if not provider:
-#         return jsonify({'message': 'Provider not found'})
-
-#     # Retrieve ratings for the provider
-#     ratings = session.query(Ratings).filter_by(provider_id=provider_id).all()
-
-#     # Retrieve provider categories using the user_id from the providers table
-#     provider_categories = session.query(ProviderCategories).filter_by(user_id=provider.user_id).all()
-
-#     # Prepare the output dictionary
-#     output = {
-#         'business_name': provider.business_name,
-#         'contact': provider.provider_contact,
-#         'bio': provider.bio,
-#         'main_categories': [],
-#         'sub_categories': []
-        
-#     }
-
-#     # Extract subcategories from provider_categories
-#     subcategories_dict = {}
-#     for category in provider_categories:
-#         subcategories_dict[category.sub_categories] = {
-#             'subcategory_image': category.subcategory_image,
-#             'description': category.subcategories_description,
-#             'rating_details': []
-#         }
-#         output['main_categories'].append(category.main_categories)
-
-#     # Populate comments, no_of_stars, and rating_details for each subcategory
-#     for rating in ratings:
-#         subcategory = rating.subcategory
-#         if subcategory in subcategories_dict:
-#             user = session.query(User).filter_by(user_id=rating.user_id).first()
-#             rating_details = {
-#                 'id': rating.rating_id,
-#                 'first_name': user.first_name,
-#                 'last_name': user.last_name,
-#                 'stars': rating.no_of_stars,
-#                 'review': rating.comments,
-#                 'timestamp': rating.timestamp
-#             }
-#             subcategories_dict[subcategory]['rating_details'].append(rating_details)
-
-#     # Assign subcategories dictionary to the output
-#     output['sub_categories'] = subcategories_dict
-
-#     return jsonify(output)
-
 
 
 
@@ -395,4 +331,35 @@ def get_provider_info():
 
 
 
+@providers_route.route('/add_new_service', methods=['POST'])
+def add_new_service():
+    from app import session
+    from ProviderCategory.ProviderCategoriesModel import ProviderCategories
 
+
+    data = request.get_json()
+    user_id = data['user_id']
+
+   
+    # looping through the categories
+    selected_categories = data['selectedSubcategories']
+
+    for category in selected_categories:
+        category_name = category['category']
+        subcategories = category['subcategories']
+
+        for subcategory in subcategories:
+            subcategory_name = subcategory['name']
+            description = subcategory['description']
+            subcategory_image = subcategory.get('image') or None
+
+            categories = ProviderCategories(user_id=user_id, main_categories=category_name, sub_categories=subcategory_name, subcategories_description=description, subcategory_image=subcategory_image,number_of_visits=0)
+            session.add(categories)
+
+    session.commit()
+
+    result = {
+        'status': 'New Service added'
+    }
+
+    return jsonify(result)
