@@ -1,6 +1,7 @@
 from flask_cors import CORS
 from flask import jsonify, Blueprint, request
 from werkzeug.security import check_password_hash
+from ProviderCategory.ProviderCategoriesModel import ProviderCategories
 from Providers.ProviderModel import Providers
 from Users.UserModel import User
 from sqlalchemy import func,cast, Float,Numeric
@@ -9,6 +10,7 @@ import jwt
 from datetime import datetime, timedelta
 from Ratings.RatingsModel import Ratings
 from Users.UserModel import User
+from Providers.ProviderService import Providers
 import re
 
 
@@ -331,35 +333,48 @@ def get_provider_info():
 
 
 
-@providers_route.route('/add_new_service', methods=['POST'])
-def add_new_service():
+@providers_route.route('/update_provider', methods=['POST'])
+def update_provider():
     from app import session
-    from ProviderCategory.ProviderCategoriesModel import ProviderCategories
-
-
     data = request.get_json()
-    user_id = data['user_id']
 
-   
-    # looping through the categories
-    selected_categories = data['selectedSubcategories']
+    provider_id = data.get('provider_id')
+    user_id = data.get('user_id')
+    bio = data.get('bio')
+    provider_contact = data.get('provider_contact')
+    business_name = data.get('business_name')
+    sub_categories = data.get('subcategories')
 
-    for category in selected_categories:
-        category_name = category['category']
-        subcategories = category['subcategories']
+    if not provider_id or not user_id:
+        return jsonify({'message': 'Invalid data provided'})
 
-        for subcategory in subcategories:
-            subcategory_name = subcategory['name']
-            description = subcategory['description']
-            subcategory_image = subcategory.get('image') or None
+    # Update the Provider table
+    provider = session.query(Providers).filter_by(provider_id=provider_id).first()
+    if provider:
+        if bio:
+            provider.bio = bio
+        if provider_contact:
+            provider.provider_contact = provider_contact
+        if business_name:
+            provider.business_name = business_name
 
-            categories = ProviderCategories(user_id=user_id, main_categories=category_name, sub_categories=subcategory_name, subcategories_description=description, subcategory_image=subcategory_image,number_of_visits=0)
-            session.add(categories)
+    # Update the ProviderCategory table
+    if sub_categories:
+        provider_category = session.query(ProviderCategories).filter_by(user_id=user_id).first()
+        if provider_category:
+            sub_categories_data = provider_category.sub_categories
+
+            # Loop through the received sub_categories and update the corresponding records
+            for subcategory in sub_categories:
+                subcategory_name = list(subcategory.keys())[0]
+                subcategory_data = subcategory[subcategory_name]
+
+                if subcategory_name in sub_categories_data:
+                    sub_categories_data[subcategory_name]['description'] = subcategory_data.get('description', sub_categories_data[subcategory_name]['description'])
+                    sub_categories_data[subcategory_name]['image'] = subcategory_data.get('image', sub_categories_data[subcategory_name]['image'])
+
+            provider_category.sub_categories = sub_categories_data
 
     session.commit()
-
-    result = {
-        'status': 'New Service added'
-    }
-
-    return jsonify(result)
+    
+    return jsonify({'message': 'Data updated successfully'})
