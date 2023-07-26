@@ -222,3 +222,28 @@ def reset_password():
     return jsonify({'message': 'Password reset successful'}), 200
     
 
+@users_route.route('/forgot_password', methods=['POST'])
+def forgot_password():
+    from app import session
+    data = request.get_json()
+
+    user_id = data.get('user_id')
+    new_password = data.get('new_password')
+
+    if not user_id or not new_password:
+        return jsonify({'error': 'Invalid data provided'})
+
+    # Fetch the user from the database based on user_id
+    user = session.query(User).filter_by(user_id=user_id).first()
+
+    if not user:
+        return jsonify({'error': 'User not found'})
+
+    # Hash the new password before updating it in the database
+    hashed_new_password = generate_password_hash(new_password)
+
+    # Update the password in the database
+    user.password = hashed_new_password
+    session.commit()
+    
+    return jsonify({'message': 'Password reset successful'})
