@@ -195,26 +195,30 @@ def switch_to_provider():
 
 @users_route.route('/reset_password', methods=['POST'])
 def reset_password():
-    from app import session as s
+    from app import session
+    data = request.get_json()
 
-    try:
-        if 'email' in session:
-            user_email = session['email']
-            new_password = request.json['password']
+    user_id = data.get('user_id')
+    old_password = data.get('old_password')
+    new_password = data.get('new_password')
 
-            # Check if the 'email' exists in the users table
-            user = User.query.filter_by(email=user_email).first()
+ 
+    user = session.query(User).filter_by(user_id=user_id).first()
 
-            if user:
-                user.password = new_password
-                s.commit()
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
 
-                return jsonify({'message': 'Password reset successful'})
-            else:
-                return jsonify({'error': 'User not found'})
-                
-    except Exception as e:
-        return jsonify({'error': 'An error occurred', 'details': str(e)})
+    # Check if the old password matches the hashed password in the database
+    if not check_password_hash(user.password, old_password):
+        return jsonify({'error': 'Old password does not match'})
 
+    # Hash the new password before updating it in the database
+    hashed_new_password = generate_password_hash(new_password)
+
+    # Update the password in the database
+    user.password = hashed_new_password
+    session.commit()
+
+    return jsonify({'message': 'Password reset successful'}), 200
     
 
