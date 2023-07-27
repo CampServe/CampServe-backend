@@ -15,7 +15,7 @@ CORS(payment_route)
 def send_money():
     mobile_number = request.json['mobile_number']
 
-    url = f"https://consumer-smrmapi.hubtel.com/send-money"
+    url = f"https://consumer-smrmapi.hubtel.com/request-money"
     username = "xkgfwoxa"
     password = "baiuytlj"
 
