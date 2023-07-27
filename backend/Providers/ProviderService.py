@@ -12,6 +12,7 @@ from Ratings.RatingsModel import Ratings
 from Users.UserModel import User
 from Providers.ProviderService import Providers
 import re
+import json
 
 
 
@@ -343,7 +344,7 @@ def update_provider():
     bio = data.get('bio')
     provider_contact = data.get('provider_contact')
     business_name = data.get('business_name')
-    sub_categories = data.get('subcategories')
+    received_subcategories = data.get('subcategories')
 
     if not provider_id or not user_id:
         return jsonify({'message': 'Invalid data provided'})
@@ -359,22 +360,56 @@ def update_provider():
             provider.business_name = business_name
 
     # Update the ProviderCategory table
-    if sub_categories:
-        provider_category = session.query(ProviderCategories).filter_by(user_id=user_id).first()
-        if provider_category:
-            sub_categories_data = provider_category.sub_categories
+    if received_subcategories:
+        provider_categories_data = session.query(ProviderCategories).filter_by(user_id=user_id).all()
 
-            # Loop through the received sub_categories and update the corresponding records
-            for subcategory in sub_categories:
-                subcategory_name = list(subcategory.keys())[0]
-                subcategory_data = subcategory[subcategory_name]
+    for received_subcategory in received_subcategories:
+        received_subcategory_name = received_subcategory.get('name')
+        received_subcategory_description = received_subcategory.get('description')
+        received_subcategory_image = received_subcategory.get('image')  
 
-                if subcategory_name in sub_categories_data:
-                    sub_categories_data[subcategory_name]['description'] = subcategory_data.get('description', sub_categories_data[subcategory_name]['description'])
-                    sub_categories_data[subcategory_name]['image'] = subcategory_data.get('image', sub_categories_data[subcategory_name]['image'])
 
-            provider_category.sub_categories = sub_categories_data
+        # Check if the received subcategory matches any entry in the database
+        matching_category = next((category for category in provider_categories_data if category.sub_categories == received_subcategory_name), None)
 
+        if matching_category:
+            if received_subcategory_description:
+                matching_category.subcategories_description = received_subcategory_description
+            if received_subcategory_image:
+                session.query(ProviderCategories).filter_by(sub_categories=received_subcategory_name, user_id=user_id).update({'subcategory_image': received_subcategory_image})
+
+    # Commit the changes to the database
     session.commit()
-    
+        
     return jsonify({'message': 'Data updated successfully'})
+
+
+
+# @providers_route.route('/update_provider', methods=['POST'])
+# def update_provider():
+#     from app import session
+#     data = request.get_json()
+
+#     user_id = data.get('user_id')
+#     received_subcategories = data.get('subcategories')
+
+#     # Query the providercategories table with the given user_id
+#     provider_categories_data = session.query(ProviderCategories).filter_by(user_id=user_id).all()
+
+#     for received_subcategory in received_subcategories:
+#         received_subcategory_name = received_subcategory.get('name')
+#         received_subcategory_description = received_subcategory.get('description')
+#         received_subcategory_image = received_subcategory.get('image')  
+
+
+#         # Check if the received subcategory matches any entry in the database
+#         matching_category = next((category for category in provider_categories_data if category.sub_categories == received_subcategory_name), None)
+
+#         if matching_category:
+#             matching_category.subcategories_description = received_subcategory_description
+#             session.query(ProviderCategories).filter_by(sub_categories=received_subcategory_name, user_id=user_id).update({'subcategory_image': received_subcategory_image})
+
+#     # Commit the changes to the database
+#     session.commit()
+
+#     return jsonify(message="Subcategories updated successfully.")
