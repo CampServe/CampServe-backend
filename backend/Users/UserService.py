@@ -257,13 +257,15 @@ def check_email():
     
     data = request.get_json()
     email_to_find = data.get('email')
+    check_exists = data.get('check_exists')
 
     if not email_to_find:
         return jsonify({'message': 'Email not provided'})
 
     user = session.query(User).filter_by(email=email_to_find).first()
-
-    if user:
-        return jsonify({'message': 'Email found'})
-    else:
-        return jsonify({'message': 'Email not found'})
+    if check_exists:
+        # Check if the email exists and return True if it does, False otherwise
+        if user:
+            return jsonify({'exists': "True"})
+        else:
+            return jsonify({'exists': "False"})
