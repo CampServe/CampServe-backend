@@ -11,7 +11,7 @@ payment_route = Blueprint("payment_route", __name__)
 CORS(payment_route)
 
 
-@payment_route.route('/send_money', methods=['POST'])
+@payment_route.route('/request_money', methods=['POST'])
 def send_money():
     mobile_number = request.json['mobile_number']
 
