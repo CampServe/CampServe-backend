@@ -40,18 +40,23 @@ def update_password(user_id):
 @users_route.route("/add_user", methods=['POST'])
 def add_user():
     from app import session as s
+
     first_name = request.json['first_name']
     last_name = request.json['last_name']
     username = request.json['username'].lower()
     password = request.json['password']
 
+    user_email = None
     if 'email' in session:
         user_email = session['email']
 
     hashed_password = generate_password_hash(password)
 
     check_username = s.query(User).filter_by(username=username).first()
-    check_email = s.query(User).filter_by(email=user_email).first()
+    check_email = None
+    if user_email:
+        check_email = s.query(User).filter_by(email=user_email).first()
+
     if check_username:
         result = {
             'status': 'user already exists'
@@ -63,7 +68,7 @@ def add_user():
         }
     else:
         user = User(first_name=first_name, last_name=last_name, username=username,
-                    password=hashed_password, email=email, is_service_provider=False)
+                    password=hashed_password, email=user_email, is_service_provider=False)
         s.add(user)
         s.commit()
 
