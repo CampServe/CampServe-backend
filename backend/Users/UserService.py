@@ -40,18 +40,23 @@ def update_password(user_id):
 @users_route.route("/add_user", methods=['POST'])
 def add_user():
     from app import session as s
+
     first_name = request.json['first_name']
     last_name = request.json['last_name']
     username = request.json['username'].lower()
     password = request.json['password']
 
+    user_email = None
     if 'email' in session:
         user_email = session['email']
 
     hashed_password = generate_password_hash(password)
 
     check_username = s.query(User).filter_by(username=username).first()
-    check_email = s.query(User).filter_by(email=user_email).first()
+    check_email = None
+    if user_email:
+        check_email = s.query(User).filter_by(email=user_email).first()
+
     if check_username:
         result = {
             'status': 'user already exists'
@@ -63,7 +68,7 @@ def add_user():
         }
     else:
         user = User(first_name=first_name, last_name=last_name, username=username,
-                    password=hashed_password, email=email, is_service_provider=False)
+                    password=hashed_password, email=user_email, is_service_provider=False)
         s.add(user)
         s.commit()
 
@@ -195,55 +200,75 @@ def switch_to_provider():
 
 @users_route.route('/reset_password', methods=['POST'])
 def reset_password():
-    from app import session
+    from app import session as s
     data = request.get_json()
 
-    user_id = data.get('user_id')
     old_password = data.get('old_password')
     new_password = data.get('new_password')
 
- 
-    user = session.query(User).filter_by(user_id=user_id).first()
+    # Retrieve the email from the session
+    email_in_session = session.get('email')
 
-    if not user:
-        return jsonify({'error': 'User not found'}), 404
+    if not email_in_session:
+        return jsonify({'error': 'Email not found in session'})
 
-    # Check if the old password matches the hashed password in the database
-    if not check_password_hash(user.password, old_password):
-        return jsonify({'error': 'Old password does not match'})
-
-    # Hash the new password before updating it in the database
-    hashed_new_password = generate_password_hash(new_password)
-
-    # Update the password in the database
-    user.password = hashed_new_password
-    session.commit()
-
-    return jsonify({'message': 'Password reset successful'}), 200
-    
-
-@users_route.route('/forgot_password', methods=['POST'])
-def forgot_password():
-    from app import session
-    data = request.get_json()
-
-    user_id = data.get('user_id')
-    new_password = data.get('new_password')
-
-    if not user_id or not new_password:
-        return jsonify({'error': 'Invalid data provided'})
-
-    # Fetch the user from the database based on user_id
-    user = session.query(User).filter_by(user_id=user_id).first()
+    user = s.query(User).filter_by(email=email_in_session).first()
 
     if not user:
         return jsonify({'error': 'User not found'})
 
-    # Hash the new password before updating it in the database
+    if not check_password_hash(user.password, old_password):
+        return jsonify({'error': 'Old password does not match'})
+
     hashed_new_password = generate_password_hash(new_password)
 
-    # Update the password in the database
     user.password = hashed_new_password
-    session.commit()
-    
+    s.commit()
+
     return jsonify({'message': 'Password reset successful'})
+    
+
+@users_route.route('/forgot_password', methods=['POST'])
+def forgot_password():
+    from app import session as s
+    data = request.get_json()
+
+    new_password = data.get('new_password')
+
+    # Retrieve the email from the session
+    email_in_session = session.get('email')
+
+    if not email_in_session:
+        return jsonify({'error': 'Email not found in session'})
+
+    user = s.query(User).filter_by(email=email_in_session).first()
+
+    if not user:
+        return jsonify({'error': 'User not found'})
+
+
+    hashed_new_password = generate_password_hash(new_password)
+
+    user.password = hashed_new_password
+    s.commit()
+
+    return jsonify({'message': 'Password reset successful'})
+
+
+
+@users_route.route('/check_email', methods=['POST'])
+def check_email():
+    from app import session
+    
+    data = request.get_json()
+    email_to_find = data.get('email')
+
+    if not email_to_find:
+        return jsonify({'message': 'Email not provided'})
+
+    user = session.query(User).filter_by(email=email_to_find).first()
+
+    if user:
+        return jsonify({'message': True})
+    else:
+        return jsonify({'message': False})

@@ -20,7 +20,7 @@ def clear_otp(email):
 def send_otp_email(email, otp):
     from app import mail
     message = Message(subject='OTP Verification', recipients=[email])
-    message.body = f'Your OTP is: {otp}'
+    message.body = f'Your OTP is: {otp}.'
 
     with mail.connect() as conn:
         conn.send(message)
