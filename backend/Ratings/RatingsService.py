@@ -1,6 +1,7 @@
 from time import time
 from flask_cors import CORS
 from flask import jsonify, Blueprint, request
+from Requests.RequestsModel import Requests
 from Users.UserModel import User
 from Providers.ProviderModel import Providers
 from Ratings.RatingsModel import Ratings
@@ -17,13 +18,15 @@ def store_ratings():
     try:
         data = request.get_json()
 
-
+        request_id=data['request_id']
         user_id = data['id']
         provider_id = data['provider_id']
         no_of_stars = data['ratings']
         comments = data['review']
         timestamp = data['timestamp']
         subcategory = data['subcategory']
+
+        req = session.query(Requests).filter_by(request_id= request_id).first()
 
         ratings = Ratings(
             user_id=user_id,
@@ -35,6 +38,7 @@ def store_ratings():
            
         )
         session.add(ratings)
+        req.reviewed = True
         session.commit()
         return jsonify({'message': 'Ratings stored successfully.'})
 
