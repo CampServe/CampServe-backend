@@ -38,7 +38,8 @@ def book_services():
             scheduled_datetime=scheduled_datetime,
             subcategory=subcategory,
             status_comp_inco="no action",
-            status_acc_dec="no action"
+            status_acc_dec="no action",
+            reviewed=False
         )
 
         # Add the new_request to the session and commit to the database
