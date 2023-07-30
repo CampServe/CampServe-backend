@@ -48,14 +48,17 @@ def send_money():
         res = requests.post(f"{url}/{recepient_number}", headers=headers, json=payload, auth=HTTPBasicAuth(username,password))
         response_data = res.json()
         paylink_url = response_data['data']['paylinkUrl']
+        id =  paylink_url.split("/")
+        paylinkid = id[-1]
+
         if paylink_url:
             request_row = session.query(Transactions).filter_by(request_id=request_id).first()
         if request_row:
             request_row.paylink = paylink_url
             request_row.recepient_number = recepient_number
+            request_row.paylinkid=paylinkid
             session.commit()
-        return jsonify({"paylink": paylink_url})
+        return jsonify({"paylink": paylink_url, "paylinkid": paylinkid})
 
     except requests.exceptions.RequestException as e:
         return jsonify({"error": f"Error occurred: {e}"})
-        
