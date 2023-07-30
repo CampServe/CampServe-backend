@@ -6,6 +6,9 @@ import base64
 from requests.auth import HTTPBasicAuth
 from Requests.RequestsModel import Requests
 from Transactions.TransactionModel import Transactions
+from Providers.ProviderModel import Providers
+from Users.UserModel import User
+
 
 
 # when a request is marked as complete, a pay button is shown on the users side whcih triggers the aylink url
@@ -64,3 +67,49 @@ def request_money():
 
     except requests.exceptions.RequestException as e:
         return jsonify({"error": f"Error occurred: {e}"})
+
+
+
+@payment_route.route('/all_transactions', methods=['GET'])
+def all_transactions():
+    from app import session as s
+    data = request.get_json()
+    user_id = data.get('user_id')
+
+    try:
+        transactions = s.query(Transactions).filter_by(user_id=user_id).all()
+
+        transaction_details = []
+
+        for transaction in transactions:
+            request_id = transaction.request_id
+            paylink = transaction.paylink
+            amount = transaction.amount
+            has_paid = transaction.has_paid
+
+            user = s.query(User).filter_by(user_id=user_id).first()
+            first_name = user.first_name
+            last_name = user.last_name
+
+            request_data = s.query(Requests).filter_by(request_id=request_id).first()
+            provider_id = request_data.provider_id
+
+            provider = s.query(Providers).filter_by(provider_id=provider_id).first()
+            business_name = provider.business_name
+
+            transaction_detail = {
+                'request_id': request_id,
+                'paylink': paylink,
+                'amount': amount,
+                'has_paid': has_paid,
+                'user_first_name': first_name,
+                'user_last_name': last_name,
+                'provider_business_name': business_name
+            }
+
+            transaction_details.append(transaction_detail)
+
+        return jsonify({'transactions': transaction_details})
+
+    except Exception as e:
+        return jsonify({'error': str(e)})
