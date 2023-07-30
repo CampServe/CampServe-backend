@@ -114,7 +114,8 @@ def get_all_user_requests():
                 'status_acc_dec': requestt.status_acc_dec,
                 'status_comp_inco': requestt.status_comp_inco,
                 'subcategory': requestt.subcategory,
-                'business_name': provider.business_name
+                'business_name': provider.business_namen,
+                'reviewed': requestt.reviewed
             })    
 
         return jsonify({
