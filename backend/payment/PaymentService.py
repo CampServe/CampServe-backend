@@ -57,6 +57,7 @@ def request_money():
             request_row = session.query(Transactions).filter_by(request_id=request_id).first()
         if request_row:
             request_row.paylink = paylink_url
+            request_row.recepient_number = mobile_number
             request_row.paylinkid=paylinkid
             session.commit()
         return jsonify({"paylink": paylink_url, "paylinkid": paylinkid})
