@@ -198,21 +198,18 @@ def switch_to_provider():
         return jsonify({'message': 'An error occurred'})
 
 
-@users_route.route('/reset_password', methods=['POST'])
+@users_route.route('/change_password', methods=['POST'])
 def reset_password():
     from app import session as s
     data = request.get_json()
 
+    user_id = data.get('user_id')
     old_password = data.get('old_password')
     new_password = data.get('new_password')
 
     # Retrieve the email from the session
-    email_in_session = session.get('email')
-
-    if not email_in_session:
-        return jsonify({'error': 'Email not found in session'})
-
-    user = s.query(User).filter_by(email=email_in_session).first()
+   
+    user = s.query(User).filter_by(user_id=user_id).first()
 
     if not user:
         return jsonify({'error': 'User not found'})
@@ -253,6 +250,44 @@ def forgot_password():
     s.commit()
 
     return jsonify({'message': 'Password reset successful'})
+
+
+
+@users_route.route('/account_settings', methods=['POST'])
+def settings():
+    from app import session
+    data = request.get_json()
+
+    provider_id = data.get('provider_id')
+    user_id = data.get('user_id')
+    username = data.get('username')
+    first_name = data.get('first_name')
+    last_name = data.get('last_name')
+
+    try:
+        # Query the user from the users table based on user_id
+        user = session.query(User).filter_by(user_id=user_id).first()
+
+        # Check and update each field in the user object
+        if user:
+            if first_name is not None:
+                user.first_name = first_name
+            if last_name is not None:
+                user.last_name = last_name
+            if username is not None:
+                user.username = username
+            if provider_id is not None:
+                user.provider_id = provider_id
+
+            # Commit the changes to the database
+            session.commit()
+
+            return jsonify({'message': 'Account settings updated successfully.'})
+        else:
+            return jsonify({'error': 'User not found.'})
+
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
 
 
