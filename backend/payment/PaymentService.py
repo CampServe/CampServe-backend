@@ -24,6 +24,8 @@ def request_money():
     request_id = data.get('request_id')
     mobile_number = data.get('mobile_number')
 
+    req = session.query(Requests).filter_by(request_id=request_id).first()
+    agreed_price = float(req.agreed_price.replace('GH¢', '').strip())
 
     url = f"https://consumer-smrmapi.hubtel.com/request-money"
     username = "xkgfwoxa"
@@ -35,7 +37,7 @@ def request_money():
     }
 
     payload = {
-    "amount": 2.00,
+    "amount": agreed_price,
     "title": "Testing",
     "description": "Testing",
     "clientReference": "731",
@@ -58,30 +60,6 @@ def request_money():
             request_row.paylinkid=paylinkid
             session.commit()
         return jsonify({"paylink": paylink_url, "paylinkid": paylinkid})
-
-    except requests.exceptions.RequestException as e:
-        return jsonify({"error": f"Error occurred: {e}"})
-
-
-@payment_route.route('/pay_money', methods=['POST'])
-def pay_money():
-    from app import session
-
-    data = request.get_json()
-    request_id = data.get('request_id')
-    recepient_number = data.get('recepient_number')
-    amount = data.get('amount')
-
-    try: 
-       request_row = session.query(Transactions).filter_by(request_id=request_id).first()
-       if request_row:
-           request_row.recepient_number = recepient_number
-           request_row.amount = amount
-           #when the callback is received, has_paid changes to true
-           request_row.has_paid = True
-           session.commit()
-
-           return jsonify("payment successful")
 
     except requests.exceptions.RequestException as e:
         return jsonify({"error": f"Error occurred: {e}"})
