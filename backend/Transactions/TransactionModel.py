@@ -16,3 +16,4 @@ class Transactions(Base):
     has_paid =  Column("has_paid",String(255),nullable = True)
     recepient_number=Column("recepient_number",String(255),nullable=False)
     paylink=Column("paylink",String(255),nullable=True)
+    paylinkid=Column("paylinkid",String(255),nullable=True)
