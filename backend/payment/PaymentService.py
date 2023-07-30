@@ -4,8 +4,13 @@ import requests
 from flask_cors import CORS
 import base64
 from requests.auth import HTTPBasicAuth
+from Requests.RequestsModel import Requests
+from Transactions.TransactionModel import Transactions
 
 
+# when a request is marked as complete, a pay button is shown on the users side whcih triggers the aylink url
+# it means i have to know which request was marked as complete so that i store it next to the request
+# and when users click the pay button, they are directed to that link                                
 
 payment_route = Blueprint("payment_route", __name__)
 CORS(payment_route)
@@ -13,7 +18,12 @@ CORS(payment_route)
 
 @payment_route.route('/request_money', methods=['POST'])
 def send_money():
-    mobile_number = request.json['mobile_number']
+    from app import session
+
+    data = request.get_json()
+    request_id = data.get('request_id')
+    recepient_number = data.get('recepient_number')
+
 
     url = f"https://consumer-smrmapi.hubtel.com/request-money"
     username = "xkgfwoxa"
@@ -35,8 +45,17 @@ def send_money():
 }
 
     try:
-        res = requests.post(f"{url}/{mobile_number}", headers=headers, json=payload, auth=HTTPBasicAuth(username,password))
-        return jsonify(res.text)
+        res = requests.post(f"{url}/{recepient_number}", headers=headers, json=payload, auth=HTTPBasicAuth(username,password))
+        response_data = res.json()
+        paylink_url = response_data['data']['paylinkUrl']
+        if paylink_url:
+            request_row = session.query(Transactions).filter_by(request_id=request_id).first()
+        if request_row:
+            request_row.paylink = paylink_url
+            request_row.recepient_number = recepient_number
+            session.commit()
+        return jsonify({"paylink": paylink_url})
+
     except requests.exceptions.RequestException as e:
         return jsonify({"error": f"Error occurred: {e}"})
         

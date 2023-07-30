@@ -5,6 +5,7 @@ from Providers.ProviderModel import Providers
 from Users.UserModel import User
 from Requests.RequestsModel import Requests
 from ProviderCategory.ProviderCategoriesModel import ProviderCategories
+from Transactions.TransactionModel import Transactions
 
 request_services_route = Blueprint("request_services_route", __name__)
 CORS(request_services_route)
@@ -197,14 +198,26 @@ def change_request_status():
         elif action_type == 'mark_complete':
             # Update the request with the provided request_id
             req.status_comp_inco = 'complete'
+            transaction = Transactions(
+                request_id=req.request_id,
+                user_id=req.user_id,
+                amount=req.agreed_price,
+                has_paid=False,
+                recepient_number=None,
+                paylink=None  
+            )
+
+            # Add the 'transaction' to the session and commit to the database
+            session.add(transaction)
 
         session.commit()
 
 
         return jsonify({'message': 'Request status updated successfully.'})
         
-    except Exception:
+    except Exception as e:
         return jsonify({'error': 'An error occurred while updating the request status.'})
+        # return jsonify({'error': str(e)})
     finally:
         session.close()
 
