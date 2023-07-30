@@ -19,4 +19,5 @@ class Requests(Base):
     status_acc_dec = Column("status_acc_dec",String(255),nullable=False)
     payment_mode = Column("payment_mode",String(255),nullable=False)
     subcategory = Column("subcategory",String(255),nullable=False)
+    reviewed = Column("reviewed",String(255),nullable=True)
     
