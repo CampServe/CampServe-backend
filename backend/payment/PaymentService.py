@@ -35,7 +35,7 @@ def request_money():
     }
 
     payload = {
-    "amount": 1.00,
+    "amount": 2.00,
     "title": "Testing",
     "description": "Testing",
     "clientReference": "731",
@@ -70,15 +70,17 @@ def pay_money():
     data = request.get_json()
     request_id = data.get('request_id')
     recepient_number = data.get('recepient_number')
+    amount = data.get('amount')
 
     try: 
        request_row = session.query(Transactions).filter_by(request_id=request_id).first()
        if request_row:
            request_row.recepient_number = recepient_number
+           request_row.amount = amount
            #when the callback is received, has_paid changes to true
            request_row.has_paid = True
            session.commit()
-           
+
            return jsonify("payment successful")
 
     except requests.exceptions.RequestException as e:
