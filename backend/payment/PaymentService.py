@@ -70,7 +70,7 @@ def request_money():
 
 
 
-@payment_route.route('/all_transactions', methods=['GET'])
+@payment_route.route('/all_user_transactions', methods=['GET'])
 def all_transactions():
     from app import session as s
     data = request.get_json()
@@ -102,8 +102,6 @@ def all_transactions():
                 'paylink': paylink,
                 'amount': amount,
                 'has_paid': has_paid,
-                'user_first_name': first_name,
-                'user_last_name': last_name,
                 'provider_business_name': business_name
             }
 
