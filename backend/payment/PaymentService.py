@@ -17,12 +17,12 @@ CORS(payment_route)
 
 
 @payment_route.route('/request_money', methods=['POST'])
-def send_money():
+def request_money():
     from app import session
 
     data = request.get_json()
     request_id = data.get('request_id')
-    recepient_number = data.get('recepient_number')
+    mobile_number = data.get('mobile_number')
 
 
     url = f"https://consumer-smrmapi.hubtel.com/request-money"
@@ -45,7 +45,7 @@ def send_money():
 }
 
     try:
-        res = requests.post(f"{url}/{recepient_number}", headers=headers, json=payload, auth=HTTPBasicAuth(username,password))
+        res = requests.post(f"{url}/{mobile_number}", headers=headers, json=payload, auth=HTTPBasicAuth(username,password))
         response_data = res.json()
         paylink_url = response_data['data']['paylinkUrl']
         id =  paylink_url.split("/")
@@ -55,10 +55,31 @@ def send_money():
             request_row = session.query(Transactions).filter_by(request_id=request_id).first()
         if request_row:
             request_row.paylink = paylink_url
-            request_row.recepient_number = recepient_number
             request_row.paylinkid=paylinkid
             session.commit()
         return jsonify({"paylink": paylink_url, "paylinkid": paylinkid})
+
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": f"Error occurred: {e}"})
+
+
+@payment_route.route('/pay_money', methods=['POST'])
+def pay_money():
+    from app import session
+
+    data = request.get_json()
+    request_id = data.get('request_id')
+    recepient_number = data.get('recepient_number')
+
+    try: 
+       request_row = session.query(Transactions).filter_by(request_id=request_id).first()
+       if request_row:
+           request_row.recepient_number = recepient_number
+           #when the callback is received, has_paid changes to true
+           request_row.has_paid = True
+           session.commit()
+           
+           return jsonify("payment successful")
 
     except requests.exceptions.RequestException as e:
         return jsonify({"error": f"Error occurred: {e}"})
