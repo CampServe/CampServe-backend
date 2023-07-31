@@ -255,7 +255,7 @@ def forgot_password():
 
 @users_route.route('/account_settings', methods=['POST'])
 def settings():
-    from app import session
+    from app import session, app
     data = request.get_json()
 
     provider_id = data.get('provider_id')
@@ -263,6 +263,11 @@ def settings():
     username = data.get('username')
     first_name = data.get('first_name')
     last_name = data.get('last_name')
+
+    if username:
+        username = username.lower()
+    
+    token = request.headers.get('Authorization')
 
     try:
         # Query the user from the users table based on user_id
@@ -281,8 +286,37 @@ def settings():
 
             # Commit the changes to the database
             session.commit()
+            decoded_token = jwt.decode(token, app.secret_key, algorithms=['HS256'])
 
-            return jsonify({'message': 'Account settings updated successfully.'})
+            token_data = {
+                'user_id': user.user_id,
+                'username': user.username,
+                'first_name': user.first_name,
+                'last_name': user.last_name,
+                'email': user.email,
+                'is_service_provider': user.is_service_provider,
+                'expiration': decoded_token['expiration']
+            }
+
+            if provider_id:
+                provider = session.query(Providers).filter_by(user_id=user_id).first()
+                subcategories = session.query(ProviderCategories).filter_by(user_id=user_id).all()
+                token_data['provider_id'] = provider.provider_id
+                token_data['business_name'] = provider.business_name
+                token_data['bio'] = provider.bio
+                token_data['provider_contact'] = provider.provider_contact
+                token_data['account_type'] = 'provider'
+                token_data['subcategories'] = [subcategory.sub_categories for subcategory in subcategories]
+            else:
+                token_data['account_type'] = 'regular user'
+
+            token = jwt.encode(token_data, app.secret_key)
+
+            result = {
+                'token': token
+            }
+
+            return jsonify(result)
         else:
             return jsonify({'error': 'User not found.'})
 
