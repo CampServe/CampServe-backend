@@ -359,23 +359,23 @@ def update_provider():
             provider.business_name = business_name
 
     # Update the ProviderCategory table
-    if received_subcategories:
+    if received_subcategories is not None:
         provider_categories_data = session.query(ProviderCategories).filter_by(user_id=user_id).all()
 
-    for received_subcategory in received_subcategories:
-        received_subcategory_name = received_subcategory.get('name')
-        received_subcategory_description = received_subcategory.get('description')
-        received_subcategory_image = received_subcategory.get('image')  
+        for received_subcategory in received_subcategories:
+            received_subcategory_name = received_subcategory.get('name')
+            received_subcategory_description = received_subcategory.get('description')
+            received_subcategory_image = received_subcategory.get('image')  
 
 
-        # Check if the received subcategory matches any entry in the database
-        matching_category = next((category for category in provider_categories_data if category.sub_categories == received_subcategory_name), None)
+            # Check if the received subcategory matches any entry in the database
+            matching_category = next((category for category in provider_categories_data if category.sub_categories == received_subcategory_name), None)
 
-        if matching_category:
-            if received_subcategory_description:
-                matching_category.subcategories_description = received_subcategory_description
-            if received_subcategory_image:
-                session.query(ProviderCategories).filter_by(sub_categories=received_subcategory_name, user_id=user_id).update({'subcategory_image': received_subcategory_image})
+            if matching_category:
+                if received_subcategory_description:
+                    matching_category.subcategories_description = received_subcategory_description
+                if received_subcategory_image:
+                    session.query(ProviderCategories).filter_by(sub_categories=received_subcategory_name, user_id=user_id).update({'subcategory_image': received_subcategory_image})
 
     # Commit the changes to the database
     session.commit()
