@@ -174,7 +174,6 @@ def switch_to_user():
     from app import app
 
     token = request.headers.get('Authorization')
-    print(token)
     if not token:
         return jsonify({'message': 'Token is missing'})
 

@@ -198,21 +198,18 @@ def switch_to_provider():
         return jsonify({'message': 'An error occurred'})
 
 
-@users_route.route('/reset_password', methods=['POST'])
+@users_route.route('/change_password', methods=['POST'])
 def reset_password():
     from app import session as s
     data = request.get_json()
 
+    user_id = data.get('user_id')
     old_password = data.get('old_password')
     new_password = data.get('new_password')
 
     # Retrieve the email from the session
-    email_in_session = session.get('email')
-
-    if not email_in_session:
-        return jsonify({'error': 'Email not found in session'})
-
-    user = s.query(User).filter_by(email=email_in_session).first()
+   
+    user = s.query(User).filter_by(user_id=user_id).first()
 
     if not user:
         return jsonify({'error': 'User not found'})
@@ -253,6 +250,78 @@ def forgot_password():
     s.commit()
 
     return jsonify({'message': 'Password reset successful'})
+
+
+
+@users_route.route('/account_settings', methods=['POST'])
+def settings():
+    from app import session, app
+    data = request.get_json()
+
+    provider_id = data.get('provider_id')
+    user_id = data.get('user_id')
+    username = data.get('username')
+    first_name = data.get('first_name')
+    last_name = data.get('last_name')
+
+    if username:
+        username = username.lower()
+    
+    token = request.headers.get('Authorization')
+
+    try:
+        # Query the user from the users table based on user_id
+        user = session.query(User).filter_by(user_id=user_id).first()
+
+        # Check and update each field in the user object
+        if user:
+            if first_name is not None:
+                user.first_name = first_name
+            if last_name is not None:
+                user.last_name = last_name
+            if username is not None:
+                user.username = username
+            if provider_id is not None:
+                user.provider_id = provider_id
+
+            # Commit the changes to the database
+            session.commit()
+            decoded_token = jwt.decode(token, app.secret_key, algorithms=['HS256'])
+
+            token_data = {
+                'user_id': user.user_id,
+                'username': user.username,
+                'first_name': user.first_name,
+                'last_name': user.last_name,
+                'email': user.email,
+                'is_service_provider': user.is_service_provider,
+                'expiration': decoded_token['expiration']
+            }
+
+            if provider_id:
+                provider = session.query(Providers).filter_by(user_id=user_id).first()
+                subcategories = session.query(ProviderCategories).filter_by(user_id=user_id).all()
+                token_data['provider_id'] = provider.provider_id
+                token_data['business_name'] = provider.business_name
+                token_data['bio'] = provider.bio
+                token_data['provider_contact'] = provider.provider_contact
+                token_data['account_type'] = 'provider'
+                token_data['subcategories'] = [subcategory.sub_categories for subcategory in subcategories]
+            else:
+                token_data['account_type'] = 'regular user'
+
+            token = jwt.encode(token_data, app.secret_key)
+
+            result = {
+                'token': token
+            }
+
+            return jsonify(result)
+        else:
+            return jsonify({'error': 'User not found.'})
+
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
 
 
