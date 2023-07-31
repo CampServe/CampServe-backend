@@ -70,7 +70,11 @@ CORS(provider_categories_route)
 def get_services():
     from app import session
 
-    rated_providers_query = session.query(Ratings.provider_id).filter(Ratings.no_of_stars.isnot(None)).distinct().subquery()
+    rated_providers_query = session.query(
+        Ratings.provider_id,
+        Ratings.subcategory,  # Include the subcategory column in the subquery
+        func.array_agg(Ratings.no_of_stars).filter(Ratings.no_of_stars.isnot(None)).label("no_of_stars")
+    ).group_by(Ratings.provider_id, Ratings.subcategory).subquery()
 
     data = session.query(
         Providers.provider_id,
@@ -83,12 +87,13 @@ def get_services():
         ProviderCategories.subcategories_description,
         ProviderCategories.subcategory_image,
         ProviderCategories.number_of_visits,
-        Ratings.no_of_stars,
-        func.count(Requests.request_id)  # Add the count of requests
+        rated_providers_query.c.no_of_stars,
+        func.count(Requests.request_id).label("request_count")
     ).join(ProviderCategories, Providers.user_id == ProviderCategories.user_id)\
      .outerjoin(Ratings, and_(Providers.provider_id == Ratings.provider_id, ProviderCategories.sub_categories == Ratings.subcategory))\
-     .join(rated_providers_query, Providers.provider_id == rated_providers_query.c.provider_id, isouter=True)\
-     .outerjoin(Requests, and_(Providers.provider_id == Requests.provider_id, ProviderCategories.sub_categories == Requests.subcategory)) .group_by(
+     .join(rated_providers_query, and_(Providers.provider_id == rated_providers_query.c.provider_id, ProviderCategories.sub_categories == rated_providers_query.c.subcategory), isouter=True)\
+     .outerjoin(Requests, and_(Providers.provider_id == Requests.provider_id, ProviderCategories.sub_categories == Requests.subcategory))\
+     .group_by(
         Providers.provider_id,
         Providers.user_id,
         Providers.provider_contact,
@@ -99,8 +104,8 @@ def get_services():
         ProviderCategories.subcategories_description,
         ProviderCategories.subcategory_image,
         ProviderCategories.number_of_visits,
-        Ratings.no_of_stars
-    )  .all()
+        rated_providers_query.c.no_of_stars
+    ).all()
 
     result = {
         'data': []
@@ -110,8 +115,8 @@ def get_services():
         found = False
         for item in result['data']:
             if item['provider_id'] == provider_id and item['sub_categories'] == sub_categories:
-                item['no_of_stars'].append(no_of_stars)
-                item['request_count'] = request_count  # Add the request count to the item
+                item['no_of_stars'].extend(no_of_stars)
+                item['request_count'] = request_count
                 found = True
                 break
 
@@ -127,10 +132,8 @@ def get_services():
                 'subcategories_description': subcategories_description,
                 'subcategory_image': subcategory_image,
                 'number_of_visits': number_of_visits,
-                'no_of_stars': [] if no_of_stars is None else [no_of_stars],
-                'request_count': request_count  # Add the request count to the new item
+                'no_of_stars': [] if no_of_stars is None else no_of_stars,
+                'request_count': request_count
             })
 
     return jsonify(result)
-
-
