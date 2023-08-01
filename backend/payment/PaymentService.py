@@ -8,6 +8,7 @@ from Requests.RequestsModel import Requests
 from Transactions.TransactionModel import Transactions
 from Providers.ProviderModel import Providers
 from Users.UserModel import User
+from Transactions.TransactionModel import Transactions
 
 
                               
@@ -87,10 +88,22 @@ def request_money():
 @payment_route.route('/check_payment', methods=['POST'])
 def check_payment():
     payload = request.get_json()
+    
+    request_id = request.json['request_id']
+    transaction = session.query(Transactions).filter_by(request_id=request_id).first()
 
-    print(payload)
+    if not transaction:
+        return jsonify({'error': 'No matching transaction found'})
 
-    return jsonify(payload)
+    paylink_id = payload['data']['paylinkId']
+
+    if transaction.paylinkid == paylink_id:
+        transaction.has_paid = True
+        session.commit()
+
+    return jsonify({'message:' 'payment complete'})
+
+
 
 
 @payment_route.route('/all_user_transactions', methods=['POST'])
