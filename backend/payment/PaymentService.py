@@ -70,7 +70,8 @@ def request_money():
                 recepient_number=mobile_number,
                 paylinkid=paylinkid,
                 subcategory=subcategory,
-                business_name=business_name
+                business_name=business_name,
+                has_paid=False
             )
         session.add(transaction)
         session.commit()
