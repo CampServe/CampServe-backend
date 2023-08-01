@@ -37,7 +37,7 @@ def request_money():
     }
 
     payload = {
-    "amount": 1.00,
+    "amount": agreed_price,
     "title": "Testing",
     "description": "Testing",
     "clientReference": "731",
