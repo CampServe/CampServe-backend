@@ -48,8 +48,8 @@ def request_money():
 
     payload = {
     "amount": 1.00,
-    "title": "Testing",
-    "description": "Testing",
+    "title": "CampServe",
+    "description": "CampServe",
     "clientReference": "731",
     "callbackUrl": "https://campserve-server.onrender.com/check_payment",
     "cancellationUrl": "http://example.com",
