@@ -121,12 +121,12 @@ def all_transactions():
 
             transaction_detail = {
                 'request_id': request_id,
-                'paylink': paylink,
+                'paylink': paylink[0],
                 'amount': amount,
                 'has_paid': has_paid,
                 'provider_business_name': business_name,
                 'subcategory':subcategory,
-                'transaction_id': transaction_id
+                'transaction_id': transaction_id[0]
             }
 
             transaction_details.append(transaction_detail)
@@ -170,13 +170,13 @@ def provider_transactions():
             last_name=user_data.last_name
 
             transaction_detail = {
-                'request_id': request_id,
+                'request_id': request_id[0],
                 'paylink': paylink,
                 'amount': amount,
                 'has_paid': has_paid,
                 'provider_business_name': business_name,
                 'subcategory':subcategory,
-                'first_name': first_name,
+                'first_name': first_name[0],
                 'last_name': last_name
             }
 
