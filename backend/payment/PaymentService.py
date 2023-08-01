@@ -25,7 +25,15 @@ def request_money():
     mobile_number = data.get('mobile_number')
 
     req = session.query(Requests).filter_by(request_id=request_id).first()
+    if not req:
+        return jsonify({"error": "Request not found."})
+
+    provider_id = req.provider_id
+    subcategory = req.subcategory
     agreed_price = float(req.agreed_price.replace('GH¢', '').strip())
+
+    provider=session.query(Providers).filter_by(provider_id=provider_id).first()
+    business_name = provider.business_name
 
     url = f"https://consumer-smrmapi.hubtel.com/request-money"
     username = "xkgfwoxa"
@@ -54,12 +62,19 @@ def request_money():
         paylinkid = id[-1]
 
         if paylink_url:
-            request_row = session.query(Transactions).filter_by(request_id=request_id).first()
-        if request_row:
-            request_row.paylink = paylink_url
-            request_row.recepient_number = mobile_number
-            request_row.paylinkid=paylinkid
-            session.commit()
+             transaction = Transactions(
+                request_id=request_id,
+                provider_id=provider_id,
+                amount=agreed_price,
+                paylink=paylink_url,
+                recepient_number=mobile_number,
+                paylinkid=paylinkid,
+                subcategory=subcategory,
+                business_name=business_name
+            )
+        session.add(transaction)
+        session.commit()
+      
         return jsonify({"message": "success"})
 
     except requests.exceptions.RequestException as e:

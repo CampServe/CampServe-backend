@@ -200,18 +200,6 @@ def change_request_status():
         elif action_type == 'mark_complete':
             # Update the request with the provided request_id
             req.status_comp_inco = 'complete'
-            transaction = Transactions(
-                request_id=req.request_id,
-                user_id=req.user_id,
-                amount=req.agreed_price,
-                has_paid=False,
-                recepient_number=None,
-                paylink=None  
-            )
-
-            # Add the 'transaction' to the session and commit to the database
-            session.add(transaction)
-
         session.commit()
 
 
