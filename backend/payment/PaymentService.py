@@ -66,28 +66,13 @@ def request_money():
         return jsonify({"error": f"Error occurred: {e}"})
 
 
-
 @payment_route.route('/check_payment', methods=['POST'])
 def check_payment():
-    # Assuming your payload is available in the request data, you can extract it like this:
     payload = request.get_json()
 
-    # Make a request to your callback URL with a POST request
-    callback_url = payload.get("callbackUrl")
-    if callback_url:
-        response = requests.post(callback_url, json=payload)
-        # Check if the request was successful (status code 200)
-        if response.status_code == 200:
-            # Print the response content
-            print(response.json())
-        else:
-            # If the request failed, print an error message
-            print(f"Request to callback URL failed with status code: {response.status_code}")
-    else:
-        print("Callback URL is not provided in the payload.")
-    
-    # You can return a response here if needed, such as an acknowledgment message
-    return "Payment status check initiated"
+    print(payload)
+
+    return jsonify(payload)
 
 
 @payment_route.route('/all_user_transactions', methods=['GET'])
