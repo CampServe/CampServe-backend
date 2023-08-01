@@ -88,14 +88,15 @@ def request_money():
 @payment_route.route('/check_payment', methods=['POST'])
 def check_payment():
     payload = request.get_json()
+
+    paylink_id = payload['data']['paylinkId']
+
     
-    request_id = request.json['request_id']
-    transaction = session.query(Transactions).filter_by(request_id=request_id).first()
+    transaction = session.query(Transactions).filter_by(paylinkid=paylink_id).first()
 
     if not transaction:
         return jsonify({'error': 'No matching transaction found'})
 
-    paylink_id = payload['data']['paylinkId']
 
     if transaction.paylinkid == paylink_id:
         transaction.has_paid = True
