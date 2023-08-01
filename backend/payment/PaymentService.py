@@ -8,6 +8,7 @@ from Requests.RequestsModel import Requests
 from Transactions.TransactionModel import Transactions
 from Providers.ProviderModel import Providers
 from Users.UserModel import User
+from Transactions.TransactionModel import Transactions
 
 
                               
@@ -25,7 +26,16 @@ def request_money():
     mobile_number = data.get('mobile_number')
 
     req = session.query(Requests).filter_by(request_id=request_id).first()
+    if not req:
+        return jsonify({"error": "Request not found."})
+
+    provider_id = req.provider_id
+    subcategory = req.subcategory
+    user_id = req.user_id
     agreed_price = float(req.agreed_price.replace('GH¢', '').strip())
+
+    provider=session.query(Providers).filter_by(provider_id=provider_id).first()
+    business_name = provider.business_name
 
     url = f"https://consumer-smrmapi.hubtel.com/request-money"
     username = "xkgfwoxa"
@@ -54,13 +64,22 @@ def request_money():
         paylinkid = id[-1]
 
         if paylink_url:
-            request_row = session.query(Transactions).filter_by(request_id=request_id).first()
-        if request_row:
-            request_row.paylink = paylink_url
-            request_row.recepient_number = mobile_number
-            request_row.paylinkid=paylinkid
-            session.commit()
-        return jsonify({"paylink": paylink_url, "paylinkid": paylinkid})
+             transaction = Transactions(
+                request_id=request_id,
+                provider_id=provider_id,
+                user_id=user_id,
+                amount=agreed_price,
+                paylink=paylink_url,
+                recepient_number=mobile_number,
+                paylinkid=paylinkid,
+                subcategory=subcategory,
+                business_name=business_name,
+                has_paid=False
+            )
+        session.add(transaction)
+        session.commit()
+      
+        return jsonify({"message": "success"})
 
     except requests.exceptions.RequestException as e:
         return jsonify({"error": f"Error occurred: {e}"})
@@ -70,12 +89,25 @@ def request_money():
 def check_payment():
     payload = request.get_json()
 
-    print(payload)
+    paylink_id = payload['data']['paylinkId']
 
-    return jsonify(payload)
+    
+    transaction = session.query(Transactions).filter_by(paylinkid=paylink_id).first()
+
+    if not transaction:
+        return jsonify({'error': 'No matching transaction found'})
 
 
-@payment_route.route('/all_user_transactions', methods=['GET'])
+    if transaction.paylinkid == paylink_id:
+        transaction.has_paid = True
+        session.commit()
+
+    return jsonify({'message:' 'payment complete'})
+
+
+
+
+@payment_route.route('/all_user_transactions', methods=['POST'])
 def all_transactions():
     from app import session as s
     data = request.get_json()
@@ -88,13 +120,12 @@ def all_transactions():
 
         for transaction in transactions:
             request_id = transaction.request_id
-            paylink = transaction.paylink
+            paylink = transaction.paylink,
+            transaction_id=transaction.transaction_id,
             amount = transaction.amount
             has_paid = transaction.has_paid
+            subcategory=transaction.subcategory
 
-            user = s.query(User).filter_by(user_id=user_id).first()
-            first_name = user.first_name
-            last_name = user.last_name
 
             request_data = s.query(Requests).filter_by(request_id=request_id).first()
             provider_id = request_data.provider_id
@@ -104,10 +135,63 @@ def all_transactions():
 
             transaction_detail = {
                 'request_id': request_id,
+                'paylink': paylink[0],
+                'amount': amount,
+                'has_paid': has_paid,
+                'provider_business_name': business_name,
+                'subcategory':subcategory,
+                'transaction_id': transaction_id[0]
+            }
+
+            transaction_details.append(transaction_detail)
+
+        return jsonify({'transactions': transaction_details})
+
+    except Exception as e:
+        return jsonify({'error': str(e)})
+
+
+
+@payment_route.route('/all_provider_transactions', methods=['POST'])
+def provider_transactions():
+    from app import session as s
+    data = request.get_json()
+    provider_id = data.get('provider_id')
+
+    try:
+        transactions = s.query(Transactions).filter_by(provider_id=provider_id).all()
+
+        transaction_details = []
+
+        for transaction in transactions:
+            request_id = transaction.request_id,
+            transaction_id=transaction.transaction_id,
+            user_id =transaction.user_id
+            paylink = transaction.paylink
+            amount = transaction.amount
+            has_paid = transaction.has_paid
+            subcategory=transaction.subcategory
+
+
+            request_data = s.query(Requests).filter_by(request_id=request_id).first()
+            provider_id = request_data.provider_id
+
+            provider = s.query(Providers).filter_by(provider_id=provider_id).first()
+            business_name = provider.business_name
+
+            user_data = s.query(User).filter_by(user_id=user_id).first()
+            first_name = user_data.first_name,
+            last_name=user_data.last_name
+
+            transaction_detail = {
+                'request_id': request_id[0],
                 'paylink': paylink,
                 'amount': amount,
                 'has_paid': has_paid,
-                'provider_business_name': business_name
+                'provider_business_name': business_name,
+                'subcategory':subcategory,
+                'first_name': first_name[0],
+                'last_name': last_name
             }
 
             transaction_details.append(transaction_detail)
