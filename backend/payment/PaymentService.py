@@ -10,10 +10,7 @@ from Providers.ProviderModel import Providers
 from Users.UserModel import User
 
 
-
-# when a request is marked as complete, a pay button is shown on the users side whcih triggers the aylink url
-# it means i have to know which request was marked as complete so that i store it next to the request
-# and when users click the pay button, they are directed to that link                                
+                              
 
 payment_route = Blueprint("payment_route", __name__)
 CORS(payment_route)
@@ -40,11 +37,11 @@ def request_money():
     }
 
     payload = {
-    "amount": agreed_price,
+    "amount": 1.00,
     "title": "Testing",
     "description": "Testing",
     "clientReference": "731",
-    "callbackUrl": "https://webhook.site/a16f5ccd-2916-4904-90e4-0cc455ce105e",
+    "callbackUrl": "https://campserve-server.onrender.com/check_payment",
     "cancellationUrl": "http://example.com",
     "returnUrl": "http://example.com",
 }
@@ -68,6 +65,29 @@ def request_money():
     except requests.exceptions.RequestException as e:
         return jsonify({"error": f"Error occurred: {e}"})
 
+
+
+@payment_route.route('/check_payment', methods=['POST'])
+def check_payment():
+    # Assuming your payload is available in the request data, you can extract it like this:
+    payload = request.get_json()
+
+    # Make a request to your callback URL with a POST request
+    callback_url = payload.get("callbackUrl")
+    if callback_url:
+        response = requests.post(callback_url, json=payload)
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            # Print the response content
+            print(response.json())
+        else:
+            # If the request failed, print an error message
+            print(f"Request to callback URL failed with status code: {response.status_code}")
+    else:
+        print("Callback URL is not provided in the payload.")
+    
+    # You can return a response here if needed, such as an acknowledgment message
+    return "Payment status check initiated"
 
 
 @payment_route.route('/all_user_transactions', methods=['GET'])
