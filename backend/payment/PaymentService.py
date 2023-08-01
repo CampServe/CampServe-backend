@@ -106,6 +106,7 @@ def all_transactions():
             paylink = transaction.paylink
             amount = transaction.amount
             has_paid = transaction.has_paid
+            subcategory=transaction.subcategory
 
             user = s.query(User).filter_by(user_id=user_id).first()
             first_name = user.first_name
@@ -122,7 +123,8 @@ def all_transactions():
                 'paylink': paylink,
                 'amount': amount,
                 'has_paid': has_paid,
-                'provider_business_name': business_name
+                'provider_business_name': business_name,
+                'subcategory':subcategory
             }
 
             transaction_details.append(transaction_detail)
