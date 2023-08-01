@@ -384,31 +384,36 @@ def update_provider():
 
 
 
-# @providers_route.route('/update_provider', methods=['POST'])
-# def update_provider():
-#     from app import session
-#     data = request.get_json()
-
-#     user_id = data.get('user_id')
-#     received_subcategories = data.get('subcategories')
-
-#     # Query the providercategories table with the given user_id
-#     provider_categories_data = session.query(ProviderCategories).filter_by(user_id=user_id).all()
-
-#     for received_subcategory in received_subcategories:
-#         received_subcategory_name = received_subcategory.get('name')
-#         received_subcategory_description = received_subcategory.get('description')
-#         received_subcategory_image = received_subcategory.get('image')  
+@providers_route.route('/add_new_service', methods=['POST'])
+def add_new_service():
+    from app import session
+    from ProviderCategory.ProviderCategoriesModel import ProviderCategories
 
 
-#         # Check if the received subcategory matches any entry in the database
-#         matching_category = next((category for category in provider_categories_data if category.sub_categories == received_subcategory_name), None)
+    data = request.get_json()
+    #provider_id = data['provider_id']
+    user_id = data['user_id']
 
-#         if matching_category:
-#             matching_category.subcategories_description = received_subcategory_description
-#             session.query(ProviderCategories).filter_by(sub_categories=received_subcategory_name, user_id=user_id).update({'subcategory_image': received_subcategory_image})
 
-#     # Commit the changes to the database
-#     session.commit()
+    # looping through the categories
+    selected_categories = data['selectedSubcategories']
 
-#     return jsonify(message="Subcategories updated successfully.")
+    for category in selected_categories:
+        category_name = category['category']
+        subcategories = category['subcategories']
+
+        for subcategory in subcategories:
+            subcategory_name = subcategory['name']
+            description = subcategory['description']
+            subcategory_image = subcategory.get('image') or None
+
+            categories = ProviderCategories(user_id=user_id, main_categories=category_name, sub_categories=subcategory_name, subcategories_description=description, subcategory_image=subcategory_image,number_of_visits=0)
+            session.add(categories)
+
+    session.commit()
+
+    result = {
+        'status': 'New Service added'
+    }
+
+    return jsonify(result)
