@@ -60,7 +60,7 @@ def request_money():
             request_row.recepient_number = mobile_number
             request_row.paylinkid=paylinkid
             session.commit()
-        return jsonify({"paylink": paylink_url, "paylinkid": paylinkid})
+        return jsonify("success")
 
     except requests.exceptions.RequestException as e:
         return jsonify({"error": f"Error occurred: {e}"})
