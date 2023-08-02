@@ -1,5 +1,5 @@
 import uuid
-from flask import jsonify, Blueprint, request, session
+from flask import jsonify, Blueprint, request
 import requests
 from flask_cors import CORS
 import base64
@@ -51,7 +51,7 @@ def request_money():
     "title": "CampServe",
     "description": "CampServe",
     "clientReference": "731",
-    "callbackUrl": "https://campserve-server.onrender.com/check_payment",
+    "callbackUrl": "https://webhook.site/a16f5ccd-2916-4904-90e4-0cc455ce105e",
     "cancellationUrl": "http://example.com",
     "returnUrl": "http://example.com",
 }
@@ -79,7 +79,7 @@ def request_money():
         session.add(transaction)
         session.commit()
       
-        return jsonify({"message": "success"})
+        return jsonify({"message": "success","paylink": paylink_url})
 
     except requests.exceptions.RequestException as e:
         return jsonify({"error": f"Error occurred: {e}"})
@@ -87,12 +87,13 @@ def request_money():
 
 @payment_route.route('/check_payment', methods=['POST'])
 def check_payment():
+    from app import session as s
     payload = request.get_json()
 
-    paylink_id = payload['data']['paylinkId']
+    paylink_id = payload['Data']['PaylinkId']
 
     
-    transaction = session.query(Transactions).filter_by(paylinkid=paylink_id).first()
+    transaction = s.query(Transactions).filter_by(paylinkid=paylink_id).first()
 
     if not transaction:
         return jsonify({'error': 'No matching transaction found'})
@@ -100,9 +101,9 @@ def check_payment():
 
     if transaction.paylinkid == paylink_id:
         transaction.has_paid = True
-        session.commit()
+        s.commit()
 
-    return jsonify({'message:' 'payment complete'})
+    return jsonify({'message': 'payment successful'})
 
 
 
