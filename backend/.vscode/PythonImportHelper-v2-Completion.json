@@ -1,5 +1,592 @@
 [
     {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPBasicAuth",
+        "importPath": "requests.auth",
+        "description": "requests.auth",
+        "isExtraImport": true,
+        "detail": "requests.auth",
+        "documentation": {}
+    },
+    {
+        "label": "Requests",
+        "importPath": "Requests.RequestsModel",
+        "description": "Requests.RequestsModel",
+        "isExtraImport": true,
+        "detail": "Requests.RequestsModel",
+        "documentation": {}
+    },
+    {
+        "label": "Requests",
+        "importPath": "Requests.RequestsModel",
+        "description": "Requests.RequestsModel",
+        "isExtraImport": true,
+        "detail": "Requests.RequestsModel",
+        "documentation": {}
+    },
+    {
+        "label": "Requests",
+        "importPath": "Requests.RequestsModel",
+        "description": "Requests.RequestsModel",
+        "isExtraImport": true,
+        "detail": "Requests.RequestsModel",
+        "documentation": {}
+    },
+    {
+        "label": "Requests",
+        "importPath": "Requests.RequestsModel",
+        "description": "Requests.RequestsModel",
+        "isExtraImport": true,
+        "detail": "Requests.RequestsModel",
+        "documentation": {}
+    },
+    {
+        "label": "Requests",
+        "importPath": "Requests.RequestsModel",
+        "description": "Requests.RequestsModel",
+        "isExtraImport": true,
+        "detail": "Requests.RequestsModel",
+        "documentation": {}
+    },
+    {
+        "label": "Requests",
+        "importPath": "Requests.RequestsModel",
+        "description": "Requests.RequestsModel",
+        "isExtraImport": true,
+        "detail": "Requests.RequestsModel",
+        "documentation": {}
+    },
+    {
+        "label": "Requests",
+        "importPath": "Requests.RequestsModel",
+        "description": "Requests.RequestsModel",
+        "isExtraImport": true,
+        "detail": "Requests.RequestsModel",
+        "documentation": {}
+    },
+    {
+        "label": "Transactions",
+        "importPath": "Transactions.TransactionModel",
+        "description": "Transactions.TransactionModel",
+        "isExtraImport": true,
+        "detail": "Transactions.TransactionModel",
+        "documentation": {}
+    },
+    {
+        "label": "Transactions",
+        "importPath": "Transactions.TransactionModel",
+        "description": "Transactions.TransactionModel",
+        "isExtraImport": true,
+        "detail": "Transactions.TransactionModel",
+        "documentation": {}
+    },
+    {
+        "label": "Transactions",
+        "importPath": "Transactions.TransactionModel",
+        "description": "Transactions.TransactionModel",
+        "isExtraImport": true,
+        "detail": "Transactions.TransactionModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "Providers",
+        "importPath": "Providers.ProviderModel",
+        "description": "Providers.ProviderModel",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "Users.UserModel",
+        "description": "Users.UserModel",
+        "isExtraImport": true,
+        "detail": "Users.UserModel",
+        "documentation": {}
+    },
+    {
         "label": "Paystack",
         "importPath": "pypaystack2",
         "description": "pypaystack2",
@@ -32,270 +619,6 @@
         "importPath": "http.client",
         "description": "http.client",
         "detail": "http.client",
-        "documentation": {}
-    },
-    {
-        "label": "Blueprint",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "jsonify",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "jsonify",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Blueprint",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "jsonify",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Blueprint",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "jsonify",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Blueprint",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "jsonify",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Blueprint",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "jsonify",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Blueprint",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "session",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "jsonify",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Blueprint",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "session",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Flask",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "Flask",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
         "documentation": {}
     },
     {
@@ -371,6 +694,14 @@
         "documentation": {}
     },
     {
+        "label": "and_",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "String",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
@@ -396,6 +727,38 @@
     },
     {
         "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "func",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "cast",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Float",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Numeric",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
         "isExtraImport": true,
@@ -611,14 +974,6 @@
         "documentation": {}
     },
     {
-        "label": "relationship",
-        "importPath": "sqlalchemy.orm",
-        "description": "sqlalchemy.orm",
-        "isExtraImport": true,
-        "detail": "sqlalchemy.orm",
-        "documentation": {}
-    },
-    {
         "label": "sessionmaker",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
@@ -659,70 +1014,6 @@
         "documentation": {}
     },
     {
-        "label": "Providers",
-        "importPath": "Providers.ProviderModel",
-        "description": "Providers.ProviderModel",
-        "isExtraImport": true,
-        "detail": "Providers.ProviderModel",
-        "documentation": {}
-    },
-    {
-        "label": "Providers",
-        "importPath": "Providers.ProviderModel",
-        "description": "Providers.ProviderModel",
-        "isExtraImport": true,
-        "detail": "Providers.ProviderModel",
-        "documentation": {}
-    },
-    {
-        "label": "Providers",
-        "importPath": "Providers.ProviderModel",
-        "description": "Providers.ProviderModel",
-        "isExtraImport": true,
-        "detail": "Providers.ProviderModel",
-        "documentation": {}
-    },
-    {
-        "label": "Providers",
-        "importPath": "Providers.ProviderModel",
-        "description": "Providers.ProviderModel",
-        "isExtraImport": true,
-        "detail": "Providers.ProviderModel",
-        "documentation": {}
-    },
-    {
-        "label": "Providers",
-        "importPath": "Providers.ProviderModel",
-        "description": "Providers.ProviderModel",
-        "isExtraImport": true,
-        "detail": "Providers.ProviderModel",
-        "documentation": {}
-    },
-    {
-        "label": "Providers",
-        "importPath": "Providers.ProviderModel",
-        "description": "Providers.ProviderModel",
-        "isExtraImport": true,
-        "detail": "Providers.ProviderModel",
-        "documentation": {}
-    },
-    {
-        "label": "Providers",
-        "importPath": "Providers.ProviderModel",
-        "description": "Providers.ProviderModel",
-        "isExtraImport": true,
-        "detail": "Providers.ProviderModel",
-        "documentation": {}
-    },
-    {
-        "label": "Providers",
-        "importPath": "Providers.ProviderModel",
-        "description": "Providers.ProviderModel",
-        "isExtraImport": true,
-        "detail": "Providers.ProviderModel",
-        "documentation": {}
-    },
-    {
         "label": "Base",
         "importPath": "base",
         "description": "base",
@@ -803,91 +1094,19 @@
         "documentation": {}
     },
     {
-        "label": "Students",
-        "importPath": "Students.StudentModel",
-        "description": "Students.StudentModel",
+        "label": "ProviderCategories",
+        "importPath": "ProviderCategory.ProviderCategoriesModel",
+        "description": "ProviderCategory.ProviderCategoriesModel",
         "isExtraImport": true,
-        "detail": "Students.StudentModel",
+        "detail": "ProviderCategory.ProviderCategoriesModel",
         "documentation": {}
     },
     {
-        "label": "Students",
-        "importPath": "Students.StudentModel",
-        "description": "Students.StudentModel",
+        "label": "ProviderCategories",
+        "importPath": "ProviderCategory.ProviderCategoriesModel",
+        "description": "ProviderCategory.ProviderCategoriesModel",
         "isExtraImport": true,
-        "detail": "Students.StudentModel",
-        "documentation": {}
-    },
-    {
-        "label": "Students",
-        "importPath": "Students.StudentModel",
-        "description": "Students.StudentModel",
-        "isExtraImport": true,
-        "detail": "Students.StudentModel",
-        "documentation": {}
-    },
-    {
-        "label": "Students",
-        "importPath": "Students.StudentModel",
-        "description": "Students.StudentModel",
-        "isExtraImport": true,
-        "detail": "Students.StudentModel",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "Users.UserModel",
-        "description": "Users.UserModel",
-        "isExtraImport": true,
-        "detail": "Users.UserModel",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "Users.UserModel",
-        "description": "Users.UserModel",
-        "isExtraImport": true,
-        "detail": "Users.UserModel",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "Users.UserModel",
-        "description": "Users.UserModel",
-        "isExtraImport": true,
-        "detail": "Users.UserModel",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "Users.UserModel",
-        "description": "Users.UserModel",
-        "isExtraImport": true,
-        "detail": "Users.UserModel",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "Users.UserModel",
-        "description": "Users.UserModel",
-        "isExtraImport": true,
-        "detail": "Users.UserModel",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "Users.UserModel",
-        "description": "Users.UserModel",
-        "isExtraImport": true,
-        "detail": "Users.UserModel",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "Users.UserModel",
-        "description": "Users.UserModel",
-        "isExtraImport": true,
-        "detail": "Users.UserModel",
+        "detail": "ProviderCategory.ProviderCategoriesModel",
         "documentation": {}
     },
     {
@@ -920,6 +1139,30 @@
         "description": "Ratings.RatingsModel",
         "isExtraImport": true,
         "detail": "Ratings.RatingsModel",
+        "documentation": {}
+    },
+    {
+        "label": "Ratings",
+        "importPath": "Ratings.RatingsModel",
+        "description": "Ratings.RatingsModel",
+        "isExtraImport": true,
+        "detail": "Ratings.RatingsModel",
+        "documentation": {}
+    },
+    {
+        "label": "Students",
+        "importPath": "Students.StudentModel",
+        "description": "Students.StudentModel",
+        "isExtraImport": true,
+        "detail": "Students.StudentModel",
+        "documentation": {}
+    },
+    {
+        "label": "Students",
+        "importPath": "Students.StudentModel",
+        "description": "Students.StudentModel",
+        "isExtraImport": true,
+        "detail": "Students.StudentModel",
         "documentation": {}
     },
     {
@@ -1013,6 +1256,39 @@
         "documentation": {}
     },
     {
+        "label": "Providers",
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "providers_route",
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "providers_route",
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "isExtraImport": true,
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
         "label": "Date",
         "importPath": "sqlite3",
         "description": "sqlite3",
@@ -1026,14 +1302,6 @@
         "description": "time",
         "isExtraImport": true,
         "detail": "time",
-        "documentation": {}
-    },
-    {
-        "label": "Requests",
-        "importPath": "Requests.RequestsModel",
-        "description": "Requests.RequestsModel",
-        "isExtraImport": true,
-        "detail": "Requests.RequestsModel",
         "documentation": {}
     },
     {
@@ -1119,11 +1387,11 @@
         "documentation": {}
     },
     {
-        "label": "students_route",
-        "importPath": "Students.StudentService",
-        "description": "Students.StudentService",
+        "label": "SocketIO",
+        "importPath": "flask_socketio",
+        "description": "flask_socketio",
         "isExtraImport": true,
-        "detail": "Students.StudentService",
+        "detail": "flask_socketio",
         "documentation": {}
     },
     {
@@ -1135,19 +1403,11 @@
         "documentation": {}
     },
     {
-        "label": "providers_route",
-        "importPath": "Providers.ProviderService",
-        "description": "Providers.ProviderService",
+        "label": "students_route",
+        "importPath": "Students.StudentService",
+        "description": "Students.StudentService",
         "isExtraImport": true,
-        "detail": "Providers.ProviderService",
-        "documentation": {}
-    },
-    {
-        "label": "providers_route",
-        "importPath": "Providers.ProviderService",
-        "description": "Providers.ProviderService",
-        "isExtraImport": true,
-        "detail": "Providers.ProviderService",
+        "detail": "Students.StudentService",
         "documentation": {}
     },
     {
@@ -1196,6 +1456,59 @@
         "description": "Requests.RequestServices",
         "isExtraImport": true,
         "detail": "Requests.RequestServices",
+        "documentation": {}
+    },
+    {
+        "label": "payment_route",
+        "importPath": "payment.PaymentService",
+        "description": "payment.PaymentService",
+        "isExtraImport": true,
+        "detail": "payment.PaymentService",
+        "documentation": {}
+    },
+    {
+        "label": "request_money",
+        "kind": 2,
+        "importPath": "payment.PaymentService",
+        "description": "payment.PaymentService",
+        "peekOfCode": "def request_money():\n    from app import session\n    data = request.get_json()\n    request_id = data.get('request_id')\n    mobile_number = data.get('mobile_number')\n    req = session.query(Requests).filter_by(request_id=request_id).first()\n    if not req:\n        return jsonify({\"error\": \"Request not found.\"})\n    provider_id = req.provider_id\n    subcategory = req.subcategory",
+        "detail": "payment.PaymentService",
+        "documentation": {}
+    },
+    {
+        "label": "check_payment",
+        "kind": 2,
+        "importPath": "payment.PaymentService",
+        "description": "payment.PaymentService",
+        "peekOfCode": "def check_payment():\n    payload = request.get_json()\n    paylink_id = payload['Data']['PaylinkId']\n    transaction = session.query(Transactions).filter_by(paylinkid=paylink_id).first()\n    if not transaction:\n        return jsonify({'error': 'No matching transaction found'})\n    if transaction.paylinkid == paylink_id:\n        transaction.has_paid = True\n        session.commit()\n    return jsonify({'message:' 'payment complete'})",
+        "detail": "payment.PaymentService",
+        "documentation": {}
+    },
+    {
+        "label": "all_transactions",
+        "kind": 2,
+        "importPath": "payment.PaymentService",
+        "description": "payment.PaymentService",
+        "peekOfCode": "def all_transactions():\n    from app import session as s\n    data = request.get_json()\n    user_id = data.get('user_id')\n    try:\n        transactions = s.query(Transactions).filter_by(user_id=user_id).all()\n        transaction_details = []\n        for transaction in transactions:\n            request_id = transaction.request_id\n            paylink = transaction.paylink,",
+        "detail": "payment.PaymentService",
+        "documentation": {}
+    },
+    {
+        "label": "provider_transactions",
+        "kind": 2,
+        "importPath": "payment.PaymentService",
+        "description": "payment.PaymentService",
+        "peekOfCode": "def provider_transactions():\n    from app import session as s\n    data = request.get_json()\n    provider_id = data.get('provider_id')\n    try:\n        transactions = s.query(Transactions).filter_by(provider_id=provider_id).all()\n        transaction_details = []\n        for transaction in transactions:\n            request_id = transaction.request_id,\n            transaction_id=transaction.transaction_id,",
+        "detail": "payment.PaymentService",
+        "documentation": {}
+    },
+    {
+        "label": "payment_route",
+        "kind": 5,
+        "importPath": "payment.PaymentService",
+        "description": "payment.PaymentService",
+        "peekOfCode": "payment_route = Blueprint(\"payment_route\", __name__)\nCORS(payment_route)\n@payment_route.route('/request_money', methods=['POST'])\ndef request_money():\n    from app import session\n    data = request.get_json()\n    request_id = data.get('request_id')\n    mobile_number = data.get('mobile_number')\n    req = session.query(Requests).filter_by(request_id=request_id).first()\n    if not req:",
+        "detail": "payment.PaymentService",
         "documentation": {}
     },
     {
@@ -1266,7 +1579,7 @@
         "kind": 6,
         "importPath": "ProviderCategory.ProviderCategoriesModel",
         "description": "ProviderCategory.ProviderCategoriesModel",
-        "peekOfCode": "class ProviderCategories(Base):\n    __tablename__ = \"provider_categories\"\n    category_id = Column(\"category_id\",Integer,primary_key =True,autoincrement=True)\n    user_id = Column(\"user_id\",Integer,ForeignKey(User.user_id),nullable=False)\n    main_categories = Column(\"main_categories\",String(255),nullable=False)\n    sub_categories = Column(\"sub_categories\",String(255),nullable=False)\n    subcategories_description = Column(\"subcategories_description\",String(255),nullable=False)\n    subcategory_image = Column(\"subcategory_image\",String(255),nullable=True)\n# users = relationship(\"Users\", uselist=False, back_populates=\"users\")",
+        "peekOfCode": "class ProviderCategories(Base):\n    __tablename__ = \"provider_categories\"\n    category_id = Column(\"category_id\",Integer,primary_key =True,autoincrement=True)\n    user_id = Column(\"user_id\",Integer,ForeignKey(User.user_id),nullable=False)\n    main_categories = Column(\"main_categories\",String(255),nullable=False)\n    sub_categories = Column(\"sub_categories\",String(255),nullable=False)\n    subcategories_description = Column(\"subcategories_description\",String(255),nullable=False)\n    subcategory_image = Column(\"subcategory_image\",String(255),nullable=True)\n    number_of_visits = Column(\"number_of_visits\", Integer, nullable=True)\n# users = relationship(\"Users\", uselist=False, back_populates=\"users\")",
         "detail": "ProviderCategory.ProviderCategoriesModel",
         "documentation": {}
     },
@@ -1275,7 +1588,7 @@
         "kind": 2,
         "importPath": "ProviderCategory.ProviderCategoriesService",
         "description": "ProviderCategory.ProviderCategoriesService",
-        "peekOfCode": "def get_services():\n    from app import session\n    # SQL query to fetch the provider IDs with non-null no_of_stars\n    rated_providers_query = session.query(Ratings.provider_id).filter(Ratings.no_of_stars.isnot(None)).distinct().subquery()\n    # Fetch all services with joined provider and category information\n    data = session.query(\n        Providers.provider_id,\n        Providers.user_id,\n        Providers.provider_contact,\n        Providers.business_name,",
+        "peekOfCode": "def get_services():\n    from app import session\n    rated_providers_query = session.query(\n        Ratings.provider_id,\n        Ratings.subcategory,  # Include the subcategory column in the subquery\n        func.array_agg(Ratings.no_of_stars).filter(Ratings.no_of_stars.isnot(None)).label(\"no_of_stars\")\n    ).group_by(Ratings.provider_id, Ratings.subcategory).subquery()\n    data = session.query(\n        Providers.provider_id,\n        Providers.user_id,",
         "detail": "ProviderCategory.ProviderCategoriesService",
         "documentation": {}
     },
@@ -1284,7 +1597,7 @@
         "kind": 5,
         "importPath": "ProviderCategory.ProviderCategoriesService",
         "description": "ProviderCategory.ProviderCategoriesService",
-        "peekOfCode": "provider_categories_route = Blueprint(\"provider_categories_route\", __name__)\nCORS(provider_categories_route)\n# @provider_categories_route.route(\"/get_all_services\", methods=['GET'])\n# def get_services():\n#     from app import session\n#     data = session.query(\n#         Providers.provider_id,\n#         Providers.user_id,\n#         Providers.provider_contact,\n#         Providers.business_name,",
+        "peekOfCode": "provider_categories_route = Blueprint(\"provider_categories_route\", __name__)\nCORS(provider_categories_route)\n# @provider_categories_route.route(\"/get_all_services\", methods=['GET'])\n# def get_services():\n#     from app import session\n#     rated_providers_query = session.query(Ratings.provider_id).filter(Ratings.no_of_stars.isnot(None)).distinct().subquery()\n#     data = session.query(\n#         Providers.provider_id,\n#         Providers.user_id,\n#         Providers.provider_contact,",
         "detail": "ProviderCategory.ProviderCategoriesService",
         "documentation": {}
     },
@@ -1329,7 +1642,7 @@
         "kind": 2,
         "importPath": "Providers.ProviderService",
         "description": "Providers.ProviderService",
-        "peekOfCode": "def sign_up(user_id):\n    from app import session\n    # getting the selected categories from a provider\n    data = request.get_json()\n    # provider information when signing up\n    provider_contact = request.json['provider_contact']\n    bio = request.json['bio']\n    business_name = request.json['business_name']\n    # using the user id to change the provider status\n    user = session.query(User).filter_by(user_id=user_id).first()",
+        "peekOfCode": "def sign_up(user_id):\n    from app import session\n    from ProviderCategory.ProviderCategoriesModel import ProviderCategories\n    # getting the selected categories from a provider\n    data = request.get_json()\n    # provider information when signing up\n    provider_contact = request.json['provider_contact']\n    bio = request.json['bio']\n    business_name = request.json['business_name']\n    # using the user id to change the provider status",
         "detail": "Providers.ProviderService",
         "documentation": {}
     },
@@ -1338,7 +1651,7 @@
         "kind": 2,
         "importPath": "Providers.ProviderService",
         "description": "Providers.ProviderService",
-        "peekOfCode": "def provider_login():\n    from app import session\n    from app import app\n    username = request.json['username'].lower()\n    password = request.json['password']\n    # Find the user in the users table\n    user = session.query(User).filter_by(username=username).first()\n    if user:\n        # Check if the user is also a provider\n        provider = session.query(Providers).filter_by(",
+        "peekOfCode": "def provider_login():\n    from app import session\n    from app import app\n    from ProviderCategory.ProviderCategoriesModel import ProviderCategories\n    username = request.json['username'].lower()\n    password = request.json['password']\n    # Find the user in the users table\n    user = session.query(User).filter_by(username=username).first()\n    if user:\n        # Check if the user is also a provider",
         "detail": "Providers.ProviderService",
         "documentation": {}
     },
@@ -1356,7 +1669,34 @@
         "kind": 2,
         "importPath": "Providers.ProviderService",
         "description": "Providers.ProviderService",
-        "peekOfCode": "def switch_to_user():\n    from app import session\n    from app import app\n    token = request.headers.get('Authorization')\n    print(token)\n    if not token:\n        return jsonify({'message': 'Token is missing'})\n    try:\n        decoded_token = jwt.decode(token, app.secret_key, algorithms=['HS256'])\n        user_id = decoded_token['user_id']",
+        "peekOfCode": "def switch_to_user():\n    from app import session\n    from app import app\n    token = request.headers.get('Authorization')\n    if not token:\n        return jsonify({'message': 'Token is missing'})\n    try:\n        decoded_token = jwt.decode(token, app.secret_key, algorithms=['HS256'])\n        user_id = decoded_token['user_id']\n        expiration = decoded_token['expiration']",
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "get_provider_info",
+        "kind": 2,
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "peekOfCode": "def get_provider_info():\n    from app import session\n    from ProviderCategory.ProviderCategoriesModel import ProviderCategories\n    data = request.get_json()\n    provider_id = data['provider_id']\n    # Retrieve provider information from the providers table\n    provider = session.query(Providers).filter_by(provider_id=provider_id).first()\n    if not provider:\n        return jsonify({'message': 'Provider not found'})\n    # Retrieve ratings for the provider",
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "update_provider",
+        "kind": 2,
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "peekOfCode": "def update_provider():\n    from app import session\n    data = request.get_json()\n    provider_id = data.get('provider_id')\n    user_id = data.get('user_id')\n    bio = data.get('bio')\n    provider_contact = data.get('provider_contact')\n    business_name = data.get('business_name')\n    received_subcategories = data.get('subcategories')\n    if not provider_id or not user_id:",
+        "detail": "Providers.ProviderService",
+        "documentation": {}
+    },
+    {
+        "label": "add_new_service",
+        "kind": 2,
+        "importPath": "Providers.ProviderService",
+        "description": "Providers.ProviderService",
+        "peekOfCode": "def add_new_service():\n    from app import session\n    from ProviderCategory.ProviderCategoriesModel import ProviderCategories\n    data = request.get_json()\n    #provider_id = data['provider_id']\n    user_id = data['user_id']\n    # looping through the categories\n    selected_categories = data['selectedSubcategories']\n    for category in selected_categories:\n        category_name = category['category']",
         "detail": "Providers.ProviderService",
         "documentation": {}
     },
@@ -1365,7 +1705,7 @@
         "kind": 5,
         "importPath": "Providers.ProviderService",
         "description": "Providers.ProviderService",
-        "peekOfCode": "providers_route = Blueprint(\"providers_route\", __name__)\nCORS(providers_route)\nrevoked_tokens = set()\n@providers_route.route(\"/signup_as_provider/<user_id>\", methods=['POST'])\ndef sign_up(user_id):\n    from app import session\n    # getting the selected categories from a provider\n    data = request.get_json()\n    # provider information when signing up\n    provider_contact = request.json['provider_contact']",
+        "peekOfCode": "providers_route = Blueprint(\"providers_route\", __name__)\nCORS(providers_route)\nrevoked_tokens = set()\n@providers_route.route(\"/signup_as_provider/<user_id>\", methods=['POST'])\ndef sign_up(user_id):\n    from app import session\n    from ProviderCategory.ProviderCategoriesModel import ProviderCategories\n    # getting the selected categories from a provider\n    data = request.get_json()\n    # provider information when signing up",
         "detail": "Providers.ProviderService",
         "documentation": {}
     },
@@ -1374,7 +1714,7 @@
         "kind": 5,
         "importPath": "Providers.ProviderService",
         "description": "Providers.ProviderService",
-        "peekOfCode": "revoked_tokens = set()\n@providers_route.route(\"/signup_as_provider/<user_id>\", methods=['POST'])\ndef sign_up(user_id):\n    from app import session\n    # getting the selected categories from a provider\n    data = request.get_json()\n    # provider information when signing up\n    provider_contact = request.json['provider_contact']\n    bio = request.json['bio']\n    business_name = request.json['business_name']",
+        "peekOfCode": "revoked_tokens = set()\n@providers_route.route(\"/signup_as_provider/<user_id>\", methods=['POST'])\ndef sign_up(user_id):\n    from app import session\n    from ProviderCategory.ProviderCategoriesModel import ProviderCategories\n    # getting the selected categories from a provider\n    data = request.get_json()\n    # provider information when signing up\n    provider_contact = request.json['provider_contact']\n    bio = request.json['bio']",
         "detail": "Providers.ProviderService",
         "documentation": {}
     },
@@ -1383,7 +1723,7 @@
         "kind": 6,
         "importPath": "Ratings.RatingsModel",
         "description": "Ratings.RatingsModel",
-        "peekOfCode": "class Ratings(Base):\n    __tablename__ = \"ratings\"\n    rating_id = Column(\"rating_id\", Integer, primary_key=True, nullable=False)\n    provider_id = Column(\"provider_id\",Integer, ForeignKey(Providers.provider_id), nullable=False)\n    user_id = Column(\"user_id\",Integer,ForeignKey(User.user_id),nullable=False)\n    no_of_stars = Column(\"no_of_stars\",Integer, nullable=False)\n    comments = Column(\"comments\", String(255), nullable=False)\n    timestamp = Column(\"timestamp\",String(255),nullable=False)\n# Relationships\nprovider = relationship(\"providers\",uselist=False,back_populates=\"providers\")",
+        "peekOfCode": "class Ratings(Base):\n    __tablename__ = \"ratings\"\n    rating_id = Column(\"rating_id\", Integer, primary_key=True, nullable=False)\n    provider_id = Column(\"provider_id\",Integer, ForeignKey(Providers.provider_id), nullable=False)\n    user_id = Column(\"user_id\",Integer,ForeignKey(User.user_id),nullable=False)\n    no_of_stars = Column(\"no_of_stars\",Integer, nullable=False)\n    comments = Column(\"comments\", String(255), nullable=False)\n    timestamp = Column(\"timestamp\",String(255),nullable=False)\n    subcategory = Column(\"subcategory\",String(255),nullable=False)\n# Relationships",
         "detail": "Ratings.RatingsModel",
         "documentation": {}
     },
@@ -1401,7 +1741,7 @@
         "kind": 2,
         "importPath": "Ratings.RatingsService",
         "description": "Ratings.RatingsService",
-        "peekOfCode": "def store_ratings():\n    from app import session\n    try:\n        data = request.get_json()\n        user_id = data['id']\n        provider_id = data['provider_id']\n        no_of_stars = data['ratings']\n        comments = data['review']\n        timestamp = data['timestamp']\n        ratings = Ratings(",
+        "peekOfCode": "def store_ratings():\n    from app import session\n    try:\n        data = request.get_json()\n        request_id=data['request_id']\n        user_id = data['id']\n        provider_id = data['provider_id']\n        no_of_stars = data['ratings']\n        comments = data['review']\n        timestamp = data['timestamp']",
         "detail": "Ratings.RatingsService",
         "documentation": {}
     },
@@ -1410,7 +1750,7 @@
         "kind": 2,
         "importPath": "Ratings.RatingsService",
         "description": "Ratings.RatingsService",
-        "peekOfCode": "def get_ratings():\n    try:\n        from app import session\n        data = request.get_json()\n        provider_id = data['provider_id']\n        # Fetch ratings and user details for the given provider_id\n        ratings = session.query(Ratings, User).join(User, Ratings.user_id == User.user_id)\\\n            .filter(Ratings.provider_id == provider_id).all()\n        rating_details = []\n        for rating, user in ratings:",
+        "peekOfCode": "def get_ratings():\n    try:\n        from app import session\n        data = request.get_json()\n        provider_id = data['provider_id']\n        subcategory = data['subcategory']\n        # Fetch ratings and user details for the given provider_id\n        ratings = session.query(Ratings, User).join(User, Ratings.user_id == User.user_id)\\\n            .filter(Ratings.provider_id == provider_id, Ratings.subcategory == subcategory).all()\n        rating_details = []",
         "detail": "Ratings.RatingsService",
         "documentation": {}
     },
@@ -1419,7 +1759,7 @@
         "kind": 5,
         "importPath": "Ratings.RatingsService",
         "description": "Ratings.RatingsService",
-        "peekOfCode": "ratings_route = Blueprint(\"ratings_route\", __name__)\nCORS(ratings_route)\n@ratings_route.route('/store_ratings', methods=['POST'])\ndef store_ratings():\n    from app import session\n    try:\n        data = request.get_json()\n        user_id = data['id']\n        provider_id = data['provider_id']\n        no_of_stars = data['ratings']",
+        "peekOfCode": "ratings_route = Blueprint(\"ratings_route\", __name__)\nCORS(ratings_route)\n@ratings_route.route('/store_ratings', methods=['POST'])\ndef store_ratings():\n    from app import session\n    try:\n        data = request.get_json()\n        request_id=data['request_id']\n        user_id = data['id']\n        provider_id = data['provider_id']",
         "detail": "Ratings.RatingsService",
         "documentation": {}
     },
@@ -1437,16 +1777,43 @@
         "kind": 2,
         "importPath": "Requests.RequestServices",
         "description": "Requests.RequestServices",
-        "peekOfCode": "def get_service_status():\n    from app import session\n    data = request.get_json()\n    user_id = data['user_id']\n    subcategory = data['subcategory']\n    provider_id = data['provider_id']\n    user = session.query(Requests).filter_by(user_id=user_id).first()\n    if user:\n    # Check if the user has already booked a service with this provider and subcategory.\n        existing_booking = session.query(Requests).filter(",
+        "peekOfCode": "def get_service_status():\n    from app import session\n    data = request.get_json()\n    user_id = data['user_id']\n    subcategory = data['subcategory']\n    provider_id = data['provider_id']\n    recent_booking = session.query(Requests).filter(\n        Requests.user_id == user_id,\n        Requests.subcategory == subcategory,\n        Requests.provider_id == provider_id,",
         "detail": "Requests.RequestServices",
         "documentation": {}
     },
     {
-        "label": "get_provider_requests",
+        "label": "get_all_user_requests",
         "kind": 2,
         "importPath": "Requests.RequestServices",
         "description": "Requests.RequestServices",
-        "peekOfCode": "def get_provider_requests(provider_id):\n    from app import session\n    try:\n        requests = session.query(Requests).filter(\n            Requests.provider_id == provider_id).all()\n        if not requests:\n            return jsonify({'message': 'No requests at the moment.'})\n        for request in requests:\n            request_data = {\n                'agreed_price': request.agreed_price,",
+        "peekOfCode": "def get_all_user_requests():\n    from app import session\n    data = request.get_json()\n    user_id = data['user_id']\n    try:\n        user_request = session.query(Requests,Providers).join(\n           Providers, Requests.provider_id == Providers.provider_id).filter(\n                Requests.user_id == user_id).all()\n        if not user_request:\n            return jsonify({'message': 'No requests found.'})",
+        "detail": "Requests.RequestServices",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_provider_requests",
+        "kind": 2,
+        "importPath": "Requests.RequestServices",
+        "description": "Requests.RequestServices",
+        "peekOfCode": "def get_all_provider_requests():\n    from app import session\n    from app import socketio\n    data = request.get_json()\n    provider_id = data['provider_id']\n    try:\n        provider_requests = session.query(Requests).filter_by(provider_id=provider_id).all()\n        if not provider_requests:\n            return jsonify({'message': 'No requests found.'})\n        #i want to include a count for all their requests tht shows on the ui",
+        "detail": "Requests.RequestServices",
+        "documentation": {}
+    },
+    {
+        "label": "change_request_status",
+        "kind": 2,
+        "importPath": "Requests.RequestServices",
+        "description": "Requests.RequestServices",
+        "peekOfCode": "def change_request_status():\n    from app import session\n    data = request.get_json()\n    action_type = data['action_type']\n    request_id = data['request_id']\n    req = session.query(Requests).filter_by(request_id=request_id).first()\n    try:\n        if action_type == 'accept':\n            req.status_acc_dec = 'accepted'\n            req.status_comp_inco = 'incomplete'",
+        "detail": "Requests.RequestServices",
+        "documentation": {}
+    },
+    {
+        "label": "number_of_visits",
+        "kind": 2,
+        "importPath": "Requests.RequestServices",
+        "description": "Requests.RequestServices",
+        "peekOfCode": "def number_of_visits():\n    from app import session\n    data = request.get_json()\n    provider_id = data['provider_id']\n    subcategory = data['subcategory']\n    # Query the providers table to get the user_id associated with the provider_id\n    provider = session.query(Providers).filter_by(provider_id=provider_id).first()\n    if provider is None:\n        return jsonify({\"message\": \"Provider not found\"})\n    user_id = provider.user_id",
         "detail": "Requests.RequestServices",
         "documentation": {}
     },
@@ -1491,7 +1858,7 @@
         "kind": 2,
         "importPath": "Students.otp_service",
         "description": "Students.otp_service",
-        "peekOfCode": "def retrieve_otp(email):\n    return otp_storage.get(email, (None, None))\ndef clear_otp(email):\n    if email in otp_storage:\n        del otp_storage[email]\ndef send_otp_email(email, otp):\n    from app import mail\n    message = Message(subject='OTP Verification', recipients=[email])\n    message.body = f'Your OTP is: {otp}'\n    with mail.connect() as conn:",
+        "peekOfCode": "def retrieve_otp(email):\n    return otp_storage.get(email, (None, None))\ndef clear_otp(email):\n    if email in otp_storage:\n        del otp_storage[email]\ndef send_otp_email(email, otp):\n    from app import mail\n    message = Message(subject='OTP Verification', recipients=[email])\n    message.body = f'Your OTP is: {otp}.'\n    with mail.connect() as conn:",
         "detail": "Students.otp_service",
         "documentation": {}
     },
@@ -1500,7 +1867,7 @@
         "kind": 2,
         "importPath": "Students.otp_service",
         "description": "Students.otp_service",
-        "peekOfCode": "def clear_otp(email):\n    if email in otp_storage:\n        del otp_storage[email]\ndef send_otp_email(email, otp):\n    from app import mail\n    message = Message(subject='OTP Verification', recipients=[email])\n    message.body = f'Your OTP is: {otp}'\n    with mail.connect() as conn:\n        conn.send(message)",
+        "peekOfCode": "def clear_otp(email):\n    if email in otp_storage:\n        del otp_storage[email]\ndef send_otp_email(email, otp):\n    from app import mail\n    message = Message(subject='OTP Verification', recipients=[email])\n    message.body = f'Your OTP is: {otp}.'\n    with mail.connect() as conn:\n        conn.send(message)",
         "detail": "Students.otp_service",
         "documentation": {}
     },
@@ -1509,7 +1876,7 @@
         "kind": 2,
         "importPath": "Students.otp_service",
         "description": "Students.otp_service",
-        "peekOfCode": "def send_otp_email(email, otp):\n    from app import mail\n    message = Message(subject='OTP Verification', recipients=[email])\n    message.body = f'Your OTP is: {otp}'\n    with mail.connect() as conn:\n        conn.send(message)",
+        "peekOfCode": "def send_otp_email(email, otp):\n    from app import mail\n    message = Message(subject='OTP Verification', recipients=[email])\n    message.body = f'Your OTP is: {otp}.'\n    with mail.connect() as conn:\n        conn.send(message)",
         "detail": "Students.otp_service",
         "documentation": {}
     },
@@ -1608,7 +1975,7 @@
         "kind": 6,
         "importPath": "Transactions.TransactionModel",
         "description": "Transactions.TransactionModel",
-        "peekOfCode": "class Transactions(Base):\n    __tablename__ =\"transactions\"\n    transaction_id = Column(\"transaction_id\",Integer, primarykey=True,nullable=False)\n    student_id = Column(\"student_id\",Integer,ForeignKey=True,nullable=False)\n    description = Column(\"description\",String(255),nullable=False)\n    amount = Column(\"amount\",Integer,nullable = False)\n    date_completed = Column(\"date_completed\",Date)",
+        "peekOfCode": "class Transactions(Base):\n    __tablename__ =\"transactions\"\n    transaction_id = Column(\"transaction_id\",Integer, primary_key=True,nullable=False)\n    request_id = Column(\"request_id\",Integer, ForeignKey(Requests.request_id),nullable=False)\n    provider_id = Column(\"provider_id\",Integer, ForeignKey(Providers.provider_id),nullable=False)\n    user_id = Column(\"user_id\",Integer, ForeignKey(User.user_id),nullable=False)\n    amount = Column(\"amount\",String(255),nullable = False)\n    has_paid =  Column(\"has_paid\",String(255),nullable = True)\n    recepient_number=Column(\"recepient_number\",String(255),nullable=False)\n    paylink=Column(\"paylink\",String(255),nullable=True)",
         "detail": "Transactions.TransactionModel",
         "documentation": {}
     },
@@ -1635,7 +2002,7 @@
         "kind": 2,
         "importPath": "Users.UserService",
         "description": "Users.UserService",
-        "peekOfCode": "def add_user():\n    from app import session as s\n    first_name = request.json['first_name']\n    last_name = request.json['last_name']\n    username = request.json['username'].lower()\n    password = request.json['password']\n    if 'email' in session:\n        user_email = session['email']\n    hashed_password = generate_password_hash(password)\n    check_username = s.query(User).filter_by(username=username).first()",
+        "peekOfCode": "def add_user():\n    from app import session as s\n    first_name = request.json['first_name']\n    last_name = request.json['last_name']\n    username = request.json['username'].lower()\n    password = request.json['password']\n    user_email = None\n    if 'email' in session:\n        user_email = session['email']\n    hashed_password = generate_password_hash(password)",
         "detail": "Users.UserService",
         "documentation": {}
     },
@@ -1667,6 +2034,42 @@
         "documentation": {}
     },
     {
+        "label": "reset_password",
+        "kind": 2,
+        "importPath": "Users.UserService",
+        "description": "Users.UserService",
+        "peekOfCode": "def reset_password():\n    from app import session as s\n    data = request.get_json()\n    user_id = data.get('user_id')\n    old_password = data.get('old_password')\n    new_password = data.get('new_password')\n    # Retrieve the email from the session\n    user = s.query(User).filter_by(user_id=user_id).first()\n    if not user:\n        return jsonify({'error': 'User not found'})",
+        "detail": "Users.UserService",
+        "documentation": {}
+    },
+    {
+        "label": "forgot_password",
+        "kind": 2,
+        "importPath": "Users.UserService",
+        "description": "Users.UserService",
+        "peekOfCode": "def forgot_password():\n    from app import session as s\n    data = request.get_json()\n    new_password = data.get('new_password')\n    # Retrieve the email from the session\n    email_in_session = session.get('email')\n    if not email_in_session:\n        return jsonify({'error': 'Email not found in session'})\n    user = s.query(User).filter_by(email=email_in_session).first()\n    if not user:",
+        "detail": "Users.UserService",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "kind": 2,
+        "importPath": "Users.UserService",
+        "description": "Users.UserService",
+        "peekOfCode": "def settings():\n    from app import session, app\n    data = request.get_json()\n    provider_id = data.get('provider_id')\n    user_id = data.get('user_id')\n    username = data.get('username')\n    first_name = data.get('first_name')\n    last_name = data.get('last_name')\n    if username:\n        username = username.lower()",
+        "detail": "Users.UserService",
+        "documentation": {}
+    },
+    {
+        "label": "check_email",
+        "kind": 2,
+        "importPath": "Users.UserService",
+        "description": "Users.UserService",
+        "peekOfCode": "def check_email():\n    from app import session\n    data = request.get_json()\n    email_to_find = data.get('email')\n    if not email_to_find:\n        return jsonify({'message': 'Email not provided'})\n    user = session.query(User).filter_by(email=email_to_find).first()\n    if user:\n        return jsonify({'message': True})\n    else:",
+        "detail": "Users.UserService",
+        "documentation": {}
+    },
+    {
         "label": "users_route",
         "kind": 5,
         "importPath": "Users.UserService",
@@ -1685,11 +2088,29 @@
         "documentation": {}
     },
     {
+        "label": "handle_connect",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def handle_connect():\n    print('Client connected')\n    # socketio.emit(\"connect\", {\"data\": request.sid}, namespace=\"/\")\n@socketio.on('disconnect')\ndef handle_disconnect():\n    print('Client disconnected')\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'\napp.config['MAIL_PORT'] = 465\napp.config['MAIL_USE_TLS'] = False\napp.config['MAIL_USE_SSL'] = True",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "handle_disconnect",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def handle_disconnect():\n    print('Client disconnected')\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'\napp.config['MAIL_PORT'] = 465\napp.config['MAIL_USE_TLS'] = False\napp.config['MAIL_USE_SSL'] = True\napp.config['MAIL_USERNAME'] = 'isinesam@gmail.com'\napp.config['MAIL_PASSWORD'] = 'lvrmqxfoqfbgaieg'\napp.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
         "label": "app",
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app = Flask(__name__)\napp.secret_key = '0hyvgta56h'\n#instantiating the database and sqlalchemy\nengine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)",
+        "peekOfCode": "app = Flask(__name__)\napp.secret_key = '0hyvgta56h'\nCORS(app,resources={r\"/*\":{\"origins\":\"*\"}})\nsocketio = SocketIO(app,engineio_logger=False, cors_allowed_origins='*')\n#instantiating the database and sqlalcheml;\nengine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints",
         "detail": "app",
         "documentation": {}
     },
@@ -1698,7 +2119,16 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app.secret_key = '0hyvgta56h'\n#instantiating the database and sqlalchemy\nengine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)",
+        "peekOfCode": "app.secret_key = '0hyvgta56h'\nCORS(app,resources={r\"/*\":{\"origins\":\"*\"}})\nsocketio = SocketIO(app,engineio_logger=False, cors_allowed_origins='*')\n#instantiating the database and sqlalcheml;\nengine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "socketio",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "socketio = SocketIO(app,engineio_logger=False, cors_allowed_origins='*')\n#instantiating the database and sqlalcheml;\nengine = create_engine('postgresql://postgres:extreme1001@campserve-database.cwt8zh4gaxtg.us-east-1.rds.amazonaws.com/campserve')\nSession = sessionmaker(bind=engine)\nsession = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)",
         "detail": "app",
         "documentation": {}
     },
@@ -1725,7 +2155,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "session = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)\napp.register_blueprint(request_services_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'",
+        "peekOfCode": "session = Session()\nBase = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)\napp.register_blueprint(request_services_route)\napp.register_blueprint(payment_route)",
         "detail": "app",
         "documentation": {}
     },
@@ -1734,7 +2164,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "Base = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)\napp.register_blueprint(request_services_route)\napp.config['MAIL_SERVER'] = 'smtp.gmail.com'\napp.config['MAIL_PORT'] = 465",
+        "peekOfCode": "Base = declarative_base()\n#App blueprints\napp.register_blueprint(students_route)\napp.register_blueprint(providers_route)\napp.register_blueprint(provider_categories_route)\napp.register_blueprint(users_route)\napp.register_blueprint(ratings_route)\napp.register_blueprint(request_services_route)\napp.register_blueprint(payment_route)\n@socketio.on('connect')",
         "detail": "app",
         "documentation": {}
     },
@@ -1779,7 +2209,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app.config['MAIL_USERNAME'] = 'isinesam@gmail.com'\napp.config['MAIL_PASSWORD'] = 'lvrmqxfoqfbgaieg'\napp.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    print('database created')",
+        "peekOfCode": "app.config['MAIL_USERNAME'] = 'isinesam@gmail.com'\napp.config['MAIL_PASSWORD'] = 'lvrmqxfoqfbgaieg'\napp.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    # print('database created')",
         "detail": "app",
         "documentation": {}
     },
@@ -1788,7 +2218,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app.config['MAIL_PASSWORD'] = 'lvrmqxfoqfbgaieg'\napp.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    print('database created')\nexcept Exception as e:",
+        "peekOfCode": "app.config['MAIL_PASSWORD'] = 'lvrmqxfoqfbgaieg'\napp.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    # print('database created')\nexcept Exception as e:",
         "detail": "app",
         "documentation": {}
     },
@@ -1797,7 +2227,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    print('database created')\nexcept Exception as e:\n    print('connection failed: %s'%(e))",
+        "peekOfCode": "app.config['MAIL_DEFAULT_SENDER'] = 'isinesam@gmail.com'\nmail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    # print('database created')\nexcept Exception as e:\n    print('connection failed: %s'%(e))",
         "detail": "app",
         "documentation": {}
     },
@@ -1806,7 +2236,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "mail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    print('database created')\nexcept Exception as e:\n    print('connection failed: %s'%(e))\n    session.rollback()",
+        "peekOfCode": "mail = Mail(app)\n#Database connection\ntry:\n    engine.connect()\n    Base.metadata.create_all(engine)\n    session.commit()\n    # print('database created')\nexcept Exception as e:\n    print('connection failed: %s'%(e))\n    session.rollback()",
         "detail": "app",
         "documentation": {}
     },

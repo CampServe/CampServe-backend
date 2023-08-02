@@ -84,12 +84,23 @@ def request_money():
     except requests.exceptions.RequestException as e:
         return jsonify({"error": f"Error occurred: {e}"})
 
-
+# {
+#   "Message": "Callback for request money link rpPSnH",
+#   "ResponseCode": "0000",
+#   "Data": {
+#     "PaymentType": "mobilemoney",
+#     "TransactionId": null,
+#     "MobileNumber": "233501334031",
+#     "Amount": 1,
+#     "PaylinkId": "rpPSnH",
+#     "ClientReference": "731"
+#   }
+# }
 @payment_route.route('/check_payment', methods=['POST'])
 def check_payment():
     payload = request.get_json()
 
-    paylink_id = payload['data']['paylinkId']
+    paylink_id = payload['Data']['PaylinkId']
 
     
     transaction = session.query(Transactions).filter_by(paylinkid=paylink_id).first()
