@@ -51,7 +51,7 @@ def request_money():
     "title": "CampServe",
     "description": "CampServe",
     "clientReference": "731",
-    "callbackUrl": "https://webhook.site/a16f5ccd-2916-4904-90e4-0cc455ce105e",
+    "callbackUrl": "https://campserve-server.onrender.com/check_payment",
     "cancellationUrl": "http://example.com",
     "returnUrl": "http://example.com",
 }
